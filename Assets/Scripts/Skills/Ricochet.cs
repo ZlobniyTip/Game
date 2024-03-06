@@ -1,22 +1,11 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Thrower))]
 public class Ricochet : MonoBehaviour
 {
     [SerializeField] private float _ricochetForce;
 
-    private Thrower _thrower;
-
-    private void Start()
+    public void CalculateRicochet(Rigidbody weapon, Ray ray, RaycastHit raycastHit)
     {
-        _thrower = GetComponent<Thrower>();
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.TryGetComponent(out Wall wall))
-        {
-            
-        }
+        weapon.AddForce(Vector3.Reflect(ray.direction, raycastHit.normal));
     }
 }

@@ -6,6 +6,15 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float _speedRotation;
 
     private Player _player;
+    private Ricochet _ricochet;
+    private Rigidbody _rigidbody;
+    private Ray _directionRay;
+    private RaycastHit _hitPoint;
+
+    private void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -18,6 +27,11 @@ public class Weapon : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out ExplosiveBarrel explosiveBarrel))
         {
             explosiveBarrel.Explode();
+        }
+
+        if (collision.gameObject.TryGetComponent(out Wall wall))
+        {
+            _ricochet.CalculateRicochet(_rigidbody, _directionRay, _hitPoint);
         }
     }
 
@@ -45,8 +59,9 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void GetPlayerLink(Player player)
+    public void GetLinks(Player player, Ricochet ricochet)
     {
         _player = player;
+        _ricochet = ricochet;
     }
 }

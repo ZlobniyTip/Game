@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Ricochet))]
 public class Thrower : MonoBehaviour
 {
     [SerializeField] private Player _player;
@@ -11,12 +12,14 @@ public class Thrower : MonoBehaviour
     [SerializeField] private float _velocityMult;
 
     private Rigidbody _rbCurrentWeapon;
+    private Ricochet _ricochet;
 
     public Weapon CurrentWeapon { get; private set; }
     public bool AimingMode { get; private set; }
 
     private void Awake()
     {
+        _ricochet = GetComponent<Ricochet>();
         _touchLight.SetActive(false);
     }
 
@@ -34,7 +37,7 @@ public class Thrower : MonoBehaviour
     {
         AimingMode = true;
         CurrentWeapon = Instantiate(_weapon, _launchPoint.transform);
-        CurrentWeapon.GetPlayerLink(_player);
+        CurrentWeapon.GetLinks(_player,_ricochet);
         CurrentWeapon.transform.SetParent(_launchPoint.transform, worldPositionStays: false);
         CurrentWeapon.transform.position = _launchPoint.position;
         _rbCurrentWeapon = CurrentWeapon.GetComponentInChildren<Rigidbody>();
@@ -55,7 +58,7 @@ public class Thrower : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
-            StartCoroutine(CurrentWeapon.Spin());
+            //StartCoroutine(CurrentWeapon.Spin());
             CurrentWeapon.transform.parent = null;
             AimingMode = false;
             _rbCurrentWeapon.isKinematic = false;

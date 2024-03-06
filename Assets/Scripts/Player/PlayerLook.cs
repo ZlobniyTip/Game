@@ -14,7 +14,7 @@ public class PlayerLook : MonoBehaviour
     {
         if (_thrower.AimingMode)
         {
-            transform.LookAt(_thrower.CurrentWeapon.transform);
+            //transform.LookAt(_thrower.CurrentWeapon.transform);
         }
     }
 }
