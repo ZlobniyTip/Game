@@ -3,6 +3,9 @@ using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private PlayerUseSkills _playerUseSkills;
+    [SerializeField] private Skill[] _skills;
+
     private int _maxNumberThrows = 6;
     private int _money;
 
@@ -15,6 +18,14 @@ public class Player : MonoBehaviour
     {
         RemainingNumThrows = _maxNumberThrows;
         ThrowsChange?.Invoke(RemainingNumThrows, _maxNumberThrows);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _playerUseSkills.GetSkill(_skills[0]);
+        }
     }
 
     public void ReduceNumThrows()

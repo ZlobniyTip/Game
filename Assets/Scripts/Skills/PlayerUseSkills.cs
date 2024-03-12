@@ -2,10 +2,30 @@ using UnityEngine;
 
 public class PlayerUseSkills : MonoBehaviour
 {
-    [SerializeField] private Thrower _thrower;
+    private Skill _usedSkill;
+    private Weapon _currentWeapon;
 
-    public void UseAbillity(Skill skill)
+    private void Update()
     {
-        skill.UseSkill(_thrower.CurrentWeapon);
+        if (_usedSkill != null)
+        {
+            UseAbillity(_usedSkill);
+            _usedSkill = null;
+        }
+    }
+
+    public void GetSkill(Skill skill)
+    {
+        _usedSkill = skill;
+    }
+
+    public void GetLinkWeapon(Weapon weapon)
+    {
+        _currentWeapon = weapon;
+    }
+
+    private void UseAbillity(Skill skill)
+    {
+        skill.UseSkill(_currentWeapon);
     }
 }
