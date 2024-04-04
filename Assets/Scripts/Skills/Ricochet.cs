@@ -1,11 +1,18 @@
 using UnityEngine;
 
-public class Ricochet : MonoBehaviour
+public class Ricochet : Skill
 {
     [SerializeField] private float _ricochetForce;
 
-    public void CalculateRicochet(Rigidbody weapon, Ray ray, RaycastHit raycastHit)
+    public void CalculateRicochet(Rigidbody weapon, Wall wall)
     {
-        weapon.AddForce(Vector3.Reflect(ray.direction, raycastHit.normal));
+        if (IsBuyed)
+        {
+            float angle = Random.Range(10, 50);
+            Vector3 direction = wall.transform.right * angle;
+            weapon.AddForce(direction * _ricochetForce);
+
+            LockSkill();
+        }
     }
 }

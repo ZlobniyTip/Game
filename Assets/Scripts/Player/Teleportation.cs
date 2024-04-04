@@ -28,7 +28,7 @@ public class Teleportation : MonoBehaviour
 
     public void GetLinkCurrentWeapon(Weapon currentWeapon)
     {
-        _currentWeapon = currentWeapon;
+        _currentWeapon = currentWeapon; 
         _teleportEffect?.Invoke();
     }
 

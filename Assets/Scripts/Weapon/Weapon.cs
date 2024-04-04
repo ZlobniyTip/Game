@@ -1,14 +1,18 @@
-using System.Collections;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private float _speedRotation;
+    [SerializeField] private string _label;
+    [SerializeField] private int _price;
+    [SerializeField] private Sprite _icon;
+    [SerializeField] private bool _isBuyed = false;
 
     private Rigidbody _rigidbody;
-    private Ray _directionRay;
-    private RaycastHit _hitPoint;
-    private Coroutine _spin;
+
+    public string Label => _label;
+    public int Price => _price;
+    public Sprite Icon => _icon;
+    public bool IsBuyed => _isBuyed;
 
     public Player Player { get; private set; }
     public Ricochet Ricochet { get; private set; }
@@ -16,68 +20,43 @@ public class Weapon : MonoBehaviour
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-
-        if (_spin == null)
-        {
-            StartSpin();
-        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.TryGetComponent(out UnitRagdollBone bone))
         {
-            StopSpin();
             bone.TakeHit(transform.forward);
             Player.GetReward(bone.Reward);
         }
 
         if (collision.gameObject.TryGetComponent(out ExplosiveBarrel explosiveBarrel))
         {
-            StopSpin();
             explosiveBarrel.Explode();
         }
 
         if (collision.gameObject.TryGetComponent(out Wall wall))
         {
-            StopSpin();
-            //_ricochet.CalculateRicochet(_rigidbody, _directionRay, _hitPoint);
+            if (Ricochet.Used == false)
+            {
+                Ricochet.CalculateRicochet(_rigidbody, wall);
+            }
         }
     }
 
     public void Die()
     {
-        StopSpin();
         Destroy(gameObject);
     }
 
-    public void StartSpin()
-    {
-        _spin = StartCoroutine(Spin());
-    }
     public void GetLinks(Player player, Ricochet ricochet)
     {
         Player = player;
         Ricochet = ricochet;
     }
 
-    private IEnumerator Spin()
+    public void Buy()
     {
-        var torsionDuration = new WaitForSeconds(3);
-
-        while (true)
-        {
-            transform.Rotate(_speedRotation * Time.deltaTime, 0, 0);
-
-            yield return null;
-        }
-    }
-
-    private void StopSpin()
-    {
-        if (_spin != null)
-        {
-            StopCoroutine(_spin);
-        }
+        _isBuyed = true;
     }
 }

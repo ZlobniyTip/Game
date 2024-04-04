@@ -9,9 +9,9 @@ public class Thrower : MonoBehaviour
     [SerializeField] private float _velocityMult;
     [SerializeField] private Ricochet _ricochet;
     [SerializeField] private Player _player;
-    [SerializeField] private Weapon _weapon;
 
     private Rigidbody _rbCurrentWeapon;
+    private Weapon _weapon;
 
     public Weapon CurrentWeapon { get; private set; }
     public bool AimingMode { get; private set; }
@@ -39,7 +39,6 @@ public class Thrower : MonoBehaviour
         _playerUseSkills.GetLinkWeapon(CurrentWeapon);
         _rbCurrentWeapon = CurrentWeapon.GetComponentInChildren<Rigidbody>();
         _rbCurrentWeapon.isKinematic = true;
-        CurrentWeapon.StartSpin();
     }
 
     private void Update()
@@ -55,8 +54,14 @@ public class Thrower : MonoBehaviour
         }
     }
 
+    public void GiveWeapon(Weapon weapon)
+    {
+        _weapon = weapon;
+    }
+
     private void Throw(Vector3 mouseDelta)
     {
+        _ricochet.ResetSkill();
         CurrentWeapon.transform.parent = null;
         AimingMode = false;
         _rbCurrentWeapon.isKinematic = false;

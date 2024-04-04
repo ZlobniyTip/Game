@@ -6,7 +6,7 @@ public class UnitRagdollBone : MonoBehaviour
 {
     private Rigidbody _rigidbody;
 
-    public int Reward { get; private set; } = 10;
+    public int Reward { get; private set; } = 50;
 
     public UnityAction<UnitRagdollBone, Vector3> GetHit;
 

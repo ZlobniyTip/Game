@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 64724910673454130}
   - component: {fileID: -2805772036207859000}
   - component: {fileID: -5732094732788774207}
+  - component: {fileID: -1730899506768138327}
   m_Layer: 3
   m_Name: SM_Wep_Kunai_01
   m_TagString: Untagged
@@ -147,4 +148,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90973ff5180095b49946af2ce15d9ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedRotation: 400
+  _label: "\u041A\u0443\u043D\u0430\u0439"
+  _price: 0
+  _icon: {fileID: 21300000, guid: e4c8d7f9cd364dd49a05c9d87f804f09, type: 3}
+  _isBuyed: 0
+--- !u!114 &-1730899506768138327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8460578e620f7dd4da843be449589d05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
