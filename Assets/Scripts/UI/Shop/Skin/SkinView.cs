@@ -9,10 +9,27 @@ public class SkinView : MonoBehaviour
     [SerializeField] private TMP_Text _price;
     [SerializeField] private Image _icon;
     [SerializeField] private Button _sellButton;
+    [SerializeField] private GameObject _buyButton;
+    [SerializeField] private GameObject _useButton;
 
     private Skin _skin;
+    private int _lockItem = 0;
+
+    public SkinEditor SkinEditor { get; private set; }
+
+    public Skin Skin => _skin;
 
     public event UnityAction<Skin, SkinView> SellButtonClick;
+
+    private void Start()
+    {
+        _lockItem = PlayerPrefs.GetInt("LockItem");
+
+        if (_lockItem == 1)
+        {
+            LockItem();
+        }
+    }
 
     private void OnEnable()
     {
@@ -24,6 +41,11 @@ public class SkinView : MonoBehaviour
     {
         _sellButton.onClick.RemoveListener(OnButtonClick);
         _sellButton.onClick.RemoveListener(TryLockItem);
+    }
+
+    public void GetLinkPlayer(SkinEditor skinEditor)
+    {
+        SkinEditor = skinEditor;
     }
 
     public void Render(Skin skin)
@@ -43,7 +65,16 @@ public class SkinView : MonoBehaviour
     {
         if (_skin.IsBuyed)
         {
-            _sellButton.interactable = false;
+            _lockItem = 1;
+            PlayerPrefs.SetInt("LockItem", _lockItem);
+
+            LockItem();
         }
+    }
+
+    private void LockItem()
+    {
+        _buyButton.SetActive(false);
+        _useButton.SetActive(true);
     }
 }

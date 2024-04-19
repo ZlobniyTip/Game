@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3335986}
   - component: {fileID: 2365460}
   - component: {fileID: 64649948795473962}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: SM_Bld_Temple_Window_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3300632}
   - component: {fileID: 2341550}
   - component: {fileID: 64156450218334310}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: SM_Env_Cliff_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}

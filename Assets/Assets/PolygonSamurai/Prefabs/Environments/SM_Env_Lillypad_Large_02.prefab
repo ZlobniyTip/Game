@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 468188}
   - component: {fileID: 3338498}
   - component: {fileID: 2303696}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: SM_Env_Lillypad_Large_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}

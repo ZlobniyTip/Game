@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2340734}
   - component: {fileID: 64176403707963476}
   - component: {fileID: 64319433281012716}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: SM_Bld_House_Roof_Long_Thatch_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

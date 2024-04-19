@@ -90,18 +90,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f8c06c4923e9d45b11ad27d218f3a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weapons:
-  - {fileID: -5732094732788774207, guid: a8929d8c11f00b24d9d8e3bf32fedfb9, type: 3}
-  - {fileID: 1846670649616110773, guid: 4635bd33ee58fc342bdf2219cd38db35, type: 3}
-  - {fileID: -8781443699200995492, guid: 58bbad6d81bb38843ac202ebba09c4a4, type: 3}
-  - {fileID: -7856043567671908496, guid: 2ab04f1ae8c6cf44ebc104d722d22baf, type: 3}
-  - {fileID: 4719239445217613123, guid: 4550e75c38334cd4b8fa8af861566dbc, type: 3}
-  - {fileID: -492364753147993639, guid: 58e0cec82b1edce4b83a4753b7b73035, type: 3}
-  - {fileID: 9167338089400241229, guid: 5a8971cccbae9b049bc6d7e7b88c0592, type: 3}
-  - {fileID: -6098879677829580410, guid: df0557f1b34280a4ba8fd22a36aa7b85, type: 3}
-  - {fileID: 7509043336654101892, guid: ac53f9d05b915884ab3ce6d0a7113315, type: 3}
-  - {fileID: -5963952303323180361, guid: d44f072607d893145b2f6d39c8229bef, type: 3}
-  _player: {fileID: 205841135117846717, guid: 732bc7f2f3096c247860be7c94c86f5c, type: 3}
+  _player: {fileID: 0}
+  _playersWeapon: {fileID: 0}
   _template: {fileID: 2957239649648018589, guid: 2d5cc57f22c21174d8925b8c97833322, type: 3}
   _itemContainer: {fileID: 5362778451368716633}
 --- !u!1 &60072039220170219
@@ -570,7 +560,6 @@ GameObject:
   - component: {fileID: 9037767593578980392}
   - component: {fileID: 8505375713491838976}
   - component: {fileID: 8814314861275310444}
-  - component: {fileID: 671135635230367815}
   m_Layer: 5
   m_Name: Balance
   m_TagString: Untagged
@@ -637,20 +626,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &671135635230367815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 724982556208192078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a288027bed18e44d8cf7bbd16868595, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _coins: {fileID: 3138385771016381850}
-  _player: {fileID: 0}
 --- !u!1 &781115396092344797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,7 +1165,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.45
+  m_fontSize: 42.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1530,6 +1505,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 5760998524999267110}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ShopBalance, Assembly-CSharp
+        m_MethodName: ShowBalance
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2455,9 +2442,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c65b0551aea814eb0df346c9a5d60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skills:
-  - {fileID: 5712172488709234708, guid: 732bc7f2f3096c247860be7c94c86f5c, type: 3}
-  - {fileID: 6445054340881797292, guid: 732bc7f2f3096c247860be7c94c86f5c, type: 3}
   _player: {fileID: 205841135117846717, guid: 732bc7f2f3096c247860be7c94c86f5c, type: 3}
   _template: {fileID: -176534203324778639, guid: c5b5fe16ee879604396654d35646393c, type: 3}
   _itemContainer: {fileID: 579592747704623139}
@@ -2646,7 +2630,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33.5
+  m_fontSize: 34.5
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2779,6 +2763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _winScreen: {fileID: 3065093538126645349}
   _menu: {fileID: 8352391053242447156}
+  _saveState: {fileID: 1744784437194490158}
 --- !u!1 &3079124682503271155
 GameObject:
   m_ObjectHideFlags: 0
@@ -3005,7 +2990,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 43.85
+  m_fontSize: 41.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3516,6 +3501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _winScreen: {fileID: 3459824191071218718}
   _menu: {fileID: 8352391053242447156}
+  _saveState: {fileID: 1744784437194490158}
 --- !u!1 &3499754495497899859
 GameObject:
   m_ObjectHideFlags: 0
@@ -3665,6 +3651,7 @@ GameObject:
   - component: {fileID: 6478471719158312902}
   - component: {fileID: 754754253306043274}
   - component: {fileID: 1061751907814954368}
+  - component: {fileID: 1744784437194490158}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3811,6 +3798,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _panel: {fileID: 3459824191071218718}
+--- !u!114 &1744784437194490158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3550686619591858100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35776ffdcdfb0114b9084a0fe2e010fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playersWeapon: {fileID: 0}
+  _skinEditor: {fileID: 0}
+  _player: {fileID: 0}
+  _savePath: 
+  _saveFileName: data.json
 --- !u!1 &3576795308888596009
 GameObject:
   m_ObjectHideFlags: 0
@@ -6944,7 +6948,7 @@ GameObject:
   - component: {fileID: 3656137124583779883}
   - component: {fileID: 6208086372490574856}
   - component: {fileID: 3202763309553384849}
-  - component: {fileID: 4590830824318770573}
+  - component: {fileID: 3307516310788751701}
   m_Layer: 5
   m_Name: Shop
   m_TagString: Untagged
@@ -7018,7 +7022,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4590830824318770573
+--- !u!114 &3307516310788751701
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7031,7 +7035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coins: {fileID: 3138385771016381850}
-  _player: {fileID: 205841135117846717, guid: 732bc7f2f3096c247860be7c94c86f5c, type: 3}
+  _player: {fileID: 0}
 --- !u!1 &6034578014877256705
 GameObject:
   m_ObjectHideFlags: 0
@@ -7124,7 +7128,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 39.9
+  m_fontSize: 33
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7258,7 +7262,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48.05
+  m_fontSize: 60.3
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7772,18 +7776,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52ce481627e0af94fba6d9ab72abc811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skins:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _player: {fileID: 205841135117846717, guid: 732bc7f2f3096c247860be7c94c86f5c, type: 3}
+  _skinEditor: {fileID: 0}
+  _player: {fileID: 0}
   _template: {fileID: -137118627947550038, guid: 0270d6239255cf843af170bc36d6172f, type: 3}
   _itemContainer: {fileID: 871211484596397393}
-  _skinEditor: {fileID: 8091540421178943097, guid: 732bc7f2f3096c247860be7c94c86f5c, type: 3}
 --- !u!1 &6674838076353696187
 GameObject:
   m_ObjectHideFlags: 0
@@ -9170,7 +9166,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.45
+  m_fontSize: 42.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9255,7 +9251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -26.205933}
+  m_AnchoredPosition: {x: 0, y: -26.205902}
   m_SizeDelta: {x: 172.8022, y: 109.9158}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6191820388629139274

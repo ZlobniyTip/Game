@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 64076359805305146}
   - component: {fileID: -6098879677829580410}
   - component: {fileID: 892365666866902848}
+  - component: {fileID: 5247250056528927875}
   m_Layer: 0
   m_Name: SM_Wep_Naginata_02
   m_TagString: Untagged
@@ -121,9 +122,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: "\u041D\u0430\u0433\u0438\u043D\u0430\u0442\u0430"
-  _price: 47000
+  _price: 17000
   _icon: {fileID: 21300000, guid: c1e0645051ae1fb4ea6949de37c02f43, type: 3}
   _isBuyed: 0
+  _index: 7
 --- !u!54 &892365666866902848
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -151,3 +153,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
+--- !u!114 &5247250056528927875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8460578e620f7dd4da843be449589d05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

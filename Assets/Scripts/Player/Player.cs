@@ -5,27 +5,30 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerUseSkills _playerUseSkills;
-    [SerializeField] private Skill[] _skills;
-    [SerializeField] private List<Weapon> _weapons;
+    [SerializeField] private List<Skill> _skills;
     [SerializeField] private Thrower _thrower;
-    [SerializeField] private Weapon _currentWeapon;
-    [SerializeField] private DataSave _save;
     [SerializeField] private Loss _loss;
+    [SerializeField] private PlayersWeapon _playersWeapon;
+    [SerializeField] private SkinEditor _skinEditor;
 
     private int _maxNumberThrows = 7;
 
     public event UnityAction<int> MoneyChange;
-    public event UnityAction<int,int> ThrowsChange;
+    public event UnityAction<int, int> ThrowsChange;
+
+    public List<Skill> Skills => _skills;
 
     public int Money { get; private set; }
     public int RemainingNumThrows { get; private set; }
 
     private void Start()
     {
-        Money = PlayerPrefs.GetInt("currentMoney");
-        MoneyChange?.Invoke(Money);
+        if (PlayerPrefs.HasKey("currentMoney"))
+        {
+            Money = PlayerPrefs.GetInt("currentMoney");
+        }
 
-        _thrower.GiveWeapon(_currentWeapon);
+        MoneyChange?.Invoke(Money);
         RemainingNumThrows = _maxNumberThrows;
         ThrowsChange?.Invoke(RemainingNumThrows, _maxNumberThrows);
     }
@@ -44,6 +47,7 @@ public class Player : MonoBehaviour
     public void BuySkill(int price)
     {
         Money -= price;
+        PlayerPrefs.SetInt("currentMoney", Money);
         MoneyChange?.Invoke(Money);
     }
 
@@ -57,22 +61,30 @@ public class Player : MonoBehaviour
             _thrower.enabled = false;
         }
 
-        ThrowsChange?.Invoke(RemainingNumThrows,_maxNumberThrows);
+        ThrowsChange?.Invoke(RemainingNumThrows, _maxNumberThrows);
     }
 
     public void GetReward(int reward)
     {
         Money += reward;
-        _save.Save();
+        PlayerPrefs.SetInt("currentMoney", Money);
         MoneyChange?.Invoke(Money);
     }
 
     public void BuyWeapon(Weapon weapon)
     {
         Money -= weapon.Price;
+        PlayerPrefs.SetInt("currentMoney", Money);
         MoneyChange?.Invoke(Money);
-        _weapons.Add(weapon);
-        _thrower.GiveWeapon(weapon);
-        _currentWeapon = weapon;
+        _playersWeapon.ChangeWeapon(weapon);
+    }
+
+    public void BuySkin(Skin skin)
+    {
+        Money -= skin.Price;
+        PlayerPrefs.SetInt("currentMoney", Money);
+        MoneyChange?.Invoke(Money);
+        skin.SkinState.Buy();
+        _skinEditor.ChangeSkin(skin);
     }
 }

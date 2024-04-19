@@ -5,14 +5,17 @@ public class Weapon : MonoBehaviour
     [SerializeField] private string _label;
     [SerializeField] private int _price;
     [SerializeField] private Sprite _icon;
-    [SerializeField] private bool _isBuyed = false;
+    [SerializeField] private WeaponState _weaponState;
+    [SerializeField] private int _index;
 
     private Rigidbody _rigidbody;
 
     public string Label => _label;
     public int Price => _price;
+    public int Index => _index;
     public Sprite Icon => _icon;
-    public bool IsBuyed => _isBuyed;
+    public bool IsBuyed => _weaponState.IsBuying;
+    public WeaponState WeaponState => _weaponState;
 
     public Player Player { get; private set; }
     public Ricochet Ricochet { get; private set; }
@@ -53,10 +56,5 @@ public class Weapon : MonoBehaviour
     {
         Player = player;
         Ricochet = ricochet;
-    }
-
-    public void Buy()
-    {
-        _isBuyed = true;
     }
 }

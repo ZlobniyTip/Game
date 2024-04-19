@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3394252}
   - component: {fileID: 2316608}
   - component: {fileID: 65203199248444138}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: SM_Bld_House_Base_Pole_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

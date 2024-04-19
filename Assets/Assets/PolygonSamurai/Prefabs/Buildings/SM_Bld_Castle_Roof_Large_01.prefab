@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3386228}
   - component: {fileID: 2330794}
   - component: {fileID: 64715823513253690}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: SM_Bld_Castle_Roof_Large_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

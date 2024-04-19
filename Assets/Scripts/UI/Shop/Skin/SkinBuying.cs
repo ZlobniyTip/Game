@@ -1,19 +1,17 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SkinBuying : MonoBehaviour
 {
-    [SerializeField] private List<Skin> _skins;
+    [SerializeField] private SkinEditor _skinEditor;
     [SerializeField] private Player _player;
     [SerializeField] private SkinView _template;
     [SerializeField] private GameObject _itemContainer;
-    [SerializeField] private SkinEditor _skinEditor;
 
     private void Start()
     {
-        for (int i = 0; i < _skins.Count; i++)
+        for (int i = 0; i < _skinEditor.Skins.Count; i++)
         {
-            AddItem(_skins[i]);
+            AddItem(_skinEditor.Skins[i]);
         }
     }
 
@@ -22,6 +20,7 @@ public class SkinBuying : MonoBehaviour
         var view = Instantiate(_template, _itemContainer.transform);
         view.SellButtonClick += OnSellButtonClick;
         view.Render(skin);
+        view.GetLinkPlayer(_skinEditor);
     }
 
     private void OnSellButtonClick(Skin skin, SkinView view)
@@ -33,8 +32,7 @@ public class SkinBuying : MonoBehaviour
     {
         if (skin.Price <= _player.Money)
         {
-            _skinEditor.ChangeSkin(skin.gameObject);
-            skin.Buy();
+            _player.BuySkin(skin);
             view.SellButtonClick -= OnSellButtonClick;
         }
     }

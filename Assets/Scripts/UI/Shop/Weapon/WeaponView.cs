@@ -9,8 +9,14 @@ public class WeaponView : MonoBehaviour
     [SerializeField] private TMP_Text _price;
     [SerializeField] private Image _icon;
     [SerializeField] private Button _sellButton;
+    [SerializeField] private GameObject _buyButton;
+    [SerializeField] private GameObject _useButton;
 
     private Weapon _weapon;
+
+    public Weapon Weapon => _weapon;
+
+    public PlayersWeapon PlayersWeapon { get; private set; }
 
     public event UnityAction<Weapon, WeaponView> SellButtonClick;
 
@@ -24,6 +30,11 @@ public class WeaponView : MonoBehaviour
     {
         _sellButton.onClick.RemoveListener(OnButtonClick);
         _sellButton.onClick.RemoveListener(TryLockItem);
+    }
+
+    public void GetLinkPlayer(PlayersWeapon playersWeapon)
+    {
+        PlayersWeapon = playersWeapon;
     }
 
     public void Render(Weapon weapon)
@@ -43,7 +54,8 @@ public class WeaponView : MonoBehaviour
     {
         if (_weapon.IsBuyed)
         {
-            _sellButton.interactable = false;
+            _buyButton.SetActive(false);
+            _useButton.SetActive(true);
         }
     }
 }

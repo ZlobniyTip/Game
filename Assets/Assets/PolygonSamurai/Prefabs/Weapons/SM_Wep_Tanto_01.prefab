@@ -122,9 +122,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: "\u0422\u0430\u043D\u0442\u043E"
-  _price: 20000
+  _price: 9000
   _icon: {fileID: 21300000, guid: 97220571dd80f90429b8a8a15addc122, type: 3}
   _isBuyed: 0
+  _index: 5
 --- !u!114 &-8937113816583637428
 MonoBehaviour:
   m_ObjectHideFlags: 0

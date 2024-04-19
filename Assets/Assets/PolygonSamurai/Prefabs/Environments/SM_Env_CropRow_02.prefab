@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3368706}
   - component: {fileID: 2394528}
   - component: {fileID: 64940115031942712}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: SM_Env_CropRow_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}

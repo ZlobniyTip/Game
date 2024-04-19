@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3303916}
   - component: {fileID: 2372944}
   - component: {fileID: 64183700319398626}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: SM_Bld_Castle_Roof_Addon_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

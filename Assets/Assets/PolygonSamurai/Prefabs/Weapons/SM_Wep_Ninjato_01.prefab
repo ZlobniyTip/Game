@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 64490741587574428}
   - component: {fileID: 7509043336654101892}
   - component: {fileID: 8565462728854497747}
+  - component: {fileID: -123134842339666154}
   m_Layer: 0
   m_Name: SM_Wep_Ninjato_01
   m_TagString: Untagged
@@ -121,9 +122,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: "\u041D\u0438\u043D\u0434\u0437\u044F\u0442\u043E"
-  _price: 55000
+  _price: 25000
   _icon: {fileID: 21300000, guid: a1c1b1e15aada3b44991721681eef7e2, type: 3}
   _isBuyed: 0
+  _index: 8
 --- !u!54 &8565462728854497747
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -151,3 +153,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
+--- !u!114 &-123134842339666154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8460578e620f7dd4da843be449589d05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3344312}
   - component: {fileID: 2389388}
   - component: {fileID: 64577175042623370}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: SM_Bld_House_Roof_Wood_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

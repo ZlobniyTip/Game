@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 64242222586735654}
   - component: {fileID: 64719072662287084}
   - component: {fileID: 64065012522202298}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: SM_Bld_House_Base_Extension_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

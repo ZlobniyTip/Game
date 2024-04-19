@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3399414}
   - component: {fileID: 2397894}
   - component: {fileID: 65810174138841108}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: SM_Bld_Castle_Base_Medium_Windows_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

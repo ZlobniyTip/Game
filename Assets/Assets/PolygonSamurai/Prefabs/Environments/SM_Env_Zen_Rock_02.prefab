@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2326208}
   - component: {fileID: 64995385589521630}
   - component: {fileID: 64397630699690240}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: SM_Env_Zen_Rock_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
