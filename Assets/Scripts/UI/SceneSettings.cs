@@ -6,13 +6,14 @@ public class SceneSettings : MonoBehaviour
     [SerializeField] private GameObject _winScreen;
     [SerializeField] private GameObject _menu;
     [SerializeField] private SaveState _saveState;
+    [SerializeField] private VideoAd _videoAd;
 
     private int _nextScene;
 
     private void Start()
     {
         _nextScene = SceneManager.GetActiveScene().buildIndex + 1;
-        _saveState.LoadFile();
+        _videoAd.Show();
     }
 
     public void ExitToMenu()

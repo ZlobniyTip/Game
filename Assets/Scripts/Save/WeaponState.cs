@@ -1,7 +1,7 @@
 using System;
 
 [Serializable]
-public struct WeaponState
+public class WeaponState
 {
     public bool IsBuying;
 

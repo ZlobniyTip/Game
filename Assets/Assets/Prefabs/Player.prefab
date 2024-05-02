@@ -233,11 +233,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63d0a1485f795a409cf3b73adf53c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: Man
+  _label: "\u041C\u0443\u0436\u0447\u0438\u043D\u0430"
   _price: 0
   _icon: {fileID: 21300000, guid: 40a2e987edd940f4fa526e0c2f26b397, type: 3}
   _isBuyed: 0
   _index: 0
+  _skinState:
+    IsBuying: 0
 --- !u!1 &9161141682416652422
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,11 +387,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63d0a1485f795a409cf3b73adf53c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: Geisha
+  _label: "\u0413\u0435\u0439\u0448\u0430"
   _price: 3000
   _icon: {fileID: 21300000, guid: 7433784ebdd999e48b41412103cc05fa, type: 3}
   _isBuyed: 0
   _index: 2
+  _skinState:
+    IsBuying: 0
 --- !u!1 &9161141682422436074
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,11 +805,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63d0a1485f795a409cf3b73adf53c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: Sensei
+  _label: "\u0421\u0435\u043D\u0441\u0435\u0439"
   _price: 7000
   _icon: {fileID: 21300000, guid: 93853906572c71442ab5ccafe8cde272, type: 3}
   _isBuyed: 0
   _index: 3
+  _skinState:
+    IsBuying: 0
 --- !u!1 &9161141682502048088
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,11 +1054,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63d0a1485f795a409cf3b73adf53c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: Woman
+  _label: "\u0416\u0435\u043D\u0449\u0438\u043D\u0430"
   _price: 0
   _icon: {fileID: 21300000, guid: 5e17f2558fcedc24388c4021ad3b50bc, type: 3}
   _isBuyed: 0
   _index: 1
+  _skinState:
+    IsBuying: 0
 --- !u!1 &9161141682531458933
 GameObject:
   m_ObjectHideFlags: 0
@@ -2129,11 +2137,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63d0a1485f795a409cf3b73adf53c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: Warrior
+  _label: "\u0421\u0430\u043C\u0443\u0440\u0430\u0439"
   _price: 25000
   _icon: {fileID: 21300000, guid: 6ec33246d03791e42b4605515fab3095, type: 3}
   _isBuyed: 0
   _index: 6
+  _skinState:
+    IsBuying: 0
 --- !u!1 &9161141683262152642
 GameObject:
   m_ObjectHideFlags: 0
@@ -3301,11 +3311,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63d0a1485f795a409cf3b73adf53c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: Grunt
+  _label: "\u0421\u043E\u043B\u0434\u0430\u0442"
   _price: 15000
   _icon: {fileID: 21300000, guid: 501c25202ea74234cbe98d75ac41e08e, type: 3}
   _isBuyed: 0
   _index: 55
+  _skinState:
+    IsBuying: 0
 --- !u!1 &9161141684044671471
 GameObject:
   m_ObjectHideFlags: 0
@@ -3888,11 +3900,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63d0a1485f795a409cf3b73adf53c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: Ninja
+  _label: "\u041D\u0438\u043D\u0434\u0437\u044F"
   _price: 10000
   _icon: {fileID: 21300000, guid: 78c71c29641da99489f6a147abc3c204, type: 3}
   _isBuyed: 0
   _index: 4
+  _skinState:
+    IsBuying: 0
 --- !u!1 &9161141684458724363
 GameObject:
   m_ObjectHideFlags: 0
@@ -4159,7 +4173,6 @@ MonoBehaviour:
   _teleportation: {fileID: 205841135117846716}
   _touchLight: {fileID: 205841133384503861}
   _followCam: {fileID: 0}
-  _velocityMult: 12
   _ricochet: {fileID: 5712172488709234708}
   _player: {fileID: 205841135117846717}
 --- !u!114 &1213806685
@@ -4202,6 +4215,8 @@ MonoBehaviour:
   _price: 20000
   _icon: {fileID: 0}
   _isBuyed: 0
+  _skillState:
+    IsBuying: 0
 --- !u!114 &5712172488709234708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4218,6 +4233,8 @@ MonoBehaviour:
   _price: 5000
   _icon: {fileID: 0}
   _isBuyed: 0
+  _skillState:
+    IsBuying: 0
   _ricochetForce: 20
 --- !u!114 &8091540421178943097
 MonoBehaviour:

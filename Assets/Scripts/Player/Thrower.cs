@@ -6,12 +6,12 @@ public class Thrower : MonoBehaviour
     [SerializeField] private Teleportation _teleportation;
     [SerializeField] private GameObject _touchLight;
     [SerializeField] private FollowCam _followCam;
-    [SerializeField] private float _velocityMult;
     [SerializeField] private Ricochet _ricochet;
     [SerializeField] private Player _player;
 
     private Rigidbody _rbCurrentWeapon;
     private Weapon _weapon;
+    private int _velocityMult = 12;
 
     public Weapon CurrentWeapon { get; private set; }
     public bool AimingMode { get; private set; }
@@ -19,6 +19,11 @@ public class Thrower : MonoBehaviour
     private void Awake()
     {
         _touchLight.SetActive(false);
+
+        if (PlayerPrefs.HasKey("throwForce"))
+        {
+            _velocityMult = PlayerPrefs.GetInt("throwForce");
+        }
     }
 
     private void OnMouseEnter()
@@ -52,6 +57,12 @@ public class Thrower : MonoBehaviour
         {
             Throw(mouseDelta);
         }
+    }
+
+    public void AddThrowForce(int force)
+    {
+        _velocityMult += force;
+        PlayerPrefs.SetInt("throwForce", _velocityMult);
     }
 
     public void GiveWeapon(Weapon weapon)

@@ -17,6 +17,11 @@ public class SaveState : MonoBehaviour
     private List<SkinState> _skinStates = new List<SkinState>();
     private List<SkillState> _skillStates = new List<SkillState>();
 
+    private void Start()
+    {
+        LoadFile();
+    }
+
     private void Awake()
     {
         for (int i = 0; i < _playersWeapon.Weapons.Count; i++)
@@ -34,7 +39,7 @@ public class SaveState : MonoBehaviour
             _skillStates.Add(_player.Skills[i].SkillState);
         }
 
-        _savePath = Path.Combine(Application.dataPath, _saveFileName);
+        _savePath = Path.Combine(Application.persistentDataPath, _saveFileName);
     }
 
     public void SaveFile()
@@ -50,7 +55,7 @@ public class SaveState : MonoBehaviour
 
         try
         {
-            File.WriteAllText(_savePath, contents: json);
+            PlayerPrefs.SetString("save", json);
         }
         catch (Exception)
         {
@@ -67,7 +72,7 @@ public class SaveState : MonoBehaviour
 
         try
         {
-            string json = File.ReadAllText(_savePath);
+            string json = PlayerPrefs.GetString("save");
 
             GameCoreStruct gameCoreFromJson = JsonUtility.FromJson<GameCoreStruct>(json);
 

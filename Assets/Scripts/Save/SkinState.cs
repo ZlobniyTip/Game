@@ -1,7 +1,7 @@
 using System;
 
 [Serializable]
-public struct SkinState
+public class SkinState
 {
     public bool IsBuying;
 

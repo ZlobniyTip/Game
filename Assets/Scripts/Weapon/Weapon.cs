@@ -14,7 +14,6 @@ public class Weapon : MonoBehaviour
     public int Price => _price;
     public int Index => _index;
     public Sprite Icon => _icon;
-    public bool IsBuyed => _weaponState.IsBuying;
     public WeaponState WeaponState => _weaponState;
 
     public Player Player { get; private set; }
