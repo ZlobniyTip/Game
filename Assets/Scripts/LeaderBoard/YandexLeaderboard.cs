@@ -31,6 +31,7 @@ public class YandexLeaderboard : MonoBehaviour
 
         if (PlayerAccount.IsAuthorized)
             _authorizePanel.SetActive(false);
+        OpenLeaderboard();
     }
 
     public void SetPlayerScore(int score)

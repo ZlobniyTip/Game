@@ -4213,7 +4213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: "\u041C\u0443\u043B\u044C\u0442\u0438\u0448\u043E\u0442"
   _price: 20000
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: bb9fdec97ca5e6c48a86eef252befc49, type: 3}
   _isBuyed: 0
   _skillState:
     IsBuying: 0

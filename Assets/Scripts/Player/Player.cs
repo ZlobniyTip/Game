@@ -57,6 +57,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void ResetThrowCount()
+    {
+        PlayerPrefs.SetInt("throwCount", _maxNumberThrows);
+    }
+
     public void AddScore(int score)
     {
         Score += score;

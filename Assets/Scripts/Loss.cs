@@ -12,7 +12,7 @@ public class Loss : MonoBehaviour
 
     private IEnumerator OpenLossScreen()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
 
         _panel.SetActive(true);
     }

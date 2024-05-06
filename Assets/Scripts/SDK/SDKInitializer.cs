@@ -19,7 +19,7 @@ namespace Source.Yandex
 
         private void OnInitialized()
         {
-            SceneManager.LoadScene(sceneName: "MainMenu");
+            SceneManager.LoadScene(1);
         }
     }
 }
