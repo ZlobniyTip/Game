@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 954700710920587874}
   m_Layer: 6
   m_Name: SM_Prop_WaterBladder_01
-  m_TagString: Untagged
+  m_TagString: Collision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

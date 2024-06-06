@@ -1,3 +1,4 @@
+using Lean.Localization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,23 +14,12 @@ public class SkinView : MonoBehaviour
     [SerializeField] private GameObject _useButton;
 
     private Skin _skin;
-    private int _lockItem = 0;
 
     public SkinEditor SkinEditor { get; private set; }
 
     public Skin Skin => _skin;
 
     public event UnityAction<Skin, SkinView> SellButtonClick;
-
-    private void Start()
-    {
-        _lockItem = PlayerPrefs.GetInt("LockItem");
-
-        if (_lockItem == 1)
-        {
-            LockItem();
-        }
-    }
 
     private void OnEnable()
     {
@@ -51,7 +41,13 @@ public class SkinView : MonoBehaviour
     public void Render(Skin skin)
     {
         _skin = skin;
-        _label.text = skin.Label;
+
+        if (_skin.SkinState.IsBuying)
+        {
+            TryLockItem();
+        }
+
+        _label.text = LeanLocalization.GetTranslationText(skin.Label);
         _price.text = skin.Price.ToString();
         _icon.sprite = skin.Icon;
     }
@@ -62,17 +58,6 @@ public class SkinView : MonoBehaviour
     }
 
     private void TryLockItem()
-    {
-        if (_skin.IsBuyed)
-        {
-            _lockItem = 1;
-            PlayerPrefs.SetInt("LockItem", _lockItem);
-
-            LockItem();
-        }
-    }
-
-    private void LockItem()
     {
         _buyButton.SetActive(false);
         _useButton.SetActive(true);

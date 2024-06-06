@@ -7,11 +7,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private UnityEvent _deathEffects;
     [SerializeField] private ProgressBar _progressBar;
 
-    private void Start()
-    {
-        _progressBar.AddEnemy(this);
-    }
-
     public IEnumerator Die()
     {
         var delay = new WaitForSeconds(1);

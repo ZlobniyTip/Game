@@ -12,15 +12,21 @@ public class LanguageChange : MonoBehaviour
     public void ChangeLanguageRussian()
     {
         _leanLocalization.SetCurrentLanguage(RussianLanguage);
+
+        PlayerPrefs.SetString("currentLanguage", RussianLanguage);
     }
 
     public void ChangeLanguageEnglish()
     {
         _leanLocalization.SetCurrentLanguage(EnglishLanguage);
+
+        PlayerPrefs.SetString("currentLanguage", EnglishLanguage);
     }
 
     public void ChangeLanguageTurkish()
     {
         _leanLocalization.SetCurrentLanguage(TurkishLanguage);
+
+        PlayerPrefs.SetString("currentLanguage", TurkishLanguage);
     }
 }

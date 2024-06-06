@@ -1443,7 +1443,7 @@ MonoBehaviour:
   _points:
   - {fileID: 0}
   - {fileID: 0}
-  _speed: 0.8
+  _speed: 0.51
   _delayBetweenMove: 5
   _setDelay: 1
 --- !u!114 &8163201191011332355
@@ -1522,7 +1522,7 @@ MonoBehaviour:
   - {fileID: 4970669510017978192}
   - {fileID: 6613370512410341176}
   - {fileID: 4524720490668955606}
-  _hitForce: 100
+  _hitForce: 30
 --- !u!82 &7498284367665651677
 AudioSource:
   m_ObjectHideFlags: 0

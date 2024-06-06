@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 64286562089165938}
   m_Layer: 2
   m_Name: SM_Bld_Platform_Small_02
-  m_TagString: Untagged
+  m_TagString: Collision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 64399230396409070}
   m_Layer: 2
   m_Name: SM_Prop_Snow_Bowl_Large_01
-  m_TagString: Untagged
+  m_TagString: Collision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

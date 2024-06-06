@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Lean.Localization;
 
 public class WeaponView : MonoBehaviour
 {
@@ -19,14 +20,6 @@ public class WeaponView : MonoBehaviour
     public PlayersWeapon PlayersWeapon { get; private set; }
 
     public event UnityAction<Weapon, WeaponView> SellButtonClick;
-
-    private void Start()
-    {
-        if (_weapon.WeaponState.IsBuying == true)
-        {
-            TryLockItem();
-        }
-    }
 
     private void OnEnable()
     {
@@ -48,7 +41,13 @@ public class WeaponView : MonoBehaviour
     public void Render(Weapon weapon)
     {
         _weapon = weapon;
-        _label.text = weapon.Label;
+
+        if (_weapon.WeaponState.IsBuying)
+        {
+            TryLockItem();
+        }
+
+        _label.text = LeanLocalization.GetTranslationText(weapon.Label);
         _price.text = weapon.Price.ToString();
         _icon.sprite = weapon.Icon;
     }
@@ -60,10 +59,7 @@ public class WeaponView : MonoBehaviour
 
     private void TryLockItem()
     {
-        if (_weapon.WeaponState.IsBuying)
-        {
-            _buyButton.SetActive(false);
-            _useButton.SetActive(true);
-        }
+        _buyButton.SetActive(false);
+        _useButton.SetActive(true);
     }
 }

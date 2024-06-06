@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(MeshCollider))]
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private string _label;
@@ -7,8 +8,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Sprite _icon;
     [SerializeField] private WeaponState _weaponState;
     [SerializeField] private int _index;
+    [SerializeField] private MeshCollider _meshCollider;
 
-    private Rigidbody _rigidbody;
 
     public string Label => _label;
     public int Price => _price;
@@ -17,11 +18,10 @@ public class Weapon : MonoBehaviour
     public WeaponState WeaponState => _weaponState;
 
     public Player Player { get; private set; }
-    public Ricochet Ricochet { get; private set; }
 
     private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+        _meshCollider = GetComponent<MeshCollider>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -36,24 +36,20 @@ public class Weapon : MonoBehaviour
         {
             explosiveBarrel.Explode();
         }
-
-        if (collision.gameObject.TryGetComponent(out Wall wall))
-        {
-            if (Ricochet.Used == false)
-            {
-                Ricochet.CalculateRicochet(_rigidbody, wall);
-            }
-        }
     }
 
-    public void Die()
-    {
-        Destroy(gameObject);
-    }
+public void Die()
+{
+    Destroy(gameObject);
+}
 
-    public void GetLinks(Player player, Ricochet ricochet)
-    {
-        Player = player;
-        Ricochet = ricochet;
-    }
+public void GetLinks(Player player)
+{
+    Player = player;
+}
+
+public void SwitchingCollider(bool isIncluded)
+{
+    _meshCollider.enabled = isIncluded;
+}
 }

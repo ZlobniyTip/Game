@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 64340566436239036}
   m_Layer: 2
   m_Name: SM_Bld_Block_Stairs_01
-  m_TagString: Untagged
+  m_TagString: Collision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

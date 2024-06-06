@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 64396512041828236}
   m_Layer: 6
   m_Name: SM_Prop_Basket_Rice_01
-  m_TagString: Untagged
+  m_TagString: Collision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

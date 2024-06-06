@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 64741084861125822}
   m_Layer: 2
   m_Name: SM_Env_Snow_Rock_Large_03
-  m_TagString: Untagged
+  m_TagString: Collision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

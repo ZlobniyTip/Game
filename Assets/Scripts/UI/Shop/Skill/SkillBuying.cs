@@ -7,7 +7,9 @@ public class SkillBuying : MonoBehaviour
     [SerializeField] private SkillView _template;
     [SerializeField] private GameObject _itemContainer;
 
-    private void Start()
+    private List<SkillView> _content = new List<SkillView>();
+
+    private void OnEnable()
     {
         for (int i = 0; i < _player.Skills.Count; i++)
         {
@@ -15,11 +17,23 @@ public class SkillBuying : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        for (int i = 0; i < _content.Count; i++)
+        {
+            _content[i].SellButtonClick -= OnSellButtonClick;
+            Destroy(_content[i].gameObject);
+        }
+
+        _content.Clear();
+    }
+
     private void AddItem(Skill skill)
     {
         var view = Instantiate(_template, _itemContainer.transform);
         view.SellButtonClick += OnSellButtonClick;
         view.Render(skill);
+        _content.Add(view);
     }
 
     private void OnSellButtonClick(Skill skill, SkillView view)
@@ -31,7 +45,7 @@ public class SkillBuying : MonoBehaviour
     {
         if (skill.Price <= _player.Money)
         {
-            skill.Buy();
+            _player.BuySkill(skill);
             view.SellButtonClick -= OnSellButtonClick;
         }
     }

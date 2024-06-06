@@ -19,6 +19,7 @@ public class YandexLeaderboard : MonoBehaviour
         if (PlayerAccount.IsAuthorized)
             PlayerAccount.RequestPersonalProfileDataPermission();
             Fill();
+            _authorizePanel.SetActive(false);
 
         if (PlayerAccount.IsAuthorized == false)
             _authorizePanel.SetActive(true);

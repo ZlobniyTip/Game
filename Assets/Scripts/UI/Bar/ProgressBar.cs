@@ -5,8 +5,7 @@ using UnityEngine.Events;
 public class ProgressBar : Bar
 {
     [SerializeField] private WinScreen _winCondition;
-
-    private List<Enemy> _enemies = new List<Enemy>();
+    [SerializeField] private List<Enemy> _enemies;
 
     public int EnemyCount { get; private set; }
 

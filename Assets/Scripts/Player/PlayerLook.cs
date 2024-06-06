@@ -16,5 +16,10 @@ public class PlayerLook : MonoBehaviour
         {
             transform.LookAt(_thrower.CurrentWeapon.transform);
         }
+
+        if (!_thrower.AimingMode)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
     }
 }

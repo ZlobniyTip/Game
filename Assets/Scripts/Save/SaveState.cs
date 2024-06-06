@@ -17,11 +17,6 @@ public class SaveState : MonoBehaviour
     private List<SkinState> _skinStates = new List<SkinState>();
     private List<SkillState> _skillStates = new List<SkillState>();
 
-    private void Start()
-    {
-        LoadFile();
-    }
-
     private void Awake()
     {
         for (int i = 0; i < _playersWeapon.Weapons.Count; i++)
@@ -40,6 +35,8 @@ public class SaveState : MonoBehaviour
         }
 
         _savePath = Path.Combine(Application.persistentDataPath, _saveFileName);
+
+        LoadFile();
     }
 
     public void SaveFile()

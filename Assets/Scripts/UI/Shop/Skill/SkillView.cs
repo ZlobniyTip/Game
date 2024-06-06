@@ -1,3 +1,4 @@
+using Lean.Localization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,6 +10,8 @@ public class SkillView : MonoBehaviour
     [SerializeField] private TMP_Text _price;
     [SerializeField] private Image _icon;
     [SerializeField] private Button _sellButton;
+    [SerializeField] private GameObject _buyButton;
+    [SerializeField] private GameObject _useButton;
 
     private Skill _skill;
 
@@ -29,7 +32,13 @@ public class SkillView : MonoBehaviour
     public void Render(Skill skill)
     {
         _skill = skill;
-        _label.text = skill.Label;
+
+        if (_skill.SkillState.IsBuying)
+        {
+            TryLockItem();
+        }
+
+        _label.text = LeanLocalization.GetTranslationText(skill.Label);
         _price.text = skill.Price.ToString();
         _icon.sprite = skill.Icon;
     }
@@ -41,9 +50,7 @@ public class SkillView : MonoBehaviour
 
     private void TryLockItem()
     {
-        if (_skill.IsBuyed)
-        {
-            _sellButton.interactable = false;
-        }
+        _buyButton.SetActive(false);
+        _useButton.SetActive(true);
     }
 }

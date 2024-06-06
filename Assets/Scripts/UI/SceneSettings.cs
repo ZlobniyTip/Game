@@ -27,13 +27,21 @@ public class SceneSettings : MonoBehaviour
     {
         _saveState.SaveFile();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1;
+
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
     }
 
     public void ChangeScene()
     {
         _saveState.SaveFile();
         SceneManager.LoadScene(_nextScene);
-        Time.timeScale = 1;
+
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
     }
 }

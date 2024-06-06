@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 65473392411097660}
   m_Layer: 2
   m_Name: SM_Bld_Snow_Castle_Base_Medium_Blank_01
-  m_TagString: Untagged
+  m_TagString: Collision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

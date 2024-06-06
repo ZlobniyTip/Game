@@ -13,9 +13,11 @@ public class SkinEditor : MonoBehaviour
 
     private void Start()
     {
-        _indexCurrentSkin = PlayerPrefs.GetInt("IndexCurrentSkin");
-
-        ChangeSkin(_skins[_indexCurrentSkin]);
+        if (PlayerPrefs.HasKey("IndexCurrentSkin"))
+        {
+            _indexCurrentSkin = PlayerPrefs.GetInt("IndexCurrentSkin");
+            ChangeSkin(_skins[_indexCurrentSkin]);
+        }
     }
 
     public void ChangeSkin(Skin skin)

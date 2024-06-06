@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7856043567671908496}
   - component: {fileID: -8466096179184219247}
   - component: {fileID: 5282383493853947909}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SM_Wep_Shuriken_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,11 +121,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90973ff5180095b49946af2ce15d9ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: "\u0421\u044E\u0440\u0438\u043A\u0435\u043D"
+  _label: Shuriken
   _price: 6500
   _icon: {fileID: 21300000, guid: 3c81e3162a0998d478858f535f16696f, type: 3}
-  _isBuyed: 0
+  _weaponState:
+    IsBuying: 0
   _index: 3
+  _meshCollider: {fileID: 64385082873188624}
 --- !u!114 &-8466096179184219247
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class Multishot : Skill
 
     public override void UseSkill(Weapon weapon)
     {
-        if (IsBuyed)
+        if (this.SkillState.IsBuying)
         {
             MultipleWeapon(weapon, _firstWeaponAngle);
             MultipleWeapon(weapon, _secondWeaponAngle);
@@ -22,7 +22,7 @@ public class Multishot : Skill
         var weaponRigidbody = weapon.GetComponent<Rigidbody>();
 
         Weapon multipleWeapon = Instantiate(weapon, weapon.transform.position, weapon.transform.rotation);
-        multipleWeapon.GetLinks(weapon.Player, weapon.Ricochet);
+        multipleWeapon.GetLinks(weapon.Player);
         Rigidbody multyWeaponRigidbody = multipleWeapon.GetComponent<Rigidbody>();
         multyWeaponRigidbody.velocity = Quaternion.Euler(0, 0, angle) * weaponRigidbody.velocity;
 

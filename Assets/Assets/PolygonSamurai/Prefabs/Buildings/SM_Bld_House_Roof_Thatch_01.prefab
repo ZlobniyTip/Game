@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 64046120421351196}
   m_Layer: 2
   m_Name: SM_Bld_House_Roof_Thatch_01
-  m_TagString: Untagged
+  m_TagString: Collision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

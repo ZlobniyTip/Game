@@ -74,11 +74,12 @@ public class Player : MonoBehaviour
         PlayerPrefs.SetInt("throwCount", _maxNumberThrows);
     }
 
-    public void BuySkill(int price)
+    public void BuySkill(Skill skill)
     {
-        Money -= price;
+        Money -= skill.Price;
         PlayerPrefs.SetInt("currentMoney", Money);
         MoneyChange?.Invoke(Money);
+        skill.SkillState.Buy();
     }
 
     public void ReduceNumThrows()
@@ -107,6 +108,7 @@ public class Player : MonoBehaviour
         Money -= weapon.Price;
         PlayerPrefs.SetInt("currentMoney", Money);
         MoneyChange?.Invoke(Money);
+        weapon.WeaponState.Buy();
         _playersWeapon.ChangeWeapon(weapon);
     }
 

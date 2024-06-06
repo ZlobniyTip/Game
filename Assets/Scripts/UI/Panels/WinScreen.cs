@@ -6,7 +6,11 @@ public class WinScreen : MonoBehaviour
 
     public void OpenWinScreen()
     {
-        _winScreen.SetActive(true); 
-        Time.timeScale = 0;
+        _winScreen.SetActive(true);
+
+        if (Time.timeScale == 1)
+        {
+            Time.timeScale = 0;
+        }
     }
 }

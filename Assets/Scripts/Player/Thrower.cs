@@ -2,19 +2,21 @@ using UnityEngine;
 
 public class Thrower : MonoBehaviour
 {
+    [SerializeField] private PlayerAnimations _playerAnimations;
     [SerializeField] private PlayerUseSkills _playerUseSkills;
     [SerializeField] private Teleportation _teleportation;
     [SerializeField] private GameObject _touchLight;
     [SerializeField] private FollowCam _followCam;
-    [SerializeField] private Ricochet _ricochet;
     [SerializeField] private Player _player;
 
     private Rigidbody _rbCurrentWeapon;
     private Weapon _weapon;
     private int _velocityMult = 12;
+    private int _velocityMultDefault = 12;
 
     public Weapon CurrentWeapon { get; private set; }
     public bool AimingMode { get; private set; }
+    public bool WeaponsFlight { get; private set; }
 
     private void Awake()
     {
@@ -38,12 +40,14 @@ public class Thrower : MonoBehaviour
 
     private void OnMouseDown()
     {
+        _playerAnimations.Swing();
         AimingMode = true;
         CurrentWeapon = Instantiate(_weapon, transform.position, _weapon.transform.rotation);
-        CurrentWeapon.GetLinks(_player, _ricochet);
+        CurrentWeapon.GetLinks(_player);
         _playerUseSkills.GetLinkWeapon(CurrentWeapon);
         _rbCurrentWeapon = CurrentWeapon.GetComponentInChildren<Rigidbody>();
         _rbCurrentWeapon.isKinematic = true;
+        CurrentWeapon.SwitchingCollider(false);
     }
 
     private void Update()
@@ -56,7 +60,20 @@ public class Thrower : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             Throw(mouseDelta);
+            _playerAnimations.Throw();
+            WeaponsFlight = true;
         }
+    }
+
+    public void ResetThrowForce()
+    {
+        _velocityMult = _velocityMultDefault;
+        PlayerPrefs.SetInt("throwForce", _velocityMult);
+    }
+
+    public void ResetFlightStatusWeapon()
+    {
+        WeaponsFlight = false;
     }
 
     public void AddThrowForce(int force)
@@ -72,13 +89,13 @@ public class Thrower : MonoBehaviour
 
     private void Throw(Vector3 mouseDelta)
     {
-        _ricochet.ResetSkill();
         CurrentWeapon.transform.parent = null;
         AimingMode = false;
         _rbCurrentWeapon.isKinematic = false;
         _rbCurrentWeapon.velocity = mouseDelta * _velocityMult;
         _followCam.GetLinkToObservedObject(CurrentWeapon.transform);
         _teleportation.GetLinkCurrentWeapon(CurrentWeapon);
+       CurrentWeapon.SwitchingCollider(true);
         CurrentWeapon = null;
         _player.ReduceNumThrows();
     }
