@@ -20,6 +20,14 @@ public class WeaponView : MonoBehaviour
 
     public event UnityAction<Weapon, WeaponView> SellButtonClick;
 
+    private void Start()
+    {
+        if (_weapon.WeaponState.IsBuying == true)
+        {
+            TryLockItem();
+        }
+    }
+
     private void OnEnable()
     {
         _sellButton.onClick.AddListener(OnButtonClick);
@@ -52,7 +60,7 @@ public class WeaponView : MonoBehaviour
 
     private void TryLockItem()
     {
-        if (_weapon.IsBuyed)
+        if (_weapon.WeaponState.IsBuying)
         {
             _buyButton.SetActive(false);
             _useButton.SetActive(true);

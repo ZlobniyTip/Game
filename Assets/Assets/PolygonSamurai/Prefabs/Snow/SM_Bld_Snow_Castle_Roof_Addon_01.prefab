@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 440220}
   - component: {fileID: 3316978}
   - component: {fileID: 2327370}
-  - component: {fileID: 64478579061440830}
   - component: {fileID: 64496241004985610}
   m_Layer: 2
   m_Name: SM_Bld_Snow_Castle_Roof_Addon_01
@@ -85,28 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64478579061440830
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 195418}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43534164898908196, guid: 262f2a80e70ee804fa107d9bdb47c8e4, type: 2}
 --- !u!64 &64496241004985610
 MeshCollider:
   m_ObjectHideFlags: 0

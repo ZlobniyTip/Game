@@ -2,7 +2,7 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public struct SkillState
+public class SkillState
 {
     public bool IsBuying;
 

@@ -11,24 +11,37 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayersWeapon _playersWeapon;
     [SerializeField] private SkinEditor _skinEditor;
 
-    private int _maxNumberThrows = 7;
+    private int _maxNumberThrows = 4;
 
     public event UnityAction<int> MoneyChange;
     public event UnityAction<int, int> ThrowsChange;
 
+    public Thrower Thrower => _thrower;
     public List<Skill> Skills => _skills;
 
     public int Money { get; private set; }
     public int RemainingNumThrows { get; private set; }
+    public int Score { get; private set; }
 
     private void Start()
     {
+        if (PlayerPrefs.HasKey("currentScore"))
+        {
+            Score = PlayerPrefs.GetInt("currentScore");
+        }
+
         if (PlayerPrefs.HasKey("currentMoney"))
         {
             Money = PlayerPrefs.GetInt("currentMoney");
         }
 
         MoneyChange?.Invoke(Money);
+
+        if (PlayerPrefs.HasKey("throwCount"))
+        {
+            _maxNumberThrows = PlayerPrefs.GetInt("throwCount");
+        }
+
         RemainingNumThrows = _maxNumberThrows;
         ThrowsChange?.Invoke(RemainingNumThrows, _maxNumberThrows);
     }
@@ -42,6 +55,23 @@ public class Player : MonoBehaviour
                 _playerUseSkills.GetSkill(_skills[0]);
             }
         }
+    }
+
+    public void ResetThrowCount()
+    {
+        PlayerPrefs.SetInt("throwCount", _maxNumberThrows);
+    }
+
+    public void AddScore(int score)
+    {
+        Score += score;
+        PlayerPrefs.SetInt("currentScore", Score);
+    }
+
+    public void AddThrowCount(int value)
+    {
+        _maxNumberThrows += value;
+        PlayerPrefs.SetInt("throwCount", _maxNumberThrows);
     }
 
     public void BuySkill(int price)
@@ -67,6 +97,7 @@ public class Player : MonoBehaviour
     public void GetReward(int reward)
     {
         Money += reward;
+        AddScore(1);
         PlayerPrefs.SetInt("currentMoney", Money);
         MoneyChange?.Invoke(Money);
     }

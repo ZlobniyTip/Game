@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System;
 
 [Serializable]
-public struct GameCoreStruct
+public class GameCoreStruct
 {
     public List<WeaponState> weaponStates;
     public List<SkinState> skinStates;
