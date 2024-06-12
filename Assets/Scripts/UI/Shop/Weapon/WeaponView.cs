@@ -10,7 +10,6 @@ public class WeaponView : MonoBehaviour
     [SerializeField] private TMP_Text _price;
     [SerializeField] private Image _icon;
     [SerializeField] private Button _sellButton;
-    [SerializeField] private GameObject _buyButton;
     [SerializeField] private GameObject _useButton;
 
     private Weapon _weapon;
@@ -42,14 +41,14 @@ public class WeaponView : MonoBehaviour
     {
         _weapon = weapon;
 
+        _label.text = LeanLocalization.GetTranslationText(weapon.Label);
+        _price.text = weapon.Price.ToString();
+        _icon.sprite = weapon.Icon;
+
         if (_weapon.WeaponState.IsBuying)
         {
             TryLockItem();
         }
-
-        _label.text = LeanLocalization.GetTranslationText(weapon.Label);
-        _price.text = weapon.Price.ToString();
-        _icon.sprite = weapon.Icon;
     }
 
     private void OnButtonClick()
@@ -59,7 +58,7 @@ public class WeaponView : MonoBehaviour
 
     private void TryLockItem()
     {
-        _buyButton.SetActive(false);
+        _sellButton.gameObject.SetActive(false);
         _useButton.SetActive(true);
     }
 }

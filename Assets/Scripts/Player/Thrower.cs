@@ -11,8 +11,8 @@ public class Thrower : MonoBehaviour
 
     private Rigidbody _rbCurrentWeapon;
     private Weapon _weapon;
-    private int _velocityMult = 12;
-    private int _velocityMultDefault = 12;
+    private float _velocityMult = 12;
+    private float _velocityMultDefault = 12;
 
     public Weapon CurrentWeapon { get; private set; }
     public bool AimingMode { get; private set; }
@@ -68,7 +68,7 @@ public class Thrower : MonoBehaviour
     public void ResetThrowForce()
     {
         _velocityMult = _velocityMultDefault;
-        PlayerPrefs.SetInt("throwForce", _velocityMult);
+        PlayerPrefs.SetFloat("throwForce", _velocityMult);
     }
 
     public void ResetFlightStatusWeapon()
@@ -76,10 +76,10 @@ public class Thrower : MonoBehaviour
         WeaponsFlight = false;
     }
 
-    public void AddThrowForce(int force)
+    public void AddThrowForce(float force)
     {
         _velocityMult += force;
-        PlayerPrefs.SetInt("throwForce", _velocityMult);
+        PlayerPrefs.SetFloat("throwForce", _velocityMult);
     }
 
     public void GiveWeapon(Weapon weapon)

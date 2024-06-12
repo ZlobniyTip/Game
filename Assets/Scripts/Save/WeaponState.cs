@@ -9,4 +9,9 @@ public class WeaponState
     {
         IsBuying = true;
     }
+
+    public void LoadState(bool isBuying)
+    {
+        IsBuying = isBuying;
+    }
 }

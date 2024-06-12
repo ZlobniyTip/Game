@@ -57,6 +57,14 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void LoadSkill(List<SkillState> skills)
+    {
+        for (int i = 0; i < _skills.Count; i++)
+        {
+            _skills[i].SkillState.LoadState(skills[i].IsBuying);
+        }
+    }
+
     public void ResetThrowCount()
     {
         PlayerPrefs.SetInt("throwCount", _maxNumberThrows);

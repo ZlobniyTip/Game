@@ -10,6 +10,8 @@ public class SdkStart : MonoBehaviour
 
     public void OnCallGameReadyButtonClick()
     {
+        #if UNITY_WEBGL && !UNITY_EDITOR
         YandexGamesSdk.GameReady();
+#endif 
     }
 }

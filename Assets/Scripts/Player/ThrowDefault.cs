@@ -5,7 +5,7 @@ public class ThrowDefault : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private Thrower _thrower;
 
-    private void Start()
+    private void Awake()
     {
         ResetThrowCount();
     }

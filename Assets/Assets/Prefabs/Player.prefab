@@ -275,7 +275,6 @@ MonoBehaviour:
   _label: Man
   _price: 0
   _icon: {fileID: 21300000, guid: 40a2e987edd940f4fa526e0c2f26b397, type: 3}
-  _isBuyed: 0
   _index: 0
   _skinState:
     IsBuying: 0
@@ -429,7 +428,6 @@ MonoBehaviour:
   _label: Geisha
   _price: 3000
   _icon: {fileID: 21300000, guid: 7433784ebdd999e48b41412103cc05fa, type: 3}
-  _isBuyed: 0
   _index: 2
   _skinState:
     IsBuying: 0
@@ -847,7 +845,6 @@ MonoBehaviour:
   _label: Sensei
   _price: 7000
   _icon: {fileID: 21300000, guid: 93853906572c71442ab5ccafe8cde272, type: 3}
-  _isBuyed: 0
   _index: 3
   _skinState:
     IsBuying: 0
@@ -1096,7 +1093,6 @@ MonoBehaviour:
   _label: Woman
   _price: 0
   _icon: {fileID: 21300000, guid: 5e17f2558fcedc24388c4021ad3b50bc, type: 3}
-  _isBuyed: 0
   _index: 1
   _skinState:
     IsBuying: 0
@@ -2179,7 +2175,6 @@ MonoBehaviour:
   _label: Samurai
   _price: 25000
   _icon: {fileID: 21300000, guid: 6ec33246d03791e42b4605515fab3095, type: 3}
-  _isBuyed: 0
   _index: 6
   _skinState:
     IsBuying: 0
@@ -3353,7 +3348,6 @@ MonoBehaviour:
   _label: Soldier
   _price: 15000
   _icon: {fileID: 21300000, guid: 501c25202ea74234cbe98d75ac41e08e, type: 3}
-  _isBuyed: 0
   _index: 5
   _skinState:
     IsBuying: 0
@@ -3942,7 +3936,6 @@ MonoBehaviour:
   _label: Ninja
   _price: 10000
   _icon: {fileID: 21300000, guid: 78c71c29641da99489f6a147abc3c204, type: 3}
-  _isBuyed: 0
   _index: 4
   _skinState:
     IsBuying: 0
@@ -4034,8 +4027,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.69791996
-  m_Center: {x: 0, y: 0.05413723, z: 0}
+  m_Radius: 0.31133103
+  m_Center: {x: 1.0414323e-17, y: -0.2607438, z: 0.01635784}
 --- !u!82 &383551780893519630
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4237,7 +4230,6 @@ MonoBehaviour:
   _label: Multishot
   _price: 20000
   _icon: {fileID: 21300000, guid: 3c187bac23ffc884dbcfe56c907b10d4, type: 3}
-  _isBuyed: 0
   _skillState:
     IsBuying: 0
 --- !u!114 &8091540421178943097

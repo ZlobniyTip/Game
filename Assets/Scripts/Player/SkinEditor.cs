@@ -28,4 +28,12 @@ public class SkinEditor : MonoBehaviour
         _indexCurrentSkin = skin.Index;
         PlayerPrefs.SetInt("IndexCurrentSkin", _indexCurrentSkin);
     }
+
+    public void LoadSkins(List<SkinState> skins)
+    {
+        for (int i = 0; i < _skins.Count; i++)
+        {
+            _skins[i].SkinState.LoadState(skins[i].IsBuying);
+        }
+    }
 }

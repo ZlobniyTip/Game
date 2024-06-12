@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using System.IO;
 
 public class SaveState : MonoBehaviour
@@ -19,6 +18,14 @@ public class SaveState : MonoBehaviour
 
     private void Awake()
     {
+        _savePath = Path.Combine(Application.persistentDataPath, _saveFileName);
+
+        _weaponStates.Clear();
+        _skillStates.Clear();
+        _skinStates.Clear();
+
+        LoadFile();
+
         for (int i = 0; i < _playersWeapon.Weapons.Count; i++)
         {
             _weaponStates.Add(_playersWeapon.Weapons[i].WeaponState);
@@ -33,53 +40,41 @@ public class SaveState : MonoBehaviour
         {
             _skillStates.Add(_player.Skills[i].SkillState);
         }
-
-        _savePath = Path.Combine(Application.persistentDataPath, _saveFileName);
-
-        LoadFile();
     }
 
     public void SaveFile()
     {
         GameCoreStruct gameCoreStruct = new GameCoreStruct
         {
-            weaponStates = this._weaponStates,
-            skinStates = this._skinStates,
-            skillStates = this._skillStates
+            weaponStates = _weaponStates,
+            skinStates = _skinStates,
+            skillStates = _skillStates
         };
 
         string json = JsonUtility.ToJson(gameCoreStruct, prettyPrint: true);
 
-        try
-        {
-            PlayerPrefs.SetString("save", json);
-        }
-        catch (Exception)
-        {
-            throw;
-        }
+        Debug.Log(json);
+
+        PlayerPrefs.SetString("save", json);
     }
 
     public void LoadFile()
     {
-        if (!File.Exists(_savePath))
+        string json;
+
+        if (PlayerPrefs.HasKey("save"))
+        {
+            json = PlayerPrefs.GetString("save");
+        }
+        else
         {
             return;
         }
 
-        try
-        {
-            string json = PlayerPrefs.GetString("save");
+        GameCoreStruct gameCoreFromJson = JsonUtility.FromJson<GameCoreStruct>(json);
 
-            GameCoreStruct gameCoreFromJson = JsonUtility.FromJson<GameCoreStruct>(json);
-
-            this._weaponStates = gameCoreFromJson.weaponStates;
-            this._skinStates = gameCoreFromJson.skinStates;
-            this._skillStates = gameCoreFromJson.skillStates;
-        }
-        catch (Exception)
-        {
-            throw;
-        }
+        _player.LoadSkill(gameCoreFromJson.skillStates);
+        _playersWeapon.LoadWeapons(gameCoreFromJson.weaponStates);
+        _skinEditor.LoadSkins(gameCoreFromJson.skinStates);
     }
 }

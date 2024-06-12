@@ -10,7 +10,6 @@ public class SkillView : MonoBehaviour
     [SerializeField] private TMP_Text _price;
     [SerializeField] private Image _icon;
     [SerializeField] private Button _sellButton;
-    [SerializeField] private GameObject _buyButton;
     [SerializeField] private GameObject _useButton;
 
     private Skill _skill;
@@ -33,24 +32,26 @@ public class SkillView : MonoBehaviour
     {
         _skill = skill;
 
+        _label.text = LeanLocalization.GetTranslationText(skill.Label);
+        _price.text = skill.Price.ToString();
+        _icon.sprite = skill.Icon;
+
         if (_skill.SkillState.IsBuying)
         {
             TryLockItem();
         }
-
-        _label.text = LeanLocalization.GetTranslationText(skill.Label);
-        _price.text = skill.Price.ToString();
-        _icon.sprite = skill.Icon;
     }
 
     private void OnButtonClick()
     {
+        Debug.Log("viewBuyButtonClickSkill");
         SellButtonClick?.Invoke(_skill, this);
     }
 
     private void TryLockItem()
     {
-        _buyButton.SetActive(false);
+        Debug.Log("tryLockSkill");
+        _sellButton.gameObject.SetActive(false);
         _useButton.SetActive(true);
     }
 }

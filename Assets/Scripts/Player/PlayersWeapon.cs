@@ -25,4 +25,12 @@ public class PlayersWeapon : MonoBehaviour
         _indexCurrentWeapon = weapon.Index;
         PlayerPrefs.SetInt("IndexCurrentWeapon", _indexCurrentWeapon);
     }
+
+    public void LoadWeapons(List<WeaponState> weapons)
+    {
+        for (int i = 0; i < _weapons.Count; i++)
+        {
+            _weapons[i].WeaponState.LoadState(weapons[i].IsBuying);
+        }
+    }
 }

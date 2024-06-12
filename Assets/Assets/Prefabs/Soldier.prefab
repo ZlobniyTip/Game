@@ -1444,7 +1444,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _speed: 0.51
-  _delayBetweenMove: 5
+  _delayBetweenMove: 3.8
   _setDelay: 1
 --- !u!114 &8163201191011332355
 MonoBehaviour:

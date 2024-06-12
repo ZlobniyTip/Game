@@ -10,7 +10,6 @@ public class SkinView : MonoBehaviour
     [SerializeField] private TMP_Text _price;
     [SerializeField] private Image _icon;
     [SerializeField] private Button _sellButton;
-    [SerializeField] private GameObject _buyButton;
     [SerializeField] private GameObject _useButton;
 
     private Skin _skin;
@@ -42,14 +41,14 @@ public class SkinView : MonoBehaviour
     {
         _skin = skin;
 
+        _label.text = LeanLocalization.GetTranslationText(skin.Label);
+        _price.text = skin.Price.ToString();
+        _icon.sprite = skin.Icon;
+
         if (_skin.SkinState.IsBuying)
         {
             TryLockItem();
         }
-
-        _label.text = LeanLocalization.GetTranslationText(skin.Label);
-        _price.text = skin.Price.ToString();
-        _icon.sprite = skin.Icon;
     }
 
     private void OnButtonClick()
@@ -59,7 +58,7 @@ public class SkinView : MonoBehaviour
 
     private void TryLockItem()
     {
-        _buyButton.SetActive(false);
+        _sellButton.gameObject.SetActive(false);
         _useButton.SetActive(true);
     }
 }
