@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 401814}
   - component: {fileID: 3309088}
   - component: {fileID: 2345162}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_Tulips_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

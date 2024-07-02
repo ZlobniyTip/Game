@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8723235952011235964}
   - component: {fileID: 5665796011671739865}
   - component: {fileID: 7585192336189303059}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SM_Prop_WaterCanteen
   m_TagString: Collision
   m_Icon: {fileID: 0}

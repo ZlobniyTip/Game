@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 475194}
   - component: {fileID: 3370864}
   - component: {fileID: 2395544}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Prop_Snow_Rope_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

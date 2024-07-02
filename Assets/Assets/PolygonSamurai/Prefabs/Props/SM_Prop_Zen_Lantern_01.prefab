@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3325626}
   - component: {fileID: 2342440}
   - component: {fileID: 64933578236852840}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SM_Prop_Zen_Lantern_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

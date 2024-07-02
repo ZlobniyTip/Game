@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3320526}
   - component: {fileID: 2313102}
   - component: {fileID: 64096922425452060}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_PondEdge_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}

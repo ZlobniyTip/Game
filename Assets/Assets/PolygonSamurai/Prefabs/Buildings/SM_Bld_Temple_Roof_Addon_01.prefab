@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2351594}
   - component: {fileID: 64115524081458478}
   - component: {fileID: 64555468359957334}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Bld_Temple_Roof_Addon_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

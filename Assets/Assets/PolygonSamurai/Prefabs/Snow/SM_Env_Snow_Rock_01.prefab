@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3391290}
   - component: {fileID: 2387770}
   - component: {fileID: 64950852585052392}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_Snow_Rock_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

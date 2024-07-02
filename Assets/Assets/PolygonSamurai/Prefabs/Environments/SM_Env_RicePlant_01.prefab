@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 461928}
   - component: {fileID: 3358818}
   - component: {fileID: 2324464}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_RicePlant_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

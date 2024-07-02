@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3300432}
   - component: {fileID: 2385432}
   - component: {fileID: 64202659915901884}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SM_Prop_StoneBrazier_02
   m_TagString: Collision
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3303572}
   - component: {fileID: 2349440}
   - component: {fileID: 64325039165623146}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Bld_Temple_Roof_Large_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

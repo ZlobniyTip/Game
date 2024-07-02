@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3388122}
   - component: {fileID: 2329724}
   - component: {fileID: 64322802889170184}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_Snow_SteppingStone_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

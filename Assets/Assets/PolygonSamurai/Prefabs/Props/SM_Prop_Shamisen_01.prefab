@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3328184}
   - component: {fileID: 2346728}
   - component: {fileID: 64239961455998220}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SM_Prop_Shamisen_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

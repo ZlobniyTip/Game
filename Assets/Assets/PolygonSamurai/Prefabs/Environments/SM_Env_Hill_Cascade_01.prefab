@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3339224}
   - component: {fileID: 2303394}
   - component: {fileID: 64244557809453154}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_Hill_Cascade_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

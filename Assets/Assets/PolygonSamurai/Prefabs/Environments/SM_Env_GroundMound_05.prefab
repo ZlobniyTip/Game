@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3354080}
   - component: {fileID: 2312604}
   - component: {fileID: 64383657186464842}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_GroundMound_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}

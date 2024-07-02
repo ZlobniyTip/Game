@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3355720}
   - component: {fileID: 2304014}
   - component: {fileID: 136342623003880010}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SM_Prop_Training_Pole_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

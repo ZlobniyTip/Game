@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3326222}
   - component: {fileID: 2365144}
   - component: {fileID: 64627666164178662}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SM_Prop_Zen_Bamboo_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

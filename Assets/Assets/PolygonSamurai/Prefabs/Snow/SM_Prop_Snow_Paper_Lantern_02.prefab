@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3324066}
   - component: {fileID: 2348176}
   - component: {fileID: 64560981177385076}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Prop_Snow_Paper_Lantern_02
   m_TagString: Collision
   m_Icon: {fileID: 0}

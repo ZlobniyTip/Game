@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3348174}
   - component: {fileID: 2316770}
   - component: {fileID: 65686509236504786}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Bld_Snow_Castle_Base_Large_Blank_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

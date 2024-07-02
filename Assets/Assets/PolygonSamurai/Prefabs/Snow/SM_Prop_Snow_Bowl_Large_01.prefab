@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3338554}
   - component: {fileID: 2313824}
   - component: {fileID: 64399230396409070}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Prop_Snow_Bowl_Large_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

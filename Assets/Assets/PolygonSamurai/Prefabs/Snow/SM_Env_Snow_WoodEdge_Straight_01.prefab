@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3315888}
   - component: {fileID: 2381104}
   - component: {fileID: 65769399547156374}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_Snow_WoodEdge_Straight_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2378880}
   - component: {fileID: 64006701241113516}
   - component: {fileID: 64776548510354454}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Bld_Snow_Castle_Roof_Addon_02
   m_TagString: Collision
   m_Icon: {fileID: 0}

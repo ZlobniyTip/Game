@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6822902538875546604}
   - component: {fileID: 7566058510577214537}
   - component: {fileID: 5684947257512054915}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SM_Prop_Samurai_HouseFlag
   m_TagString: Collision
   m_Icon: {fileID: 0}

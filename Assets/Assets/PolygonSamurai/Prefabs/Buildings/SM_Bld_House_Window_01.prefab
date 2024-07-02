@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3374316}
   - component: {fileID: 2347142}
   - component: {fileID: 65974050177412044}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Bld_House_Window_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2335196}
   - component: {fileID: 64080669349056736}
   - component: {fileID: 64313202242836468}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Bld_Block_CornerPillar_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

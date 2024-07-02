@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3389878}
   - component: {fileID: 2361340}
   - component: {fileID: 64539709620319990}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SM_Prop_Fence_Bamboo_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

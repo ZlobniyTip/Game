@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3381356}
   - component: {fileID: 2379568}
   - component: {fileID: 64994998047894346}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SM_Prop_Rope_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

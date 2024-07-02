@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 64908302410165888}
   - component: {fileID: 64921620759636620}
   - component: {fileID: 64648933884625264}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Bld_Snow_Tower_02
   m_TagString: Collision
   m_Icon: {fileID: 0}

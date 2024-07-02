@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3387936}
   - component: {fileID: 2315250}
   - component: {fileID: 65005516205556610}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_Tile_Zen_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

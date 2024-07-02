@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3349552}
   - component: {fileID: 2394864}
   - component: {fileID: 64112995012020340}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_Snow_Hill_Cascade_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

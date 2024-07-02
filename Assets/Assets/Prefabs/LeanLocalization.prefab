@@ -858,13 +858,14 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: Replay
+    Text: Repeat the level (Advertising)
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u041F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u044C"
+    Text: "\u041F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u044C \u0443\u0440\u043E\u0432\u0435\u043D\u044C
+      (\u0420\u0435\u043A\u043B\u0430\u043C\u0430)"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: Tekrarlamak
+    Text: Seviyeyi tekrarla (Reklam)
     Object: {fileID: 0}
 --- !u!1 &2895287674391490300
 GameObject:
@@ -1307,6 +1308,64 @@ MonoBehaviour:
   - Language: Turkish
     Text: Naginata
     Object: {fileID: 0}
+--- !u!1 &5551074796487336015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5507406836052377821}
+  - component: {fileID: 464530774946026206}
+  m_Layer: 0
+  m_Name: + count throw X2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5507406836052377821
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5551074796487336015}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2626233389802691831}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &464530774946026206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5551074796487336015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Increases the number of rolls by 2 per ad view
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0431\u0440\u043E\u0441\u043A\u043E\u0432 \u043D\u0430 2 \u0437\u0430 \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440
+      \u0440\u0435\u043A\u043B\u0430\u043C\u044B"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Reklam g\xF6r\xFCnt\xFCleme ba\u015F\u0131na at\u0131\u015F say\u0131s\u0131n\u0131
+      2 art\u0131r\u0131r"
+    Object: {fileID: 0}
 --- !u!1 &5845384922245626253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,6 +1475,64 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Turkish
     Text: "Kad\u0131n"
+    Object: {fileID: 0}
+--- !u!1 &5977417028297550894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3002523961440571945}
+  - component: {fileID: 8479683411740330789}
+  m_Layer: 0
+  m_Name: + strangeX2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3002523961440571945
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5977417028297550894}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2626233389802691831}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8479683411740330789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5977417028297550894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Increase the range of the throw X2 for viewing ads
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0442\u044C \u0434\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u044C
+      \u0431\u0440\u043E\u0441\u043A\u0430 X2 \u0437\u0430 \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440
+      \u0440\u0435\u043A\u043B\u0430\u043C\u044B"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Reklam g\xF6r\xFCnt\xFCleme ba\u015F\u0131na X2 at\u0131\u015F aral\u0131\u011F\u0131n\u0131
+      art\u0131r\u0131n"
     Object: {fileID: 0}
 --- !u!1 &6003142428530678149
 GameObject:
@@ -1986,6 +2103,8 @@ Transform:
   - {fileID: 860850286532575360}
   - {fileID: 587642009695437856}
   - {fileID: 2509217022540349131}
+  - {fileID: 3002523961440571945}
+  - {fileID: 5507406836052377821}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &92674723025879027

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 48779779529949660}
   - component: {fileID: 3963897087205428857}
   - component: {fileID: 1217766507904580275}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SM_Prop_WarriorShoulderArmor
   m_TagString: Collision
   m_Icon: {fileID: 0}

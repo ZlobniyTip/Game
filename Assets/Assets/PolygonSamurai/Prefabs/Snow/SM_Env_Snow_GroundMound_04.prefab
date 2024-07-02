@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3316838}
   - component: {fileID: 2398420}
   - component: {fileID: 64977115135367706}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_Snow_GroundMound_04
   m_TagString: Collision
   m_Icon: {fileID: 0}

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 64730249042054524}
   - component: {fileID: 64694076504971752}
   - component: {fileID: 64790913186970092}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SM_Prop_Tent_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

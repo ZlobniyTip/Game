@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 64247115994902722}
   - component: {fileID: 64968902320385608}
   - component: {fileID: 64733062245327808}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Bld_Snow_House_Roof_Long_Thatch_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1008714516292466655}
   - component: {fileID: 4201989394370623610}
   - component: {fileID: 2140476867268545712}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SM_Prop_Pouch
   m_TagString: Collision
   m_Icon: {fileID: 0}

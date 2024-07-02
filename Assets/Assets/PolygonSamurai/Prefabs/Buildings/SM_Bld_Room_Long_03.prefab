@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3370490}
   - component: {fileID: 2324034}
   - component: {fileID: 64947544081695200}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Bld_Room_Long_03
   m_TagString: Collision
   m_Icon: {fileID: 0}

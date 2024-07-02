@@ -53,8 +53,6 @@ public class SaveState : MonoBehaviour
 
         string json = JsonUtility.ToJson(gameCoreStruct, prettyPrint: true);
 
-        Debug.Log(json);
-
         PlayerPrefs.SetString("save", json);
     }
 

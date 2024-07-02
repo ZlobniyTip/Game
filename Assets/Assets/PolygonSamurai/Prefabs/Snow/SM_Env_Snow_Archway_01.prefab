@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3310220}
   - component: {fileID: 2346056}
   - component: {fileID: 64436263449556692}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_Snow_Archway_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

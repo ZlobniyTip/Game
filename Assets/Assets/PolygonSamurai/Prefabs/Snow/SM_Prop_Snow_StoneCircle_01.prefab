@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3350252}
   - component: {fileID: 2325298}
   - component: {fileID: 64781646842640834}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Prop_Snow_StoneCircle_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

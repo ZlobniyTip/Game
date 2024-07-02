@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3355072}
   - component: {fileID: 2316276}
   - component: {fileID: 65417214764873802}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Bld_Snow_Temple_Base_Small_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

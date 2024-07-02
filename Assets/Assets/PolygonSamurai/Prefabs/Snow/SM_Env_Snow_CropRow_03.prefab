@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3372066}
   - component: {fileID: 2357778}
   - component: {fileID: 64078888038992802}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_Snow_CropRow_03
   m_TagString: Collision
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3361712}
   - component: {fileID: 2317740}
   - component: {fileID: 64829924381725458}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_FarmTerrace_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}

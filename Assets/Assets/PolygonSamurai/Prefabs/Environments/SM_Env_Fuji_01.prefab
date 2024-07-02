@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2396150}
   - component: {fileID: 64602570703615944}
   - component: {fileID: 64491157413178958}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_Fuji_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

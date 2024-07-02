@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3325390}
   - component: {fileID: 2327130}
   - component: {fileID: 64218133250242428}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_PondGround_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}

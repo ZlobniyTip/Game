@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3324776}
   - component: {fileID: 2333148}
   - component: {fileID: 64357595897358556}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Prop_Snow_Bucket_02
   m_TagString: Collision
   m_Icon: {fileID: 0}

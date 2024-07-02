@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2390752}
   - component: {fileID: 64046057312014320}
   - component: {fileID: 64910357873862162}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Prop_Snow_Stone_Lantern_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

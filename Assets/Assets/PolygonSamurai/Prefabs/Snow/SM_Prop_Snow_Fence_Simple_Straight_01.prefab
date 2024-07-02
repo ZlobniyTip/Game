@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3385050}
   - component: {fileID: 2316910}
   - component: {fileID: 64739790499419098}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Prop_Snow_Fence_Simple_Straight_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

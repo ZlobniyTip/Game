@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 431188}
   - component: {fileID: 3375938}
   - component: {fileID: 2316136}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_Snow_Lillypad_Large_03
   m_TagString: Collision
   m_Icon: {fileID: 0}

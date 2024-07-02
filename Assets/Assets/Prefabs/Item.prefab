@@ -457,7 +457,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 780, y: 800}
+  m_SizeDelta: {x: 780, y: 670.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5169467606908976408
 CanvasRenderer:
@@ -513,7 +513,6 @@ MonoBehaviour:
   _price: {fileID: 8917828218113614825}
   _icon: {fileID: 3654413921629291375}
   _sellButton: {fileID: 917816986589182282}
-  _buyButton: {fileID: 6889351953532116173}
   _useButton: {fileID: 4138664019147785639}
 --- !u!114 &1000903252525808176
 MonoBehaviour:
@@ -620,7 +619,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60.05
+  m_fontSize: 40.6
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1

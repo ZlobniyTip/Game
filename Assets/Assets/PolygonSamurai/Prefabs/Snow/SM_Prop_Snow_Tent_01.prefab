@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 64848735233895282}
   - component: {fileID: 64439349044238610}
   - component: {fileID: 64486891615008734}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Prop_Snow_Tent_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

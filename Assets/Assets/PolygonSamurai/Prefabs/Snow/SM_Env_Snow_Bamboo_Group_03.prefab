@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 472512}
   - component: {fileID: 3300392}
   - component: {fileID: 2322798}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_Snow_Bamboo_Group_03
   m_TagString: Collision
   m_Icon: {fileID: 0}

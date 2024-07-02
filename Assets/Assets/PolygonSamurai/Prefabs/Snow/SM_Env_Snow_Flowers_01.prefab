@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 452650}
   - component: {fileID: 3396704}
   - component: {fileID: 2324714}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_Snow_Flowers_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

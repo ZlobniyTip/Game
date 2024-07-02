@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 64124202499798386}
   - component: {fileID: 64320349067199114}
   - component: {fileID: 64295209461610088}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Bld_Snow_House_Base_Long_Extension_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

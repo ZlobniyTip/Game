@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3349684}
   - component: {fileID: 2344258}
   - component: {fileID: 64492662417485794}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_Snow_PondEdge_04
   m_TagString: Collision
   m_Icon: {fileID: 0}

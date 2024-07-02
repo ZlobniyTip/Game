@@ -4,16 +4,19 @@ public class Thrower : MonoBehaviour
 {
     [SerializeField] private PlayerAnimations _playerAnimations;
     [SerializeField] private PlayerUseSkills _playerUseSkills;
+    [SerializeField] private ThrowerRaycast _throwerRaycast;
     [SerializeField] private Teleportation _teleportation;
     [SerializeField] private GameObject _touchLight;
     [SerializeField] private FollowCam _followCam;
     [SerializeField] private Player _player;
+    [SerializeField] private GameObject _target;
 
     private Rigidbody _rbCurrentWeapon;
     private Weapon _weapon;
     private float _velocityMult = 12;
     private float _velocityMultDefault = 12;
 
+    public GameObject CurrentTarget { get; private set; }
     public Weapon CurrentWeapon { get; private set; }
     public bool AimingMode { get; private set; }
     public bool WeaponsFlight { get; private set; }
@@ -24,7 +27,7 @@ public class Thrower : MonoBehaviour
 
         if (PlayerPrefs.HasKey("throwForce"))
         {
-            _velocityMult = PlayerPrefs.GetInt("throwForce");
+            _velocityMult = PlayerPrefs.GetFloat("throwForce");
         }
     }
 
@@ -42,8 +45,12 @@ public class Thrower : MonoBehaviour
     {
         _playerAnimations.Swing();
         AimingMode = true;
-        CurrentWeapon = Instantiate(_weapon, transform.position, _weapon.transform.rotation);
+        _throwerRaycast.enabled = true;
+        CurrentTarget = Instantiate(_target, transform.position, Quaternion.identity);
+        CurrentWeapon = Instantiate(_weapon, CurrentTarget.transform.position, _weapon.transform.rotation);
+        CurrentWeapon.transform.parent = CurrentTarget.transform;
         CurrentWeapon.GetLinks(_player);
+        _throwerRaycast.GetLinkWeapon(CurrentWeapon);
         _playerUseSkills.GetLinkWeapon(CurrentWeapon);
         _rbCurrentWeapon = CurrentWeapon.GetComponentInChildren<Rigidbody>();
         _rbCurrentWeapon.isKinematic = true;
@@ -59,6 +66,7 @@ public class Thrower : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
+            _throwerRaycast.enabled = false;
             Throw(mouseDelta);
             _playerAnimations.Throw();
             WeaponsFlight = true;
@@ -114,10 +122,10 @@ public class Thrower : MonoBehaviour
             mouseDelta *= maxMagnitude;
         }
 
-        CurrentWeapon.transform.position = mouseDelta;
+        CurrentTarget.transform.position = mouseDelta;
 
         Vector3 weaponPosition = transform.position + mouseDelta;
-        CurrentWeapon.transform.position = weaponPosition;
+        CurrentTarget.transform.position = weaponPosition;
 
         return mouseDelta;
     }

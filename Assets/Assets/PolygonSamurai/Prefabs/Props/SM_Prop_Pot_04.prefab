@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3334528}
   - component: {fileID: 2375920}
   - component: {fileID: 64085849498814704}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SM_Prop_Pot_04
   m_TagString: Collision
   m_Icon: {fileID: 0}

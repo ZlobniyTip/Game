@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3306004}
   - component: {fileID: 2356926}
   - component: {fileID: 64261800069440396}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Prop_Snow_Statue_Lion_02
   m_TagString: Collision
   m_Icon: {fileID: 0}

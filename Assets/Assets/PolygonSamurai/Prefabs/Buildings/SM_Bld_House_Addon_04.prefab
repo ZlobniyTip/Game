@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 64721905758141532}
   - component: {fileID: 64639439897895474}
   - component: {fileID: 64091092867278264}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Bld_House_Addon_04
   m_TagString: Collision
   m_Icon: {fileID: 0}

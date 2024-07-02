@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 64804887728457538}
   - component: {fileID: 64984103137828984}
   - component: {fileID: 64566692245421812}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Bld_Snow_Temple_Door_02
   m_TagString: Collision
   m_Icon: {fileID: 0}

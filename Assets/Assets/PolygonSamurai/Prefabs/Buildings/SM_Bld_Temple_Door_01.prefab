@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 64510439103715182}
   - component: {fileID: 64242135941496010}
   - component: {fileID: 64819410562166498}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Bld_Temple_Door_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

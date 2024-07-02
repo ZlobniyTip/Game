@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3329054}
   - component: {fileID: 2344286}
   - component: {fileID: 64790199938791802}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_Snow_Bridge_Curved_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

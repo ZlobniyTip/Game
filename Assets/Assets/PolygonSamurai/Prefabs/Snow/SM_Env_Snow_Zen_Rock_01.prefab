@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2347554}
   - component: {fileID: 64246118257502384}
   - component: {fileID: 64744408024997952}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Env_Snow_Zen_Rock_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

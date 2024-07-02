@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2310764}
   - component: {fileID: 64021864875049186}
   - component: {fileID: 64318542348211084}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Prop_Snow_Gong_02
   m_TagString: Collision
   m_Icon: {fileID: 0}

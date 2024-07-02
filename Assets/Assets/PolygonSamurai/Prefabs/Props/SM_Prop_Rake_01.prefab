@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3308824}
   - component: {fileID: 2373182}
   - component: {fileID: 64977875595075282}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SM_Prop_Rake_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

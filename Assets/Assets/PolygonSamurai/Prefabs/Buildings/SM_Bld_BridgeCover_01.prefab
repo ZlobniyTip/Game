@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3313512}
   - component: {fileID: 2355968}
   - component: {fileID: 64619263120907928}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SM_Bld_BridgeCover_01
   m_TagString: Collision
   m_Icon: {fileID: 0}

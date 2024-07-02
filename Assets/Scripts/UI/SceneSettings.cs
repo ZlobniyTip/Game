@@ -6,6 +6,7 @@ public class SceneSettings : MonoBehaviour
     [SerializeField] private GameObject _winScreen;
     [SerializeField] private GameObject _menu;
     [SerializeField] private SaveState _saveState;
+    [SerializeField] private VideoAd _videoAd;
 
     private int _nextScene;
 
@@ -28,8 +29,10 @@ public class SceneSettings : MonoBehaviour
 
         if (Time.timeScale == 0)
         {
-            //Time.timeScale = 1;
+            Time.timeScale = 1;
         }
+
+        _videoAd.Show();
     }
 
     public void ChangeScene()
@@ -39,7 +42,18 @@ public class SceneSettings : MonoBehaviour
 
         if (Time.timeScale == 0)
         {
-            //Time.timeScale = 1;
+            Time.timeScale = 1;
+        }
+    }
+
+    public void StartFirstLevel()
+    {
+        _saveState.SaveFile();
+        SceneManager.LoadScene(1);
+
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
         }
     }
 }
