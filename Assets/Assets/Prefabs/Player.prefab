@@ -4396,6 +4396,7 @@ MonoBehaviour:
   _layerMaskOnlyPlayer:
     serializedVersion: 2
     m_Bits: 64
+  _thrower: {fileID: 205841135117846719}
 --- !u!1001 &1448643784257694960
 PrefabInstance:
   m_ObjectHideFlags: 0

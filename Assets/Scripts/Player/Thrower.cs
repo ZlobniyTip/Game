@@ -31,32 +31,6 @@ public class Thrower : MonoBehaviour
         }
     }
 
-    private void OnMouseEnter()
-    {
-        _touchLight.SetActive(true);
-    }
-
-    private void OnMouseExit()
-    {
-        _touchLight.SetActive(false);
-    }
-
-    private void OnMouseDown()
-    {
-        _playerAnimations.Swing();
-        AimingMode = true;
-        _throwerRaycast.enabled = true;
-        CurrentTarget = Instantiate(_target, transform.position, Quaternion.identity);
-        CurrentWeapon = Instantiate(_weapon, CurrentTarget.transform.position, _weapon.transform.rotation);
-        CurrentWeapon.transform.parent = CurrentTarget.transform;
-        CurrentWeapon.GetLinks(_player);
-        _throwerRaycast.GetLinkWeapon(CurrentWeapon);
-        _playerUseSkills.GetLinkWeapon(CurrentWeapon);
-        _rbCurrentWeapon = CurrentWeapon.GetComponentInChildren<Rigidbody>();
-        _rbCurrentWeapon.isKinematic = true;
-        CurrentWeapon.SwitchingCollider(false);
-    }
-
     private void Update()
     {
         if (!AimingMode)
@@ -71,6 +45,32 @@ public class Thrower : MonoBehaviour
             _playerAnimations.Throw();
             WeaponsFlight = true;
         }
+    }
+
+    public void ToutchLigthOn()
+    {
+        _touchLight.SetActive(true);
+    }
+
+    public void ToutchLigthOff()
+    {
+        _touchLight.SetActive(false);
+    }
+
+    public void MouseDown()
+    {
+        _playerAnimations.Swing();
+        AimingMode = true;
+        _throwerRaycast.enabled = true;
+        CurrentTarget = Instantiate(_target, transform.position, Quaternion.identity);
+        CurrentWeapon = Instantiate(_weapon, CurrentTarget.transform.position, _weapon.transform.rotation);
+        CurrentWeapon.transform.parent = CurrentTarget.transform;
+        CurrentWeapon.GetLinks(_player);
+        _throwerRaycast.GetLinkWeapon(CurrentWeapon);
+        _playerUseSkills.GetLinkWeapon(CurrentWeapon);
+        _rbCurrentWeapon = CurrentWeapon.GetComponentInChildren<Rigidbody>();
+        _rbCurrentWeapon.isKinematic = true;
+        CurrentWeapon.SwitchingCollider(false);
     }
 
     public void ResetThrowForce()

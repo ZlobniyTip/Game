@@ -918,6 +918,10 @@ PrefabInstance:
       propertyPath: _skills.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6307771710342775347, guid: cb2046455d3a8e049944b8642c6f5681, type: 3}
+      propertyPath: _videoAd
+      value: 
+      objectReference: {fileID: 1830576323}
     - target: {fileID: 6379759972466680394, guid: cb2046455d3a8e049944b8642c6f5681, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -1.999939

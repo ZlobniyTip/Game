@@ -165,6 +165,65 @@ MonoBehaviour:
   - Language: Turkish
     Text: "Ma\u011Faza"
     Object: {fileID: 0}
+--- !u!1 &561415396187988303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6128387781945955733}
+  - component: {fileID: 522430176625963204}
+  m_Layer: 0
+  m_Name: TutorialText1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6128387781945955733
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561415396187988303}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2626233389802691831}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &522430176625963204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561415396187988303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: To aim, hover the cursor over the character and hold down the LMB
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0414\u043B\u044F \u043F\u0440\u0438\u0446\u0435\u043B\u0438\u0432\u0430\u043D\u0438\u044F
+      \u043D\u0430\u0432\u0435\u0434\u0438\u0442\u0435 \u043A\u0443\u0440\u0441\u043E\u0440
+      \u043D\u0430 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0430 \u0438
+      \u0437\u0430\u0436\u043C\u0438\u0442\u0435 \u041B\u041A\u041C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Ni\u015Fan almak i\xE7in imlecinizi karakterin \xFCzerine getirin ve boyay\u0131
+      bas\u0131l\u0131 tutun"
+    Object: {fileID: 0}
 --- !u!1 &648576418567774741
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,6 +1037,61 @@ MonoBehaviour:
   - Language: Turkish
     Text: " At\u0131\u015F say\u0131s\u0131na + 1"
     Object: {fileID: 0}
+--- !u!1 &3388170530812406852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1958915439821565431}
+  - component: {fileID: 3534547510544351570}
+  m_Layer: 0
+  m_Name: Continue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1958915439821565431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3388170530812406852}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2626233389802691831}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3534547510544351570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3388170530812406852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Continue
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Devam etmek
+    Object: {fileID: 0}
 --- !u!1 &3473268369826788290
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,6 +1367,65 @@ MonoBehaviour:
   - Language: Turkish
     Text: Asker
     Object: {fileID: 0}
+--- !u!1 &4896454898715571007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2052960198895542794}
+  - component: {fileID: 6853533177996231818}
+  m_Layer: 0
+  m_Name: TutorialText7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2052960198895542794
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4896454898715571007}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2626233389802691831}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6853533177996231818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4896454898715571007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Shows how many rolls are left to complete the level
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442 \u0441\u043A\u043E\u043B\u044C\u043A\u043E
+      \u0431\u0440\u043E\u0441\u043A\u043E\u0432 \u043E\u0441\u0442\u0430\u043B\u043E\u0441\u044C
+      \u0434\u043B\u044F \u043F\u0440\u043E\u0445\u043E\u0436\u0434\u0435\u043D\u0438\u044F
+      \u0443\u0440\u043E\u0432\u043D\u044F"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Seviyeyi tamamlamak i\xE7in ka\xE7 at\u0131\u015F kald\u0131\u011F\u0131n\u0131
+      g\xF6sterir"
+    Object: {fileID: 0}
 --- !u!1 &4900115563119130088
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,6 +1480,63 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Turkish
     Text: Naginata
+    Object: {fileID: 0}
+--- !u!1 &5438250509477792784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1029691039116143998}
+  - component: {fileID: 7600955878282442346}
+  m_Layer: 0
+  m_Name: TutorialText4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1029691039116143998
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5438250509477792784}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2626233389802691831}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7600955878282442346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5438250509477792784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Eliminate all enemies to complete the level
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0414\u043B\u044F \u043F\u0440\u043E\u0445\u043E\u0436\u0434\u0435\u043D\u0438\u044F
+      \u0443\u0440\u043E\u0432\u043D\u044F \u0443\u0441\u0442\u0440\u0430\u043D\u0438\u0442\u0435
+      \u0432\u0441\u0435\u0445 \u0432\u0440\u0430\u0433\u043E\u0432"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Seviyeyi tamamlamak i\xE7in t\xFCm d\xFC\u015Fmanlar\u0131 ortadan kald\u0131r\u0131n"
     Object: {fileID: 0}
 --- !u!1 &5551074796487336015
 GameObject:
@@ -1475,6 +1705,61 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Turkish
     Text: "Kad\u0131n"
+    Object: {fileID: 0}
+--- !u!1 &5944727630975118719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1206622173220289392}
+  - component: {fileID: 1254035956837363464}
+  m_Layer: 0
+  m_Name: StartNewGame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1206622173220289392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5944727630975118719}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2626233389802691831}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1254035956837363464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5944727630975118719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Start from level 1
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041D\u0430\u0447\u0430\u0442\u044C \u0441 1 \u0443\u0440\u043E\u0432\u043D\u044F"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Seviye 1'den ba\u015Flay\u0131n"
     Object: {fileID: 0}
 --- !u!1 &5977417028297550894
 GameObject:
@@ -1700,6 +1985,62 @@ MonoBehaviour:
   - Language: Turkish
     Text: "\xC7oklu \xC7ekim"
     Object: {fileID: 0}
+--- !u!1 &6444811893475066952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7752614454287366331}
+  - component: {fileID: 4135479627578988207}
+  m_Layer: 0
+  m_Name: TutorialText5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7752614454287366331
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444811893475066952}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2626233389802691831}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4135479627578988207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444811893475066952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Don't forget to keep an eye on the indicators
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041D\u0435 \u0437\u0430\u0431\u044B\u0432\u0430\u0439\u0442\u0435 \u0441\u043B\u0435\u0434\u0438\u0442\u044C
+      \u0437\u0430 \u0438\u043D\u0434\u0438\u043A\u0430\u0442\u043E\u0440\u0430\u043C\u0438"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "G\xF6stergelere dikkat etmeyi unutmay\u0131n"
+    Object: {fileID: 0}
 --- !u!1 &6489068567917127370
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,6 +2095,63 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Turkish
     Text: Liderlik Tablosu
+    Object: {fileID: 0}
+--- !u!1 &6660867442317791792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8920321074313623993}
+  - component: {fileID: 681364675184554499}
+  m_Layer: 0
+  m_Name: TutorialText6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8920321074313623993
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6660867442317791792}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2626233389802691831}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &681364675184554499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6660867442317791792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Shows how many enemies are left on the level
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442 \u0441\u043A\u043E\u043B\u044C\u043A\u043E
+      \u0432\u0440\u0430\u0433\u043E\u0432 \u043E\u0441\u0442\u0430\u043B\u043E\u0441\u044C
+      \u043D\u0430 \u0443\u0440\u043E\u0432\u043D\u0435"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Seviyede ka\xE7 d\xFC\u015Fman kald\u0131\u011F\u0131n\u0131 g\xF6sterir"
     Object: {fileID: 0}
 --- !u!1 &6664605295328302200
 GameObject:
@@ -2105,6 +2503,15 @@ Transform:
   - {fileID: 2509217022540349131}
   - {fileID: 3002523961440571945}
   - {fileID: 5507406836052377821}
+  - {fileID: 1958915439821565431}
+  - {fileID: 6128387781945955733}
+  - {fileID: 8125706621580372946}
+  - {fileID: 1328620912257515896}
+  - {fileID: 1029691039116143998}
+  - {fileID: 7752614454287366331}
+  - {fileID: 8920321074313623993}
+  - {fileID: 2052960198895542794}
+  - {fileID: 1206622173220289392}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &92674723025879027
@@ -2119,7 +2526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Russian
+  currentLanguage: English
   detectLanguage: 1
   defaultLanguage: English
   saveLoad: 1
@@ -2362,6 +2769,64 @@ MonoBehaviour:
   - Language: Turkish
     Text: Silah
     Object: {fileID: 0}
+--- !u!1 &8934285622460221734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1328620912257515896}
+  - component: {fileID: 3497299052082896891}
+  m_Layer: 0
+  m_Name: TutorialText3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1328620912257515896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8934285622460221734}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2626233389802691831}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3497299052082896891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8934285622460221734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: During the flight of the weapon, press the LMB to teleport to it
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0412\u043E \u0432\u0440\u0435\u043C\u044F \u043F\u043E\u043B\u0435\u0442\u0430
+      \u043E\u0440\u0443\u0436\u0438\u044F,\u043D\u0430\u0436\u043C\u0438\u0442\u0435
+      \u041B\u041A\u041C,\u0447\u0442\u043E\u0431\u044B \u0442\u0435\u043B\u0435\u043F\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F
+      \u043A \u043D\u0435\u043C\u0443"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Silah u\xE7arken, \u0131\u015F\u0131nlanmak i\xE7in boyaya bas\u0131n"
+    Object: {fileID: 0}
 --- !u!1 &8970070397343081363
 GameObject:
   m_ObjectHideFlags: 0
@@ -2471,6 +2936,65 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Turkish
     Text: Jumonji-yari
+    Object: {fileID: 0}
+--- !u!1 &9171479576119382356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8125706621580372946}
+  - component: {fileID: 1941917614730310643}
+  m_Layer: 0
+  m_Name: TutorialText2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8125706621580372946
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9171479576119382356}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2626233389802691831}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1941917614730310643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9171479576119382356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: To aim, hover the cursor over the character and hold down the LMB
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0414\u043B\u044F \u043F\u0440\u0438\u0446\u0435\u043B\u0438\u0432\u0430\u043D\u0438\u044F
+      \u043D\u0430\u0432\u0435\u0434\u0438\u0442\u0435 \u043A\u0443\u0440\u0441\u043E\u0440
+      \u043D\u0430 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0430 \u0438
+      \u0437\u0430\u0436\u043C\u0438\u0442\u0435 \u041B\u041A\u041C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Ni\u015Fan almak i\xE7in imlecinizi karakterin \xFCzerine getirin ve boyay\u0131
+      bas\u0131l\u0131 tutun"
     Object: {fileID: 0}
 --- !u!1 &9220380776232817910
 GameObject:
