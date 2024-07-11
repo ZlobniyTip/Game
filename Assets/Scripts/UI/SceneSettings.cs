@@ -49,7 +49,7 @@ public class SceneSettings : MonoBehaviour
     public void StartFirstLevel()
     {
         _saveState.SaveFile();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(3);
 
         if (Time.timeScale == 0)
         {

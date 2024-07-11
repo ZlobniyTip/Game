@@ -14,8 +14,6 @@ public class YandexLeaderboard : MonoBehaviour
 
     public void OpenLeaderboard()
     {
-        PlayerAccount.Authorize();
-
         if (PlayerAccount.IsAuthorized)
             PlayerAccount.RequestPersonalProfileDataPermission();
             Fill();
