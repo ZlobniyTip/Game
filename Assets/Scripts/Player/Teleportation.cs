@@ -9,6 +9,8 @@ public class Teleportation : MonoBehaviour
     [SerializeField] private Offset _offset;
     [SerializeField] private ParticleSystem _prefab;
 
+    public event UnityAction UseTeleportation;
+
     private Rigidbody _rigidbody;
     private Weapon _currentWeapon;
     private Thrower _thrower;
@@ -47,6 +49,7 @@ public class Teleportation : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                UseTeleportation?.Invoke();
                 _rigidbody.isKinematic = false;
                 _offset.ActivateOffset(true);
                 TeleportWeapon();

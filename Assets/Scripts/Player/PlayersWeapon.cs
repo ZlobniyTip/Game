@@ -9,6 +9,8 @@ public class PlayersWeapon : MonoBehaviour
 
     private int _indexCurrentWeapon = 0;
 
+    public Weapon CurrentWeapon { get; private set; }
+
     public List<Weapon> Weapons => _weapons;
 
     private void Start()

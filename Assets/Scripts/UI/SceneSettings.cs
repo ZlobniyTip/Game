@@ -24,6 +24,8 @@ public class SceneSettings : MonoBehaviour
 
     public void RestartScene()
     {
+        _videoAd.Show();
+
         _saveState.SaveFile();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
@@ -31,8 +33,6 @@ public class SceneSettings : MonoBehaviour
         {
             Time.timeScale = 1;
         }
-
-        _videoAd.Show();
     }
 
     public void ChangeScene()

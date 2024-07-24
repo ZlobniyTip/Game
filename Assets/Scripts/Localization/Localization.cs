@@ -38,6 +38,8 @@ namespace Assets.Scripts
                     _leanLocalization.SetCurrentLanguage(RussianCode);
                     break;
             }
+
+            PlayerPrefs.SetString("currentLanguage", languageCode);
         }
     }
 }

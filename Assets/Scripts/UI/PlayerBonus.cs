@@ -9,7 +9,6 @@ public class PlayerBonus : MonoBehaviour
     [SerializeField] private Button _buttonAddThrow;
     [SerializeField] private Button _buttonAddThrowX2;
     [SerializeField] private Button _nextLevel;
-    [SerializeField] private Button _replay;
     [SerializeField] private YandexLeaderboard _yandexLeaderboard;
     [SerializeField] private VideoAd _videoAd;
     [SerializeField] private Teleportation _teleportation;
@@ -29,7 +28,6 @@ public class PlayerBonus : MonoBehaviour
 
     public void AddThrowCountX2()
     {
-        _replay.gameObject.SetActive(true);
         _nextLevel.gameObject.SetActive(true);
         _videoAd.Show();
         _player.AddThrowCount(_countValueX2);
@@ -38,7 +36,6 @@ public class PlayerBonus : MonoBehaviour
 
     public void AddThrowCount()
     {
-        _replay.gameObject.SetActive(true);
         _nextLevel.gameObject.SetActive(true);
         _player.AddThrowCount(_countValue);
         LockButton();
@@ -46,7 +43,6 @@ public class PlayerBonus : MonoBehaviour
 
     public void AddThrowForceX2()
     {
-        _replay.gameObject.SetActive(true);
         _nextLevel.gameObject.SetActive(true);
         _videoAd.Show();
         _player.Thrower.AddThrowForce(_forceValueX2);
@@ -55,7 +51,6 @@ public class PlayerBonus : MonoBehaviour
 
     public void AddThrowForce()
     {
-        _replay.gameObject.SetActive(true);
         _nextLevel.gameObject.SetActive(true);
         _player.Thrower.AddThrowForce(_forceValue);
         LockButton();

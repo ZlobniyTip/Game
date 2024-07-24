@@ -49,6 +49,11 @@ public class WeaponView : MonoBehaviour
         {
             TryLockItem();
         }
+
+        if (_weapon.name == "SM_Wep_Kunai_01")
+        {
+            TryLockItem();
+        }
     }
 
     private void OnButtonClick()

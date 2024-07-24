@@ -49,6 +49,11 @@ public class SkinView : MonoBehaviour
         {
             TryLockItem();
         }
+
+        if (_skin.name == "Character_Village_Man" || _skin.name == "Character_Village_Woman")
+        {
+            TryLockItem();
+        }
     }
 
     private void OnButtonClick()

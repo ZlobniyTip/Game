@@ -7,7 +7,7 @@ public class SoundAdjustment : MonoBehaviour
 
     private void Start()
     {
-        _slider.value = AudioListener.volume;
+        _slider.value = PlayerPrefs.GetFloat("currentVolume");
     }
 
     public void ChangeVolume()
