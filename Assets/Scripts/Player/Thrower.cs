@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Thrower : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Thrower : MonoBehaviour
     [SerializeField] private FollowCam _followCam;
     [SerializeField] private Player _player;
     [SerializeField] private GameObject _target;
+    [SerializeField] private Ricochet _ricochet;
 
     private Rigidbody _rbCurrentWeapon;
     private Weapon _weapon;
@@ -66,6 +68,7 @@ public class Thrower : MonoBehaviour
         CurrentWeapon = Instantiate(_weapon, CurrentTarget.transform.position, _weapon.transform.rotation);
         CurrentWeapon.transform.parent = CurrentTarget.transform;
         CurrentWeapon.GetLinks(_player);
+        _ricochet.GetLinkCurrentWeapon(CurrentWeapon);
         _throwerRaycast.GetLinkWeapon(CurrentWeapon);
         _playerUseSkills.GetLinkWeapon(CurrentWeapon);
         _rbCurrentWeapon = CurrentWeapon.GetComponentInChildren<Rigidbody>();
@@ -103,8 +106,8 @@ public class Thrower : MonoBehaviour
         _rbCurrentWeapon.velocity = mouseDelta * _velocityMult;
         _followCam.GetLinkToObservedObject(CurrentWeapon.transform);
         _teleportation.GetLinkCurrentWeapon(CurrentWeapon);
-       CurrentWeapon.SwitchingCollider(true);
-        CurrentWeapon = null;
+        CurrentWeapon.SwitchingCollider(true);
+        //CurrentWeapon = null;
         _player.ReduceNumThrows();
     }
 

@@ -7,7 +7,7 @@ public class Wind : MonoBehaviour
     [SerializeField] Teleportation _player;
     [SerializeField] private float _radius;
 
-    public event UnityAction ChangingWindDirection;
+    public event UnityAction<Vector3> ChangingWindDirection;
     public event UnityAction<float> ChangingWindForce;
 
     private Vector3 _wind;
@@ -53,9 +53,11 @@ public class Wind : MonoBehaviour
 
     private float ChangeWindForce()
     {
-        WindForce = Random.Range(0.05f, 0.5f);
+        WindForce = Random.Range(0.05f, 1f);
 
         ChangingWindForce?.Invoke(WindForce);
+
+        ChangeWindDirection();
 
         return WindForce;
     }
@@ -64,17 +66,17 @@ public class Wind : MonoBehaviour
     {
         int random = Random.Range(0, 2);
 
-        if (random == 0)
+        if (WindForce < 0.5f)
         {
             WindDirection = Vector3.left;
         }
 
-        if (random == 1)
+        if (WindForce >= 0.5f)
         {
             WindDirection = Vector3.right;
         }
 
-        ChangingWindDirection?.Invoke();
+        ChangingWindDirection?.Invoke(WindDirection);
 
         return WindDirection;
     }

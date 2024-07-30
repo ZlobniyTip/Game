@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(MeshCollider))]
 public class Weapon : MonoBehaviour
@@ -10,6 +11,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private int _index;
     [SerializeField] private MeshCollider _meshCollider;
 
+    public event UnityAction Destruction;
 
     public string Label => _label;
     public int Price => _price;
@@ -38,18 +40,19 @@ public class Weapon : MonoBehaviour
         }
     }
 
-public void Die()
-{
-    Destroy(gameObject);
-}
+    public void Die()
+    {
+        Destroy(gameObject);
+        Destruction?.Invoke();
+    }
 
-public void GetLinks(Player player)
-{
-    Player = player;
-}
+    public void GetLinks(Player player)
+    {
+        Player = player;
+    }
 
-public void SwitchingCollider(bool isIncluded)
-{
-    _meshCollider.enabled = isIncluded;
-}
+    public void SwitchingCollider(bool isIncluded)
+    {
+        _meshCollider.enabled = isIncluded;
+    }
 }

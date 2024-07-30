@@ -22,8 +22,8 @@ public class PlayerBonus : MonoBehaviour
     {
         _player.Thrower.enabled = false;
         _teleportation.enabled = false;
-        _yandexLeaderboard.SetPlayerScore(_player.Score);
         _player.AddScore(_player.RemainingNumThrows);
+        _yandexLeaderboard.SetPlayerScore(_player.Score);
     }
 
     public void AddThrowCountX2()

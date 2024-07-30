@@ -44,6 +44,8 @@ public class Player : MonoBehaviour
 
         RemainingNumThrows = _maxNumberThrows;
         ThrowsChange?.Invoke(RemainingNumThrows, _maxNumberThrows);
+
+        Money = 10000;
     }
 
     private void Update()
@@ -53,6 +55,14 @@ public class Player : MonoBehaviour
             if (_skills[0].Used == false)
             {
                 _playerUseSkills.GetSkill(_skills[0]);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            if (_skills[1].Used == false)
+            {
+                _playerUseSkills.GetSkill(_skills[1]);
             }
         }
     }

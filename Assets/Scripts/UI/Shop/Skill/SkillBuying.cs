@@ -38,7 +38,6 @@ public class SkillBuying : MonoBehaviour
 
     private void OnSellButtonClick(Skill skill, SkillView view)
     {
-        Debug.Log("onSellButtonCLickSkin");
         TrySellSkill(skill, view);
     }
 

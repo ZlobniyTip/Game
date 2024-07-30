@@ -44,13 +44,11 @@ public class SkillView : MonoBehaviour
 
     private void OnButtonClick()
     {
-        Debug.Log("viewBuyButtonClickSkill");
         SellButtonClick?.Invoke(_skill, this);
     }
 
     private void TryLockItem()
     {
-        Debug.Log("tryLockSkill");
         _sellButton.gameObject.SetActive(false);
         _useButton.SetActive(true);
     }

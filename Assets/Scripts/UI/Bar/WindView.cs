@@ -40,13 +40,13 @@ public class WindView : MonoBehaviour
         }
     }
 
-    private void ChangeWindDirection()
+    private void ChangeWindDirection(Vector3 direction)
     {
-        if (_windSlider.value >= 0.5f)
+        if (direction == Vector3.right)
         {
             _windImage.sprite = _windImageRigth;
         }
-        else
+        else if (direction == Vector3.left)
         {
             _windImage.sprite = _windImageLeft;
         }

@@ -4,9 +4,11 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Rigidbody))]
 public class UnitRagdollBone : MonoBehaviour
 {
+    [SerializeField] private int _reward;
+
     private Rigidbody _rigidbody;
 
-    public int Reward { get; private set; } = 50;
+    public int Reward => _reward;
 
     public UnityAction<UnitRagdollBone, Vector3> GetHit;
 
