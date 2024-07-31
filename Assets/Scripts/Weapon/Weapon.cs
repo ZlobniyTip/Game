@@ -12,6 +12,9 @@ public class Weapon : MonoBehaviour
     [SerializeField] private MeshCollider _meshCollider;
 
     public event UnityAction Destruction;
+    public event UnityAction<Vector3> Ricochet;
+
+    private Vector3 _hitPoint;
 
     public string Label => _label;
     public int Price => _price;
@@ -37,6 +40,15 @@ public class Weapon : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out ExplosiveBarrel explosiveBarrel))
         {
             explosiveBarrel.Explode();
+        }
+
+        if (collision.collider.gameObject.tag == "Collision")
+        {
+            foreach (ContactPoint contactPoint in collision.contacts)
+            {
+                _hitPoint = contactPoint.normal;
+                Ricochet?.Invoke(_hitPoint);
+            }
         }
     }
 
