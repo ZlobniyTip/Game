@@ -56,7 +56,7 @@ public class Weapon : MonoBehaviour
 
     public void Die()
     {
-        this.gameObject.SetActive(false);
+        Destroy(gameObject);
         Destruction?.Invoke();
     }
 

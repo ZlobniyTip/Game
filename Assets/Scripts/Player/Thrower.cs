@@ -11,9 +11,9 @@ public class Thrower : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private GameObject _target;
     [SerializeField] private Ricochet _ricochet;
-    [SerializeField] private PlayersWeapon _playersWeapon;
 
     private Rigidbody _rbCurrentWeapon;
+    private Weapon _weapon;
     private float _velocityMult = 12;
     private float _velocityMultDefault = 12;
 
@@ -25,11 +25,6 @@ public class Thrower : MonoBehaviour
     private void Awake()
     {
         _touchLight.SetActive(false);
-
-        CurrentWeapon.GetLinks(_player);
-        _ricochet.GetLinkCurrentWeapon(CurrentWeapon);
-        _throwerRaycast.GetLinkWeapon(CurrentWeapon);
-        _playerUseSkills.GetLinkWeapon(CurrentWeapon);
 
         if (PlayerPrefs.HasKey("throwForce"))
         {
@@ -69,7 +64,14 @@ public class Thrower : MonoBehaviour
         AimingMode = true;
         _throwerRaycast.enabled = true;
         CurrentTarget = Instantiate(_target, transform.position, Quaternion.identity);
-        CurrentWeapon.gameObject.SetActive(true);
+        CurrentWeapon = Instantiate(_weapon, CurrentTarget.transform.position, _weapon.transform.rotation);
+        CurrentWeapon.transform.parent = CurrentTarget.transform;
+
+        CurrentWeapon.GetLinks(_player);
+        _ricochet.GetLinkCurrentWeapon(CurrentWeapon);
+        _throwerRaycast.GetLinkWeapon(CurrentWeapon);
+        _playerUseSkills.GetLinkWeapon(CurrentWeapon);
+
         _rbCurrentWeapon = CurrentWeapon.GetComponentInChildren<Rigidbody>();
         _rbCurrentWeapon.isKinematic = true;
         CurrentWeapon.SwitchingCollider(false);
@@ -94,7 +96,7 @@ public class Thrower : MonoBehaviour
 
     public void GetWeapon(Weapon weapon)
     {
-        CurrentWeapon = weapon;
+        _weapon = weapon;
     }
 
     private void Throw(Vector3 mouseDelta)

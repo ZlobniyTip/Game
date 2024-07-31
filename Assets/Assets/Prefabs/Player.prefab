@@ -4267,16 +4267,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapons:
-  - {fileID: 9167338089400241229, guid: 5a8971cccbae9b049bc6d7e7b88c0592, type: 3}
   - {fileID: -5732094732788774207, guid: a8929d8c11f00b24d9d8e3bf32fedfb9, type: 3}
   - {fileID: 1846670649616110773, guid: 4635bd33ee58fc342bdf2219cd38db35, type: 3}
+  - {fileID: -8781443699200995492, guid: 58bbad6d81bb38843ac202ebba09c4a4, type: 3}
+  - {fileID: -7856043567671908496, guid: 2ab04f1ae8c6cf44ebc104d722d22baf, type: 3}
+  - {fileID: -492364753147993639, guid: 58e0cec82b1edce4b83a4753b7b73035, type: 3}
+  - {fileID: 4719239445217613123, guid: 4550e75c38334cd4b8fa8af861566dbc, type: 3}
+  - {fileID: 9167338089400241229, guid: 5a8971cccbae9b049bc6d7e7b88c0592, type: 3}
   - {fileID: -6098879677829580410, guid: df0557f1b34280a4ba8fd22a36aa7b85, type: 3}
   - {fileID: 7509043336654101892, guid: ac53f9d05b915884ab3ce6d0a7113315, type: 3}
   - {fileID: -5963952303323180361, guid: d44f072607d893145b2f6d39c8229bef, type: 3}
-  - {fileID: -492364753147993639, guid: 58e0cec82b1edce4b83a4753b7b73035, type: 3}
-  - {fileID: -7856043567671908496, guid: 2ab04f1ae8c6cf44ebc104d722d22baf, type: 3}
-  - {fileID: -8781443699200995492, guid: 58bbad6d81bb38843ac202ebba09c4a4, type: 3}
-  - {fileID: 4719239445217613123, guid: 4550e75c38334cd4b8fa8af861566dbc, type: 3}
   _currentWeapon: {fileID: 1846670649616110773, guid: 4635bd33ee58fc342bdf2219cd38db35, type: 3}
   _thrower: {fileID: 205841135117846719}
 --- !u!114 &-1394774022357741645

@@ -64,8 +64,6 @@ public class Wind : MonoBehaviour
 
     private Vector3 ChangeWindDirection()
     {
-        int random = Random.Range(0, 2);
-
         if (WindForce < 0.5f)
         {
             WindDirection = Vector3.left;
