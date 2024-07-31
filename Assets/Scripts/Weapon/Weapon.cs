@@ -13,6 +13,8 @@ public class Weapon : MonoBehaviour
 
     public event UnityAction Destruction;
 
+    private Thrower _thrower;
+
     public string Label => _label;
     public int Price => _price;
     public int Index => _index;
@@ -42,7 +44,7 @@ public class Weapon : MonoBehaviour
 
     public void Die()
     {
-        Destroy(gameObject);
+        this.gameObject.SetActive(false);
         Destruction?.Invoke();
     }
 

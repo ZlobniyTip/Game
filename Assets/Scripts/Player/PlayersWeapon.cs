@@ -9,21 +9,23 @@ public class PlayersWeapon : MonoBehaviour
 
     private int _indexCurrentWeapon = 0;
 
-    public Weapon CurrentWeapon { get; private set; }
-
     public List<Weapon> Weapons => _weapons;
+
+    private void Awake()
+    {
+        _thrower.GetWeapon(_currentWeapon);
+    }
 
     private void Start()
     {
         _indexCurrentWeapon = PlayerPrefs.GetInt("IndexCurrentWeapon");
         ChangeWeapon(_weapons[_indexCurrentWeapon]);
-        _thrower.GiveWeapon(_currentWeapon);
     }
 
     public void ChangeWeapon(Weapon weapon)
     {
         _currentWeapon = weapon;
-        _thrower.GiveWeapon(_currentWeapon);
+        _thrower.GetWeapon(_currentWeapon);
         _indexCurrentWeapon = weapon.Index;
         PlayerPrefs.SetInt("IndexCurrentWeapon", _indexCurrentWeapon);
     }

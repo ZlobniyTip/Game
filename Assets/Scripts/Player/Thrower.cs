@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Thrower : MonoBehaviour
 {
@@ -12,9 +11,9 @@ public class Thrower : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private GameObject _target;
     [SerializeField] private Ricochet _ricochet;
+    [SerializeField] private PlayersWeapon _playersWeapon;
 
     private Rigidbody _rbCurrentWeapon;
-    private Weapon _weapon;
     private float _velocityMult = 12;
     private float _velocityMultDefault = 12;
 
@@ -26,6 +25,11 @@ public class Thrower : MonoBehaviour
     private void Awake()
     {
         _touchLight.SetActive(false);
+
+        CurrentWeapon.GetLinks(_player);
+        _ricochet.GetLinkCurrentWeapon(CurrentWeapon);
+        _throwerRaycast.GetLinkWeapon(CurrentWeapon);
+        _playerUseSkills.GetLinkWeapon(CurrentWeapon);
 
         if (PlayerPrefs.HasKey("throwForce"))
         {
@@ -65,12 +69,7 @@ public class Thrower : MonoBehaviour
         AimingMode = true;
         _throwerRaycast.enabled = true;
         CurrentTarget = Instantiate(_target, transform.position, Quaternion.identity);
-        CurrentWeapon = Instantiate(_weapon, CurrentTarget.transform.position, _weapon.transform.rotation);
-        CurrentWeapon.transform.parent = CurrentTarget.transform;
-        CurrentWeapon.GetLinks(_player);
-        _ricochet.GetLinkCurrentWeapon(CurrentWeapon);
-        _throwerRaycast.GetLinkWeapon(CurrentWeapon);
-        _playerUseSkills.GetLinkWeapon(CurrentWeapon);
+        CurrentWeapon.gameObject.SetActive(true);
         _rbCurrentWeapon = CurrentWeapon.GetComponentInChildren<Rigidbody>();
         _rbCurrentWeapon.isKinematic = true;
         CurrentWeapon.SwitchingCollider(false);
@@ -93,21 +92,19 @@ public class Thrower : MonoBehaviour
         PlayerPrefs.SetFloat("throwForce", _velocityMult);
     }
 
-    public void GiveWeapon(Weapon weapon)
+    public void GetWeapon(Weapon weapon)
     {
-        _weapon = weapon;
+        CurrentWeapon = weapon;
     }
 
     private void Throw(Vector3 mouseDelta)
     {
-        CurrentWeapon.transform.parent = null;
         AimingMode = false;
         _rbCurrentWeapon.isKinematic = false;
         _rbCurrentWeapon.velocity = mouseDelta * _velocityMult;
         _followCam.GetLinkToObservedObject(CurrentWeapon.transform);
         _teleportation.GetLinkCurrentWeapon(CurrentWeapon);
         CurrentWeapon.SwitchingCollider(true);
-        //CurrentWeapon = null;
         _player.ReduceNumThrows();
     }
 
