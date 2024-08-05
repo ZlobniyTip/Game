@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Ricochet : Skill
 {
-    private Weapon _currentWeapon;
+    [SerializeField] private Weapon _currentWeapon;
+
     private float _force = 500;
     private Rigidbody _rigidbody;
-    private Vector3 _hitPoint;
 
     public void GetLinkCurrentWeapon(Weapon weapon)
     {
@@ -17,10 +17,8 @@ public class Ricochet : Skill
     {
         if (this.SkillState.IsBuying)
         {
-            Debug.Log(_currentWeapon);
             _rigidbody = _currentWeapon.GetComponent<Rigidbody>();
-            Debug.Log(_rigidbody);
-            _rigidbody.AddForce(_hitPoint * _force);
+            _rigidbody.AddForce(hitPoint * _force);
 
             _currentWeapon.Ricochet -= UseRicochet;
 

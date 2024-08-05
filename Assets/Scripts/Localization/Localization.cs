@@ -26,6 +26,8 @@ namespace Assets.Scripts
         {
             string languageCode = YandexGamesSdk.Environment.i18n.lang;
 
+            PlayerPrefs.SetString("currentLanguage", languageCode);
+
             switch (languageCode)
             {
                 case English:
@@ -38,8 +40,6 @@ namespace Assets.Scripts
                     _leanLocalization.SetCurrentLanguage(RussianCode);
                     break;
             }
-
-            PlayerPrefs.SetString("currentLanguage", languageCode);
         }
     }
 }
