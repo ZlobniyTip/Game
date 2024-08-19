@@ -10,26 +10,33 @@ public class WeaponView : MonoBehaviour
     [SerializeField] private TMP_Text _price;
     [SerializeField] private Image _icon;
     [SerializeField] private Button _sellButton;
-    [SerializeField] private GameObject _useButton;
+    [SerializeField] private Button _useButton;
+    [SerializeField] private Button _usedButton;
+    [SerializeField] private UseWeaponButton _useWeaponButton;
 
     private Weapon _weapon;
+    private string _defaultWeaponName = "SM_Wep_Kunai_01";
 
     public Weapon Weapon => _weapon;
 
     public PlayersWeapon PlayersWeapon { get; private set; }
 
     public event UnityAction<Weapon, WeaponView> SellButtonClick;
+    public event UnityAction<WeaponView> UsedWeaponView;
+    public event UnityAction<WeaponView> ChangeUsedWeapon;
 
     private void OnEnable()
     {
+        _useWeaponButton.ChangeWeapon += ChangeWeapon;
         _sellButton.onClick.AddListener(OnButtonClick);
-        _sellButton.onClick.AddListener(TryLockItem);
+        _sellButton.onClick.AddListener(LockItem);
     }
 
     private void OnDisable()
     {
+        _useWeaponButton.ChangeWeapon -= ChangeWeapon;
         _sellButton.onClick.RemoveListener(OnButtonClick);
-        _sellButton.onClick.RemoveListener(TryLockItem);
+        _sellButton.onClick.RemoveListener(LockItem);
     }
 
     public void GetLinkPlayer(PlayersWeapon playersWeapon)
@@ -47,13 +54,33 @@ public class WeaponView : MonoBehaviour
 
         if (_weapon.WeaponState.IsBuying)
         {
-            TryLockItem();
+            LockItem();
         }
 
-        if (_weapon.name == "SM_Wep_Kunai_01")
+        if (_weapon.name == _defaultWeaponName)
         {
-            TryLockItem();
+            LockItem();
         }
+
+        if (_weapon.WeaponState.IsUsed)
+        {
+            ShowUsedButton();
+            UsedWeaponView?.Invoke(this);
+        }
+    }
+
+    public void LockItem()
+    {
+        _sellButton.gameObject.SetActive(false);
+        _useButton.gameObject.SetActive(true);
+        _usedButton.gameObject.SetActive(false);
+    }
+
+    public void ShowUsedButton()
+    {
+        _sellButton.gameObject.SetActive(false);
+        _useButton.gameObject.SetActive(false);
+        _usedButton.gameObject.SetActive(true);
     }
 
     private void OnButtonClick()
@@ -61,9 +88,8 @@ public class WeaponView : MonoBehaviour
         SellButtonClick?.Invoke(_weapon, this);
     }
 
-    private void TryLockItem()
+    private void ChangeWeapon()
     {
-        _sellButton.gameObject.SetActive(false);
-        _useButton.SetActive(true);
+        ChangeUsedWeapon?.Invoke(this);
     }
 }

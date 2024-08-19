@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WeaponsBuying : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class WeaponsBuying : MonoBehaviour
     [SerializeField] private GameObject _itemContainer;
 
     private List<WeaponView> _content = new List<WeaponView>();
+    private WeaponView _usedWeaponView;
 
     private void OnEnable()
     {
@@ -23,6 +25,8 @@ public class WeaponsBuying : MonoBehaviour
         for (int i = 0; i < _content.Count; i++)
         {
             _content[i].SellButtonClick -= OnSellButtonClick;
+            _content[i].UsedWeaponView -= GetLinkWeaponView;
+            _content[i].ChangeUsedWeapon -= OnChangeUsedWeapon;
             Destroy(_content[i].gameObject);
         }
 
@@ -33,22 +37,46 @@ public class WeaponsBuying : MonoBehaviour
     {
         var view = Instantiate(_template, _itemContainer.transform);
         view.SellButtonClick += OnSellButtonClick;
+        view.UsedWeaponView += GetLinkWeaponView;
+        view.ChangeUsedWeapon += OnChangeUsedWeapon;
         view.Render(weapon);
         view.GetLinkPlayer(_playersWeapon);
         _content.Add(view);
     }
 
-    private void OnSellButtonClick(Weapon weapon,WeaponView view)
+    private void OnSellButtonClick(Weapon weapon, WeaponView view)
     {
         TrySellWeapon(weapon, view);
     }
 
-    private void TrySellWeapon(Weapon weapon,WeaponView view)
+    private void TrySellWeapon(Weapon weapon, WeaponView view)
     {
         if (weapon.Price <= _player.Money)
         {
             _player.BuyWeapon(weapon);
+
+            if (_usedWeaponView != null)
+            {
+                _usedWeaponView.LockItem();
+            }
+
+            view.ShowUsedButton();
             view.SellButtonClick -= OnSellButtonClick;
         }
+    }
+
+    public void GetLinkWeaponView(WeaponView weaponView)
+    {
+        _usedWeaponView = weaponView;
+    }
+
+    private void OnChangeUsedWeapon(WeaponView weaponView)
+    {
+        if (_usedWeaponView != null)
+        {
+            _usedWeaponView.LockItem();
+        }
+
+        weaponView.ShowUsedButton();
     }
 }

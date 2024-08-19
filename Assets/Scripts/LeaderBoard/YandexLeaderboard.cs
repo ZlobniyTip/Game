@@ -11,6 +11,8 @@ public class YandexLeaderboard : MonoBehaviour
 
     [SerializeField] private LeaderboardView _leaderboardView;
     [SerializeField] private GameObject _authorizePanel;
+    [SerializeField] private GameObject _errorAuthorizedPanel;
+    [SerializeField] private SaveState _saveState;
 
     public void OpenLeaderboard()
     {
@@ -21,16 +23,16 @@ public class YandexLeaderboard : MonoBehaviour
 
         if (PlayerAccount.IsAuthorized == false)
             _authorizePanel.SetActive(true);
-            return;
+
+        _saveState.LoadFile();
     }
 
     public void Authorize()
     {
-        PlayerAccount.Authorize();
+        PlayerAccount.Authorize(OpenLeaderboard, OpenAuthorizationWindow);
 
         if (PlayerAccount.IsAuthorized)
             _authorizePanel.SetActive(false);
-        OpenLeaderboard();
     }
 
     public void SetPlayerScore(int score)
@@ -70,5 +72,11 @@ public class YandexLeaderboard : MonoBehaviour
 
             _leaderboardView.Constructleaderboard(_leaderboardPlayers);
         });
+    }
+
+    private void OpenAuthorizationWindow(string error)
+    {
+        _errorAuthorizedPanel.SetActive(true);
+        _authorizePanel.SetActive(true);
     }
 }

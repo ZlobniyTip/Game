@@ -18,6 +18,12 @@ public class PlayerBonus : MonoBehaviour
     private int _countValue = 1;
     private int _countValueX2 = 2;
 
+    private void OnDisable()
+    {
+        _videoAd.RewardCallback -= AddThrowForceX2;
+        _videoAd.RewardCallback -= AddThrowCountX2;
+    }
+
     private void Start()
     {
         _player.Thrower.enabled = false;
@@ -26,26 +32,36 @@ public class PlayerBonus : MonoBehaviour
         _yandexLeaderboard.SetPlayerScore(_player.Score);
     }
 
+    public void TryAddThrowCountX2()
+    {
+        _videoAd.RewardCallback += AddThrowCountX2;
+        _videoAd.Show();
+        _nextLevel.gameObject.SetActive(true);
+        LockButton();
+    }
+
     public void AddThrowCountX2()
     {
-        _nextLevel.gameObject.SetActive(true);
-        _videoAd.Show();
         _player.AddThrowCount(_countValueX2);
+    }
+
+    public void TryAddThrowForceX2()
+    {
+        _videoAd.RewardCallback += AddThrowForceX2;
+        _videoAd.Show();
+        _nextLevel.gameObject.SetActive(true);
         LockButton();
+    }
+
+    public void AddThrowForceX2()
+    {
+        _player.Thrower.AddThrowForce(_forceValueX2);
     }
 
     public void AddThrowCount()
     {
         _nextLevel.gameObject.SetActive(true);
         _player.AddThrowCount(_countValue);
-        LockButton();
-    }
-
-    public void AddThrowForceX2()
-    {
-        _nextLevel.gameObject.SetActive(true);
-        _videoAd.Show();
-        _player.Thrower.AddThrowForce(_forceValueX2);
         LockButton();
     }
 

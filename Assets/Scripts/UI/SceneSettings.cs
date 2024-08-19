@@ -10,22 +10,25 @@ public class SceneSettings : MonoBehaviour
 
     private int _nextScene;
 
+    private void OnDisable()
+    {
+        _videoAd.RewardCallback -= RestartScene;
+    }
+
     private void Start()
     {
         _nextScene = SceneManager.GetActiveScene().buildIndex + 1;
     }
 
-    public void ExitToMenu()
+    public void TryRestartScene()
     {
         _saveState.SaveFile();
-        _menu.SetActive(true);
-        _winScreen.SetActive(false);
+        _videoAd.RewardCallback += RestartScene;
+        _videoAd.Show();
     }
 
     public void RestartScene()
     {
-        _videoAd.Show();
-
         _saveState.SaveFile();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 

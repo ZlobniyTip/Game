@@ -24,20 +24,30 @@ namespace Assets.Scripts
 
         private void ChangeLanguage()
         {
-            string languageCode = YandexGamesSdk.Environment.i18n.lang;
+            if (PlayerPrefs.HasKey("currentLanguage"))
+            {
+                string currentLanguage = PlayerPrefs.GetString("currentLanguage");
 
-            PlayerPrefs.SetString("currentLanguage", languageCode);
+                _leanLocalization.SetCurrentLanguage(currentLanguage);
+
+                return;
+            }
+
+            string languageCode = YandexGamesSdk.Environment.i18n.lang;
 
             switch (languageCode)
             {
                 case English:
                     _leanLocalization.SetCurrentLanguage(EnglishCode);
+                    PlayerPrefs.SetString("currentLanguage", EnglishCode);
                     break;
                 case Turkish:
                     _leanLocalization.SetCurrentLanguage(TurkishCode);
+                    PlayerPrefs.SetString("currentLanguage", TurkishCode);
                     break;
                 case Russian:
                     _leanLocalization.SetCurrentLanguage(RussianCode);
+                    PlayerPrefs.SetString("currentLanguage", RussianCode);
                     break;
             }
         }

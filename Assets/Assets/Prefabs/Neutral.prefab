@@ -1376,9 +1376,9 @@ GameObject:
   - component: {fileID: 8163201191011332367}
   - component: {fileID: 8163201191011332364}
   - component: {fileID: 8163201191011332355}
-  - component: {fileID: 8163201191011332354}
   - component: {fileID: 7152411693498542576}
   - component: {fileID: 7498284367665651677}
+  - component: {fileID: 4287806491700159223}
   m_Layer: 0
   m_Name: Neutral
   m_TagString: Untagged
@@ -1461,46 +1461,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ce85ca7eb1406d4fb771debb387d30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8163201191011332354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8163201191011332365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1f4e1da650425b429d047813f444084, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _deathEffects:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1947587487831407858}
-        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7498284367665651677}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 28035043174d44f928d428fc44f59150, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _progressBar: {fileID: 0}
 --- !u!114 &7152411693498542576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1622,6 +1582,45 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4287806491700159223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8163201191011332365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6215fb85bf834a4495eb945d3f50c5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _deathEffects:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1947587487831407858}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7498284367665651677}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 28035043174d44f928d428fc44f59150, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8163201191022540196
 GameObject:
   m_ObjectHideFlags: 0

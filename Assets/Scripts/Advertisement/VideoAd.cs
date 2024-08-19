@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class VideoAd : MonoBehaviour
 {
-    private int _money;
+    public event UnityAction RewardCallback;
 
     public void Show() =>
         Agava.YandexGames.VideoAd.Show(OnOpenCallback, OnRewardCallback, OnCloseCallback);
@@ -13,8 +14,10 @@ public class VideoAd : MonoBehaviour
         AudioListener.volume = 0f;
     }
 
-    private void OnRewardCallback() =>
-        _money++;
+    private void OnRewardCallback()
+    {
+        RewardCallback?.Invoke();
+    }
 
     private void OnCloseCallback()
     {

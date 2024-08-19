@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: JuMonjiYari
-  _price: 12500
+  _price: 2500
   _icon: {fileID: 21300000, guid: aa3f2b0ef26f12e4199884de37f970d0, type: 3}
   _weaponState:
     IsBuying: 0

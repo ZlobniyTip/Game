@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Odachi
-  _price: 35000
+  _price: 5000
   _icon: {fileID: 21300000, guid: 7092c6e1bc7e6b6468d05835ee8e26e4, type: 3}
   _weaponState:
     IsBuying: 0

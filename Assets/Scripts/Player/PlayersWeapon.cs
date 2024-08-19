@@ -10,6 +10,7 @@ public class PlayersWeapon : MonoBehaviour
     private int _indexCurrentWeapon = 0;
 
     public List<Weapon> Weapons => _weapons;
+    public Weapon CurrentWepon => _currentWeapon;
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class PlayersWeapon : MonoBehaviour
 
     public void ChangeWeapon(Weapon weapon)
     {
+        _currentWeapon.WeaponState.Used(false);
         _currentWeapon = weapon;
         _thrower.GetWeapon(_currentWeapon);
         _indexCurrentWeapon = weapon.Index;
@@ -34,7 +36,7 @@ public class PlayersWeapon : MonoBehaviour
     {
         for (int i = 0; i < _weapons.Count; i++)
         {
-            _weapons[i].WeaponState.LoadState(weapons[i].IsBuying);
+            _weapons[i].WeaponState.LoadState(weapons[i].IsBuying, weapons[i].IsUsed);
         }
     }
 }

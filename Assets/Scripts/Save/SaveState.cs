@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using Agava.YandexGames;
+using UnityEngine.SceneManagement;
 
 public class SaveState : MonoBehaviour
 {
@@ -48,31 +50,44 @@ public class SaveState : MonoBehaviour
         {
             weaponStates = _weaponStates,
             skinStates = _skinStates,
-            skillStates = _skillStates
+            skillStates = _skillStates,
+            playerMoney = _player.Money,
+            maxNumberThrows = _player.MaxNumberThrows,
+            velocityMult = _player.Thrower.VelocityMult
         };
 
         string json = JsonUtility.ToJson(gameCoreStruct, prettyPrint: true);
 
-        PlayerPrefs.SetString("save", json);
+        PlayerAccount.SetCloudSaveData(json);
     }
 
     public void LoadFile()
     {
-        string json;
+        PlayerAccount.GetCloudSaveData(LoadLocalData, StartEvents);
+    }
 
-        if (PlayerPrefs.HasKey("save"))
-        {
-            json = PlayerPrefs.GetString("save");
-        }
-        else
-        {
-            return;
-        }
-
+    private void LoadLocalData(string json)
+    {
         GameCoreStruct gameCoreFromJson = JsonUtility.FromJson<GameCoreStruct>(json);
 
         _player.LoadSkill(gameCoreFromJson.skillStates);
         _playersWeapon.LoadWeapons(gameCoreFromJson.weaponStates);
         _skinEditor.LoadSkins(gameCoreFromJson.skinStates);
+        _player.LoadMaxNumThrows(gameCoreFromJson.maxNumberThrows);
+        _player.LoadMoney(gameCoreFromJson.playerMoney);
+        _player.Thrower.LoadVelocityMult(gameCoreFromJson.velocityMult);
+
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            _player.ResetThrowCount();
+            _player.Thrower.ResetThrowForce();
+        }
+
+        StartEvents(null);
+    }
+
+    private void StartEvents(string error)
+    {
+        _player.StartEvents();
     }
 }

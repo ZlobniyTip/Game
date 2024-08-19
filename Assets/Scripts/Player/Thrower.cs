@@ -17,6 +17,8 @@ public class Thrower : MonoBehaviour
     private float _velocityMult = 12;
     private float _velocityMultDefault = 12;
 
+    public float VelocityMult => _velocityMult;
+
     public GameObject CurrentTarget { get; private set; }
     public Weapon CurrentWeapon { get; private set; }
     public bool AimingMode { get; private set; }
@@ -46,6 +48,11 @@ public class Thrower : MonoBehaviour
             _playerAnimations.Throw();
             WeaponsFlight = true;
         }
+    }
+
+    public void LoadVelocityMult(float velocity)
+    {
+        _velocityMult = velocity;
     }
 
     public void ToutchLigthOn()

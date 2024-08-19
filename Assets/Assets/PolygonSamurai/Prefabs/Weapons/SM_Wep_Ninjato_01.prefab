@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Ninjato
-  _price: 25000
+  _price: 3000
   _icon: {fileID: 21300000, guid: a1c1b1e15aada3b44991721681eef7e2, type: 3}
   _weaponState:
     IsBuying: 0

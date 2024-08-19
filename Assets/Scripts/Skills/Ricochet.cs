@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class Ricochet : Skill
 {
-    [SerializeField] private Weapon _currentWeapon;
-
-    private float _force = 500;
+    private Weapon _currentWeapon;
+    private float _force = 300;
     private Rigidbody _rigidbody;
 
     public void GetLinkCurrentWeapon(Weapon weapon)

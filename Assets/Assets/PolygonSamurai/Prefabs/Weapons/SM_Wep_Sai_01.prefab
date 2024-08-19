@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Sai
-  _price: 7000
+  _price: 1500
   _icon: {fileID: 21300000, guid: 02b6d113831a690459d3e6c4d09d3e0a, type: 3}
   _weaponState:
     IsBuying: 0

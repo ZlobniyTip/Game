@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Double kunai
-  _price: 3000
+  _price: 500
   _icon: {fileID: 21300000, guid: d93960400ebf4f64ab15ff80d7349f21, type: 3}
   _weaponState:
     IsBuying: 0

@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Geisha
-  _price: 3000
+  _price: 1000
   _icon: {fileID: 21300000, guid: 7433784ebdd999e48b41412103cc05fa, type: 3}
   _index: 2
   _skinState:
@@ -832,7 +832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Sensei
-  _price: 7000
+  _price: 2000
   _icon: {fileID: 21300000, guid: 93853906572c71442ab5ccafe8cde272, type: 3}
   _index: 3
   _skinState:
@@ -2162,7 +2162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Samurai
-  _price: 25000
+  _price: 8000
   _icon: {fileID: 21300000, guid: 6ec33246d03791e42b4605515fab3095, type: 3}
   _index: 6
   _skinState:
@@ -3335,7 +3335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Soldier
-  _price: 15000
+  _price: 7000
   _icon: {fileID: 21300000, guid: 501c25202ea74234cbe98d75ac41e08e, type: 3}
   _index: 5
   _skinState:
@@ -3923,7 +3923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Ninja
-  _price: 10000
+  _price: 5000
   _icon: {fileID: 21300000, guid: 78c71c29641da99489f6a147abc3c204, type: 3}
   _index: 4
   _skinState:
@@ -4228,6 +4228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Multishot
+  _description: It is activated by a space bar during a throw
   _price: 5000
   _icon: {fileID: 21300000, guid: 3c187bac23ffc884dbcfe56c907b10d4, type: 3}
   _skillState:
@@ -4374,6 +4375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Explosion Weapon
+  _description: Activating the LMB during a weapon throw
   _price: 3000
   _icon: {fileID: 21300000, guid: df0438650cb509f48bf0feeee6eebeea, type: 3}
   _skillState:
@@ -4409,8 +4411,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Ricochet
+  _description: Passive ability
   _price: 2000
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 45edcdb867267cc4d9dd794c650f7ff5, type: 3}
   _skillState:
     IsBuying: 0
 --- !u!1001 &8504221244507357809

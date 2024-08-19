@@ -1,7 +1,6 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(Enemy))]
 [RequireComponent(typeof(EnemyMovement))]
 public class UnitRagdoll : MonoBehaviour
 {
@@ -10,12 +9,12 @@ public class UnitRagdoll : MonoBehaviour
 
     private Animator _animator;
     private EnemyMovement _enemyMovement;
-    private Enemy _enemy;
+    private Creature _enemy;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        _enemy = GetComponent<Enemy>();
+        _enemy = GetComponent<Creature>();
         _enemyMovement = GetComponent<EnemyMovement>();
     }
 

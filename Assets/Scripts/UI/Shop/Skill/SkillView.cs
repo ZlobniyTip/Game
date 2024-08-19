@@ -8,6 +8,7 @@ public class SkillView : MonoBehaviour
 {
     [SerializeField] private TMP_Text _label;
     [SerializeField] private TMP_Text _price;
+    [SerializeField] private TMP_Text _description;
     [SerializeField] private Image _icon;
     [SerializeField] private Button _sellButton;
     [SerializeField] private GameObject _useButton;
@@ -33,6 +34,7 @@ public class SkillView : MonoBehaviour
         _skill = skill;
 
         _label.text = LeanLocalization.GetTranslationText(skill.Label);
+        _description.text = LeanLocalization.GetTranslationText(skill.Description);
         _price.text = skill.Price.ToString();
         _icon.sprite = skill.Icon;
 
