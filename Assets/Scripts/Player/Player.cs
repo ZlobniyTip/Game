@@ -128,7 +128,6 @@ public class Player : MonoBehaviour
         PlayerPrefs.SetInt("currentMoney", Money);
         MoneyChange?.Invoke(Money);
         weapon.WeaponState.Buy();
-        weapon.WeaponState.Used(true);
         _playersWeapon.ChangeWeapon(weapon);
     }
 

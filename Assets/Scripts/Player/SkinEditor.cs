@@ -22,6 +22,8 @@ public class SkinEditor : MonoBehaviour
 
     public void ChangeSkin(Skin skin)
     {
+        _currentSkin.SkinState.Used(false);
+        skin.SkinState.Used(true);
         _currentSkin.gameObject.SetActive(false);
         _currentSkin = skin;
         _currentSkin.gameObject.SetActive(true);
@@ -33,7 +35,7 @@ public class SkinEditor : MonoBehaviour
     {
         for (int i = 0; i < _skins.Count; i++)
         {
-            _skins[i].SkinState.LoadState(skins[i].IsBuying);
+            _skins[i].SkinState.LoadState(skins[i].IsBuying, skins[i].IsUsed);
         }
     }
 }

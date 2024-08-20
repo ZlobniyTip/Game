@@ -29,7 +29,21 @@ public class TestFocus : MonoBehaviour
 
     private void MuteAudio(bool value)
     {
-        AudioListener.volume = value ? 0 : 1;
+        if (value == false)
+        {
+            if (PlayerPrefs.HasKey("currentVolume"))
+            {
+                AudioListener.volume = PlayerPrefs.GetFloat("currentVolume");
+                return;
+            }
+
+            AudioListener.volume = 1;
+        }
+
+        if (value == true)
+        {
+            AudioListener.volume = 0;
+        }
     }
 
     private void PauseGame(bool value)

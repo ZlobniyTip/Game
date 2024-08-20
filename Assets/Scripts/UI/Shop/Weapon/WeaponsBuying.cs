@@ -60,6 +60,7 @@ public class WeaponsBuying : MonoBehaviour
                 _usedWeaponView.LockItem();
             }
 
+            _usedWeaponView = view;
             view.ShowUsedButton();
             view.SellButtonClick -= OnSellButtonClick;
         }
@@ -77,6 +78,7 @@ public class WeaponsBuying : MonoBehaviour
             _usedWeaponView.LockItem();
         }
 
+        _usedWeaponView = weaponView;
         weaponView.ShowUsedButton();
     }
 }

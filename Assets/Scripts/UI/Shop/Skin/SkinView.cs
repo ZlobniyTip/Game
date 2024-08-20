@@ -10,7 +10,9 @@ public class SkinView : MonoBehaviour
     [SerializeField] private TMP_Text _price;
     [SerializeField] private Image _icon;
     [SerializeField] private Button _sellButton;
-    [SerializeField] private GameObject _useButton;
+    [SerializeField] private Button _useButton;
+    [SerializeField] private Button _usedButton;
+    [SerializeField] private UseSkinButton _useSkinButton;
 
     private Skin _skin;
 
@@ -19,17 +21,21 @@ public class SkinView : MonoBehaviour
     public Skin Skin => _skin;
 
     public event UnityAction<Skin, SkinView> SellButtonClick;
+    public event UnityAction<SkinView> UsedSkinView;
+    public event UnityAction<SkinView> ChangeUsedSkin;
 
     private void OnEnable()
     {
+        _useSkinButton.ChangeSkin += ChangeWeapon;
         _sellButton.onClick.AddListener(OnButtonClick);
-        _sellButton.onClick.AddListener(TryLockItem);
+        _sellButton.onClick.AddListener(LockItem);
     }
 
     private void OnDisable()
     {
+        _useSkinButton.ChangeSkin -= ChangeWeapon;
         _sellButton.onClick.RemoveListener(OnButtonClick);
-        _sellButton.onClick.RemoveListener(TryLockItem);
+        _sellButton.onClick.RemoveListener(LockItem);
     }
 
     public void GetLinkPlayer(SkinEditor skinEditor)
@@ -45,14 +51,19 @@ public class SkinView : MonoBehaviour
         _price.text = skin.Price.ToString();
         _icon.sprite = skin.Icon;
 
-        if (_skin.SkinState.IsBuying)
+        if (_skin.SkinState.IsUsed)
         {
-            TryLockItem();
+            ShowUsedButton();
+            UsedSkinView?.Invoke(this);
+            return;
         }
-
-        if (_skin.name == "Character_Village_Man" || _skin.name == "Character_Village_Woman")
+        else if (_skin.SkinState.IsBuying)
         {
-            TryLockItem();
+            LockItem();
+        }
+        else if (_skin.Index == 0 || _skin.Index == 1)
+        {
+            LockItem();
         }
     }
 
@@ -61,9 +72,22 @@ public class SkinView : MonoBehaviour
         SellButtonClick?.Invoke(_skin, this);
     }
 
-    private void TryLockItem()
+    public void LockItem()
     {
         _sellButton.gameObject.SetActive(false);
-        _useButton.SetActive(true);
+        _useButton.gameObject.SetActive(true);
+        _usedButton.gameObject.SetActive(false);
+    }
+
+    public void ShowUsedButton()
+    {
+        _sellButton.gameObject.SetActive(false);
+        _useButton.gameObject.SetActive(false);
+        _usedButton.gameObject.SetActive(true);
+    }
+
+    private void ChangeWeapon()
+    {
+        ChangeUsedSkin?.Invoke(this);
     }
 }

@@ -26,6 +26,7 @@ public class PlayersWeapon : MonoBehaviour
     public void ChangeWeapon(Weapon weapon)
     {
         _currentWeapon.WeaponState.Used(false);
+        weapon.WeaponState.Used(true);
         _currentWeapon = weapon;
         _thrower.GetWeapon(_currentWeapon);
         _indexCurrentWeapon = weapon.Index;

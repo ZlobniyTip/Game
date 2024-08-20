@@ -10,7 +10,6 @@ public class UseWeaponButton : MonoBehaviour
     public void UseWeapon()
     {
         _weaponView.PlayersWeapon.ChangeWeapon(_weaponView.Weapon);
-        _weaponView.ShowUsedButton();
         ChangeWeapon?.Invoke();
     }
 }

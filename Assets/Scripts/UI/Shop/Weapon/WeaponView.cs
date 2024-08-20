@@ -15,7 +15,7 @@ public class WeaponView : MonoBehaviour
     [SerializeField] private UseWeaponButton _useWeaponButton;
 
     private Weapon _weapon;
-    private string _defaultWeaponName = "SM_Wep_Kunai_01";
+    private int _defaultWeaponIndex = 0;
 
     public Weapon Weapon => _weapon;
 
@@ -52,20 +52,19 @@ public class WeaponView : MonoBehaviour
         _price.text = weapon.Price.ToString();
         _icon.sprite = weapon.Icon;
 
-        if (_weapon.WeaponState.IsBuying)
-        {
-            LockItem();
-        }
-
-        if (_weapon.name == _defaultWeaponName)
-        {
-            LockItem();
-        }
-
         if (_weapon.WeaponState.IsUsed)
         {
             ShowUsedButton();
             UsedWeaponView?.Invoke(this);
+            return;
+        }
+        else if (_weapon.WeaponState.IsBuying)
+        {
+            LockItem();
+        }
+        else if (_weapon.Index == _defaultWeaponIndex)
+        {
+            LockItem();
         }
     }
 
