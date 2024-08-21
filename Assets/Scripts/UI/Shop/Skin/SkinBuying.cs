@@ -9,7 +9,6 @@ public class SkinBuying : MonoBehaviour
     [SerializeField] private GameObject _itemContainer;
 
     private List<SkinView> _content = new List<SkinView>();
-    private SkinView _usedSkinView;
 
     private void OnEnable()
     {
@@ -24,7 +23,6 @@ public class SkinBuying : MonoBehaviour
         for (int i = 0; i < _content.Count; i++)
         {
             _content[i].SellButtonClick -= OnSellButtonClick;
-            _content[i].UsedSkinView -= GetLinkSkinView;
             _content[i].ChangeUsedSkin -= OnChangeUsedSkin;
             Destroy(_content[i].gameObject);
         }
@@ -36,7 +34,6 @@ public class SkinBuying : MonoBehaviour
     {
         var view = Instantiate(_template, _itemContainer.transform);
         view.SellButtonClick += OnSellButtonClick;
-        view.UsedSkinView += GetLinkSkinView;
         view.ChangeUsedSkin += OnChangeUsedSkin;
         view.Render(skin);
         view.GetLinkPlayer(_skinEditor);
@@ -54,9 +51,12 @@ public class SkinBuying : MonoBehaviour
         {
             _player.BuySkin(skin);
 
-            if (_usedSkinView != null)
+            for (int i = 0; i < _content.Count; i++)
             {
-                _usedSkinView.LockItem();
+                if (_content[i].Skin.SkinState.IsBuying)
+                {
+                    _content[i].LockItem();
+                }
             }
 
             view.ShowUsedButton();
@@ -64,19 +64,16 @@ public class SkinBuying : MonoBehaviour
         }
     }
 
-    public void GetLinkSkinView(SkinView skinView)
-    {
-        _usedSkinView = skinView;
-    }
-
     private void OnChangeUsedSkin(SkinView skinView)
     {
-        if (_usedSkinView != null)
+        for (int i = 0; i < _content.Count; i++)
         {
-            _usedSkinView.LockItem();
+            if (_content[i].Skin.SkinState.IsBuying)
+            {
+                _content[i].LockItem();
+            }
         }
 
-        _usedSkinView = skinView;
         skinView.ShowUsedButton();
     }
 }

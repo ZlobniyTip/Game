@@ -126,6 +126,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: a1c1b1e15aada3b44991721681eef7e2, type: 3}
   _weaponState:
     IsBuying: 0
+    IsUsed: 0
   _index: 8
   _meshCollider: {fileID: 64490741587574428}
 --- !u!54 &8565462728854497747

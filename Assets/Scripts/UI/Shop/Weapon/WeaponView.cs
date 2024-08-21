@@ -15,14 +15,12 @@ public class WeaponView : MonoBehaviour
     [SerializeField] private UseWeaponButton _useWeaponButton;
 
     private Weapon _weapon;
-    private int _defaultWeaponIndex = 0;
 
     public Weapon Weapon => _weapon;
 
     public PlayersWeapon PlayersWeapon { get; private set; }
 
     public event UnityAction<Weapon, WeaponView> SellButtonClick;
-    public event UnityAction<WeaponView> UsedWeaponView;
     public event UnityAction<WeaponView> ChangeUsedWeapon;
 
     private void OnEnable()
@@ -55,14 +53,13 @@ public class WeaponView : MonoBehaviour
         if (_weapon.WeaponState.IsUsed)
         {
             ShowUsedButton();
-            UsedWeaponView?.Invoke(this);
             return;
         }
         else if (_weapon.WeaponState.IsBuying)
         {
             LockItem();
         }
-        else if (_weapon.Index == _defaultWeaponIndex)
+        else if (_weapon.Index == 0)
         {
             LockItem();
         }

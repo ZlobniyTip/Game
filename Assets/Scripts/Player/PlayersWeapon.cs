@@ -25,7 +25,11 @@ public class PlayersWeapon : MonoBehaviour
 
     public void ChangeWeapon(Weapon weapon)
     {
-        _currentWeapon.WeaponState.Used(false);
+        for (int i = 0; i < _weapons.Count; i++)
+        {
+            _weapons[i].WeaponState.Used(false);
+        }
+
         weapon.WeaponState.Used(true);
         _currentWeapon = weapon;
         _thrower.GetWeapon(_currentWeapon);

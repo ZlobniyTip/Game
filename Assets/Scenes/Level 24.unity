@@ -3804,14 +3804,6 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 370569884}
-    - target: {fileID: 1744784437194490158, guid: cb2046455d3a8e049944b8642c6f5681, type: 3}
-      propertyPath: _skinEditor
-      value: 
-      objectReference: {fileID: 370569885}
-    - target: {fileID: 1744784437194490158, guid: cb2046455d3a8e049944b8642c6f5681, type: 3}
-      propertyPath: _playersWeapon
-      value: 
-      objectReference: {fileID: 370569883}
     - target: {fileID: 1840875246653809935, guid: cb2046455d3a8e049944b8642c6f5681, type: 3}
       propertyPath: m_fontSize
       value: 31

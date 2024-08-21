@@ -1,18 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
 using Agava.YandexGames;
 using UnityEngine.SceneManagement;
 
 public class SaveState : MonoBehaviour
 {
-    [SerializeField] private PlayersWeapon _playersWeapon;
-    [SerializeField] private SkinEditor _skinEditor;
     [SerializeField] private Player _player;
-
-    [Header("SaveConfig")]
-    [SerializeField] private string _savePath;
-    [SerializeField] private string _saveFileName = "data.json";
 
     private List<WeaponState> _weaponStates = new List<WeaponState>();
     private List<SkinState> _skinStates = new List<SkinState>();
@@ -20,22 +13,20 @@ public class SaveState : MonoBehaviour
 
     private void Awake()
     {
-        _savePath = Path.Combine(Application.persistentDataPath, _saveFileName);
-
         _weaponStates.Clear();
         _skillStates.Clear();
         _skinStates.Clear();
 
         LoadFile();
 
-        for (int i = 0; i < _playersWeapon.Weapons.Count; i++)
+        for (int i = 0; i < _player.PlayersWeapon.Weapons.Count; i++)
         {
-            _weaponStates.Add(_playersWeapon.Weapons[i].WeaponState);
+            _weaponStates.Add(_player.PlayersWeapon.Weapons[i].WeaponState);
         }
 
-        for (int i = 0; i < _skinEditor.Skins.Count; i++)
+        for (int i = 0; i < _player.SkinEditor.Skins.Count; i++)
         {
-            _skinStates.Add(_skinEditor.Skins[i].SkinState);
+            _skinStates.Add(_player.SkinEditor.Skins[i].SkinState);
         }
 
         for (int i = 0; i < _player.Skills.Count; i++)
@@ -61,6 +52,25 @@ public class SaveState : MonoBehaviour
         PlayerAccount.SetCloudSaveData(json);
     }
 
+    public void RemoveAllSave()
+    {
+        GameCoreStruct gameCoreStruct = new GameCoreStruct
+        {
+            weaponStates = null,
+            skinStates = null,
+            skillStates = null,
+            playerMoney = 0,
+            maxNumberThrows = 4,
+            velocityMult = 12
+        };
+
+        string json = JsonUtility.ToJson(gameCoreStruct, prettyPrint: true);
+
+        PlayerAccount.SetCloudSaveData(json);
+
+        LoadFile();
+    }
+
     public void LoadFile()
     {
         PlayerAccount.GetCloudSaveData(LoadLocalData, StartEvents);
@@ -71,8 +81,8 @@ public class SaveState : MonoBehaviour
         GameCoreStruct gameCoreFromJson = JsonUtility.FromJson<GameCoreStruct>(json);
 
         _player.LoadSkill(gameCoreFromJson.skillStates);
-        _playersWeapon.LoadWeapons(gameCoreFromJson.weaponStates);
-        _skinEditor.LoadSkins(gameCoreFromJson.skinStates);
+        _player.PlayersWeapon.LoadWeapons(gameCoreFromJson.weaponStates);
+        _player.SkinEditor.LoadSkins(gameCoreFromJson.skinStates);
         _player.LoadMaxNumThrows(gameCoreFromJson.maxNumberThrows);
         _player.LoadMoney(gameCoreFromJson.playerMoney);
         _player.Thrower.LoadVelocityMult(gameCoreFromJson.velocityMult);

@@ -18,17 +18,14 @@ public class Player : MonoBehaviour
     public event UnityAction<int, int> ThrowsChange;
 
     public Thrower Thrower => _thrower;
+    public SkinEditor SkinEditor => _skinEditor;
+    public PlayersWeapon PlayersWeapon => _playersWeapon;
     public List<Skill> Skills => _skills;
     public int MaxNumberThrows => _maxNumberThrows;
 
     public int Money { get; private set; }
     public int RemainingNumThrows { get; private set; }
     public int Score { get; private set; }
-
-    private void Start()
-    {
-        Money = 10000;
-    }
 
     private void Update()
     {

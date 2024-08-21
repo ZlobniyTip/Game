@@ -22,7 +22,11 @@ public class SkinEditor : MonoBehaviour
 
     public void ChangeSkin(Skin skin)
     {
-        _currentSkin.SkinState.Used(false);
+        for (int i = 0; i < _skins.Count; i++)
+        {
+            _skins[i].SkinState.Used(false);
+        }
+
         skin.SkinState.Used(true);
         _currentSkin.gameObject.SetActive(false);
         _currentSkin = skin;
