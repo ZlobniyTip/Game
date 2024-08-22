@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WeaponsBuying : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class WeaponsBuying : MonoBehaviour
     [SerializeField] private GameObject _itemContainer;
 
     private List<WeaponView> _content = new List<WeaponView>();
+
+    public event UnityAction<WeaponView> ChangeUsedWeapon;
 
     private void OnEnable()
     {
@@ -33,10 +36,10 @@ public class WeaponsBuying : MonoBehaviour
     private void AddItem(Weapon weapon)
     {
         var view = Instantiate(_template, _itemContainer.transform);
+        view.Render(weapon);
         view.SellButtonClick += OnSellButtonClick;
         view.ChangeUsedWeapon += OnChangeUsedWeapon;
-        view.Render(weapon);
-        view.GetLinkPlayer(_playersWeapon);
+        view.GetLinkPlayer(_playersWeapon, this);
         _content.Add(view);
     }
 
@@ -49,6 +52,8 @@ public class WeaponsBuying : MonoBehaviour
     {
         if (weapon.Price <= _player.Money)
         {
+            ChangeUsedWeapon?.Invoke(view);
+
             _player.BuyWeapon(weapon);
 
             for (int i = 0; i < _content.Count; i++)
@@ -66,13 +71,7 @@ public class WeaponsBuying : MonoBehaviour
 
     private void OnChangeUsedWeapon(WeaponView weaponView)
     {
-        for (int i = 0; i < _content.Count; i++)
-        {
-            if (_content[i].Weapon.WeaponState.IsBuying)
-            {
-                _content[i].LockItem();
-            }
-        }
+        ChangeUsedWeapon?.Invoke(weaponView);
 
         weaponView.ShowUsedButton();
     }

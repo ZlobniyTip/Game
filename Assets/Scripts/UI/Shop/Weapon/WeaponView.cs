@@ -15,6 +15,7 @@ public class WeaponView : MonoBehaviour
     [SerializeField] private UseWeaponButton _useWeaponButton;
 
     private Weapon _weapon;
+    private WeaponsBuying _weaponsBuying;
 
     public Weapon Weapon => _weapon;
 
@@ -32,14 +33,17 @@ public class WeaponView : MonoBehaviour
 
     private void OnDisable()
     {
+        _weaponsBuying.ChangeUsedWeapon -= SetButtonUsedWeapon;
         _useWeaponButton.ChangeWeapon -= ChangeWeapon;
         _sellButton.onClick.RemoveListener(OnButtonClick);
         _sellButton.onClick.RemoveListener(LockItem);
     }
 
-    public void GetLinkPlayer(PlayersWeapon playersWeapon)
+    public void GetLinkPlayer(PlayersWeapon playersWeapon, WeaponsBuying weaponsBuying)
     {
         PlayersWeapon = playersWeapon;
+        _weaponsBuying = weaponsBuying;
+        _weaponsBuying.ChangeUsedWeapon += SetButtonUsedWeapon;
     }
 
     public void Render(Weapon weapon)
@@ -53,7 +57,6 @@ public class WeaponView : MonoBehaviour
         if (_weapon.WeaponState.IsUsed)
         {
             ShowUsedButton();
-            return;
         }
         else if (_weapon.WeaponState.IsBuying)
         {
@@ -77,6 +80,23 @@ public class WeaponView : MonoBehaviour
         _sellButton.gameObject.SetActive(false);
         _useButton.gameObject.SetActive(false);
         _usedButton.gameObject.SetActive(true);
+    }
+
+    public void SetButtonUsedWeapon(WeaponView view)
+    {
+        if (_weapon.WeaponState.IsBuying)
+        {
+            if (_weapon.Index != view.Weapon.Index)
+            {
+                this.LockItem();
+                _weapon.WeaponState.Used(false);
+            }
+            else if(_weapon.Index == view.Weapon.Index)
+            {
+                this.ShowUsedButton();
+                _weapon.WeaponState.Used(false);
+            }
+        }
     }
 
     private void OnButtonClick()
