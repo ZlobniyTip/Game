@@ -1,15 +1,17 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(MeshCollider))]
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] private MeshCollider _meshCollider;
     [SerializeField] private string _label;
     [SerializeField] private int _price;
     [SerializeField] private Sprite _icon;
-    [SerializeField] private WeaponState _weaponState;
     [SerializeField] private int _index;
-    [SerializeField] private MeshCollider _meshCollider;
+    
+    [NonSerialized] private WeaponState _state = null;
 
     public event UnityAction Destruction;
     public event UnityAction<Vector3> Ricochet;
@@ -21,7 +23,7 @@ public class Weapon : MonoBehaviour
     public int Price => _price;
     public int Index => _index;
     public Sprite Icon => _icon;
-    public WeaponState WeaponState => _weaponState;
+    public WeaponState State => _state ??= new WeaponState(WeaponStatus.NotPurchased);
 
     public Player Player { get; private set; }
 
@@ -43,7 +45,7 @@ public class Weapon : MonoBehaviour
             explosiveBarrel.Explode();
         }
 
-        if (collision.collider.gameObject.tag == "Collision")
+        if (collision.collider.gameObject.CompareTag("Collision"))
         {
             foreach (ContactPoint contactPoint in collision.contacts)
             {
@@ -51,6 +53,11 @@ public class Weapon : MonoBehaviour
                 Ricochet?.Invoke(_hitPoint);
             }
         }
+    }
+
+    public void Init(WeaponState weaponState)
+    {
+        _state.SetStatus(weaponState.Status);
     }
 
     public void Die()

@@ -101,7 +101,7 @@ public class Thrower : MonoBehaviour
         PlayerPrefs.SetFloat("throwForce", _velocityMult);
     }
 
-    public void GetWeapon(Weapon weapon)
+    public void SetWeapon(Weapon weapon)
     {
         _weapon = weapon;
     }

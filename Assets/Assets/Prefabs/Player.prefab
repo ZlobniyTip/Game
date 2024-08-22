@@ -4285,7 +4285,7 @@ MonoBehaviour:
   - {fileID: -6098879677829580410, guid: df0557f1b34280a4ba8fd22a36aa7b85, type: 3}
   - {fileID: 7509043336654101892, guid: ac53f9d05b915884ab3ce6d0a7113315, type: 3}
   - {fileID: -5963952303323180361, guid: d44f072607d893145b2f6d39c8229bef, type: 3}
-  _currentWeapon: {fileID: 1846670649616110773, guid: 4635bd33ee58fc342bdf2219cd38db35, type: 3}
+  _currentWeaponPrefab: {fileID: 1846670649616110773, guid: 4635bd33ee58fc342bdf2219cd38db35, type: 3}
   _thrower: {fileID: 205841135117846719}
 --- !u!114 &-1394774022357741645
 MonoBehaviour:

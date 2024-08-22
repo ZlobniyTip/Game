@@ -4,38 +4,37 @@ using UnityEngine;
 public class PlayersWeapon : MonoBehaviour
 {
     [SerializeField] private List<Weapon> _weapons;
-    [SerializeField] private Weapon _currentWeapon;
     [SerializeField] private Thrower _thrower;
 
-    private int _indexCurrentWeapon = 0;
+    private int _currentWeaponIndex = 0;
+    private Weapon _currentWeapon;
 
     public List<Weapon> Weapons => _weapons;
-    public Weapon CurrentWepon => _currentWeapon;
-
-    private void Awake()
-    {
-        _thrower.GetWeapon(_currentWeapon);
-    }
 
     private void Start()
     {
-        _indexCurrentWeapon = PlayerPrefs.GetInt("IndexCurrentWeapon");
-        ChangeWeapon(_weapons[_indexCurrentWeapon]);
+        _currentWeaponIndex = PlayerPrefs.GetInt("IndexCurrentWeapon", 0);
+        
+        EquipWeapon(_weapons[_currentWeaponIndex]);
     }
 
-    public void ChangeWeapon(Weapon weapon)
+    public void EquipWeapon(Weapon weapon)
     {
+        if (_currentWeapon != null)
+            _currentWeapon.State.SetStatus(WeaponStatus.Purchased);
+        
+        weapon.State.SetStatus(WeaponStatus.Equipped);
+        
         _currentWeapon = weapon;
-        _thrower.GetWeapon(_currentWeapon);
-        _indexCurrentWeapon = weapon.Index;
-        PlayerPrefs.SetInt("IndexCurrentWeapon", _indexCurrentWeapon);
+        _currentWeaponIndex = weapon.Index;
+        _thrower.SetWeapon(_currentWeapon);
+        
+        PlayerPrefs.SetInt("IndexCurrentWeapon", _currentWeaponIndex);
     }
 
-    public void LoadWeapons(List<WeaponState> weapons)
+    public void InitWeapons(List<WeaponState> weapons)
     {
         for (int i = 0; i < _weapons.Count; i++)
-        {
-            _weapons[i].WeaponState.LoadState(weapons[i].IsBuying, weapons[i].IsUsed);
-        }
+            _weapons[i].Init(weapons[i]);
     }
 }

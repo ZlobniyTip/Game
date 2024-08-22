@@ -3,22 +3,18 @@ using System;
 [Serializable]
 public class WeaponState
 {
-    public bool IsBuying;
-    public bool IsUsed;
+    public WeaponStatus Status;
 
-    public void Buy()
+    public event Action Changed;
+    
+    public WeaponState(WeaponStatus status)
     {
-        IsBuying = true;
+        Status = status;
     }
 
-    public void Used(bool isUsed)
+    public void SetStatus(WeaponStatus status)
     {
-        IsUsed = isUsed;
-    }
-
-    public void LoadState(bool isBuying,bool isUsed)
-    {
-        IsBuying = isBuying;
-        IsUsed = isUsed;
+        Status = status;
+        Changed?.Invoke();
     }
 }

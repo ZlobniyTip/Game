@@ -7,32 +7,29 @@ public class SaveState : MonoBehaviour
 {
     [SerializeField] private Player _player;
 
-    private List<WeaponState> _weaponStates = new List<WeaponState>();
-    private List<SkinState> _skinStates = new List<SkinState>();
-    private List<SkillState> _skillStates = new List<SkillState>();
+    private List<WeaponState> _weaponStates = new();
+    private List<SkinState> _skinStates = new();
+    private List<SkillState> _skillStates = new();
 
     private void Awake()
     {
-        _weaponStates.Clear();
-        _skillStates.Clear();
-        _skinStates.Clear();
+        _player.EquipmentChanged += OnEquipmentChanged;
+        
+        foreach (var weapon in _player.PlayersWeapon.Weapons) 
+            _weaponStates.Add(weapon.State);
+        
+        foreach (var skin in _player.SkinEditor.Skins) 
+            _skinStates.Add(skin.SkinState);
 
+        foreach (var skill in _player.Skills) 
+            _skillStates.Add(skill.SkillState);
+        
         LoadFile();
+    }
 
-        for (int i = 0; i < _player.PlayersWeapon.Weapons.Count; i++)
-        {
-            _weaponStates.Add(_player.PlayersWeapon.Weapons[i].WeaponState);
-        }
-
-        for (int i = 0; i < _player.SkinEditor.Skins.Count; i++)
-        {
-            _skinStates.Add(_player.SkinEditor.Skins[i].SkinState);
-        }
-
-        for (int i = 0; i < _player.Skills.Count; i++)
-        {
-            _skillStates.Add(_player.Skills[i].SkillState);
-        }
+    private void OnDestroy()
+    {
+        _player.EquipmentChanged -= OnEquipmentChanged;
     }
 
     public void SaveFile()
@@ -46,9 +43,15 @@ public class SaveState : MonoBehaviour
             maxNumberThrows = _player.MaxNumberThrows,
             velocityMult = _player.Thrower.VelocityMult
         };
+        
+        string json = JsonUtility.ToJson(gameCoreStruct, prettyPrint: false);
+        
 
-        string json = JsonUtility.ToJson(gameCoreStruct, prettyPrint: true);
-
+#if UNITY_EDITOR
+        PlayerPrefs.SetString("EditorSave", json);
+        return;
+#endif
+        
         PlayerAccount.SetCloudSaveData(json);
     }
 
@@ -64,15 +67,28 @@ public class SaveState : MonoBehaviour
             velocityMult = 12
         };
 
-        string json = JsonUtility.ToJson(gameCoreStruct, prettyPrint: true);
+        string json = JsonUtility.ToJson(gameCoreStruct, prettyPrint: false);
 
+#if UNITY_EDITOR
+        PlayerPrefs.SetString("EditorSave", json);
+        LoadFile();
+        return;
+#endif
+        
         PlayerAccount.SetCloudSaveData(json);
-
         LoadFile();
     }
 
     public void LoadFile()
     {
+#if UNITY_EDITOR
+        if (PlayerPrefs.HasKey("EditorSave") == false)
+            SaveFile();
+        
+        LoadLocalData(PlayerPrefs.GetString("EditorSave"));
+        return;
+#endif
+        
         PlayerAccount.GetCloudSaveData(LoadLocalData, StartEvents);
     }
 
@@ -81,7 +97,7 @@ public class SaveState : MonoBehaviour
         GameCoreStruct gameCoreFromJson = JsonUtility.FromJson<GameCoreStruct>(json);
 
         _player.LoadSkill(gameCoreFromJson.skillStates);
-        _player.PlayersWeapon.LoadWeapons(gameCoreFromJson.weaponStates);
+        _player.PlayersWeapon.InitWeapons(gameCoreFromJson.weaponStates);
         _player.SkinEditor.LoadSkins(gameCoreFromJson.skinStates);
         _player.LoadMaxNumThrows(gameCoreFromJson.maxNumberThrows);
         _player.LoadMoney(gameCoreFromJson.playerMoney);
@@ -99,5 +115,10 @@ public class SaveState : MonoBehaviour
     private void StartEvents(string error)
     {
         _player.StartEvents();
+    }
+
+    private void OnEquipmentChanged()
+    {
+        SaveFile();
     }
 }

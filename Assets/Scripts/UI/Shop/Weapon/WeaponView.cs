@@ -9,103 +9,97 @@ public class WeaponView : MonoBehaviour
     [SerializeField] private TMP_Text _label;
     [SerializeField] private TMP_Text _price;
     [SerializeField] private Image _icon;
-    [SerializeField] private Button _sellButton;
-    [SerializeField] private Button _useButton;
-    [SerializeField] private Button _usedButton;
-    [SerializeField] private UseWeaponButton _useWeaponButton;
+    [SerializeField] private Button _purchaseButton;
+    [SerializeField] private Button _equipButton;
+    [SerializeField] private GameObject _equippedLabel;
 
     private Weapon _weapon;
-    private WeaponsBuying _weaponsBuying;
+    private WeaponShop _weaponShop;
 
     public Weapon Weapon => _weapon;
-
-    public PlayersWeapon PlayersWeapon { get; private set; }
-
-    public event UnityAction<Weapon, WeaponView> SellButtonClick;
-    public event UnityAction<WeaponView> ChangeUsedWeapon;
+    
+    public event UnityAction<WeaponView> PurchaseButtonPressed;
+    public event UnityAction<WeaponView> EquipButtonPressed;
 
     private void OnEnable()
     {
-        _useWeaponButton.ChangeWeapon += ChangeWeapon;
-        _sellButton.onClick.AddListener(OnButtonClick);
-        _sellButton.onClick.AddListener(LockItem);
+        _equipButton.onClick.AddListener(OnEquipButtonPressed);
+        _purchaseButton.onClick.AddListener(OnPurchaseButtonPressed);
     }
 
     private void OnDisable()
     {
-        _weaponsBuying.ChangeUsedWeapon -= SetButtonUsedWeapon;
-        _useWeaponButton.ChangeWeapon -= ChangeWeapon;
-        _sellButton.onClick.RemoveListener(OnButtonClick);
-        _sellButton.onClick.RemoveListener(LockItem);
+        _equipButton.onClick.RemoveListener(OnEquipButtonPressed);
+        _purchaseButton.onClick.RemoveListener(OnPurchaseButtonPressed);
     }
 
-    public void GetLinkPlayer(PlayersWeapon playersWeapon, WeaponsBuying weaponsBuying)
+    private void OnDestroy()
     {
-        PlayersWeapon = playersWeapon;
-        _weaponsBuying = weaponsBuying;
-        _weaponsBuying.ChangeUsedWeapon += SetButtonUsedWeapon;
+        _weapon.State.Changed -= OnWeaponStateChanged;
     }
 
-    public void Render(Weapon weapon)
+    public void Init(Weapon weapon)
     {
         _weapon = weapon;
+        
+        _weapon.State.Changed += OnWeaponStateChanged;
 
-        _label.text = LeanLocalization.GetTranslationText(weapon.Label);
-        _price.text = weapon.Price.ToString();
-        _icon.sprite = weapon.Icon;
-
-        if (_weapon.WeaponState.IsUsed)
-        {
-            ShowUsedButton();
-        }
-        else if (_weapon.WeaponState.IsBuying)
-        {
-            LockItem();
-        }
-        else if (_weapon.Index == 0)
-        {
-            LockItem();
-        }
+        UpdateView();
     }
 
-    public void LockItem()
+    private void UpdateView()
     {
-        _sellButton.gameObject.SetActive(false);
-        _useButton.gameObject.SetActive(true);
-        _usedButton.gameObject.SetActive(false);
-    }
-
-    public void ShowUsedButton()
-    {
-        _sellButton.gameObject.SetActive(false);
-        _useButton.gameObject.SetActive(false);
-        _usedButton.gameObject.SetActive(true);
-    }
-
-    public void SetButtonUsedWeapon(WeaponView view)
-    {
-        if (_weapon.WeaponState.IsBuying)
+        _label.text = LeanLocalization.GetTranslationText(_weapon.Label);
+        _price.text = _weapon.Price.ToString();
+        _icon.sprite = _weapon.Icon;
+        
+        switch (_weapon.State.Status)
         {
-            if (_weapon.Index != view.Weapon.Index)
-            {
-                this.LockItem();
-                _weapon.WeaponState.Used(false);
-            }
-            else if(_weapon.Index == view.Weapon.Index)
-            {
-                this.ShowUsedButton();
-                _weapon.WeaponState.Used(false);
-            }
+            case WeaponStatus.NotPurchased:
+                ShowPurchaseButton();
+                break;
+            case WeaponStatus.Purchased:
+                ShowEquipButton();
+                break;
+            case WeaponStatus.Equipped:
+                ShowEquippedLabel();
+                break;
         }
     }
 
-    private void OnButtonClick()
+    private void ShowPurchaseButton()
     {
-        SellButtonClick?.Invoke(_weapon, this);
+        _purchaseButton.gameObject.SetActive(true);
+        _equipButton.gameObject.SetActive(false);
+        _equippedLabel.gameObject.SetActive(false);
     }
 
-    private void ChangeWeapon()
+    private void ShowEquipButton()
     {
-        ChangeUsedWeapon?.Invoke(this);
+        _purchaseButton.gameObject.SetActive(false);
+        _equipButton.gameObject.SetActive(true);
+        _equippedLabel.gameObject.SetActive(false);
+    }
+
+    private void ShowEquippedLabel()
+    {
+        _purchaseButton.gameObject.SetActive(false);
+        _equipButton.gameObject.SetActive(false);
+        _equippedLabel.gameObject.SetActive(true);
+    }
+
+    private void OnWeaponStateChanged()
+    {
+        UpdateView();
+    }
+
+    private void OnPurchaseButtonPressed()
+    {
+        PurchaseButtonPressed?.Invoke(this);
+    }
+
+    private void OnEquipButtonPressed()
+    {
+        EquipButtonPressed?.Invoke(this);
     }
 }

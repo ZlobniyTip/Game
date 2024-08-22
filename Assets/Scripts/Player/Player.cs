@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(PlayersWeapon))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerUseSkills _playerUseSkills;
@@ -16,6 +18,7 @@ public class Player : MonoBehaviour
 
     public event UnityAction<int> MoneyChange;
     public event UnityAction<int, int> ThrowsChange;
+    public event Action EquipmentChanged;
 
     public Thrower Thrower => _thrower;
     public SkinEditor SkinEditor => _skinEditor;
@@ -26,6 +29,14 @@ public class Player : MonoBehaviour
     public int Money { get; private set; }
     public int RemainingNumThrows { get; private set; }
     public int Score { get; private set; }
+    
+#if UNITY_EDITOR
+    private void Start()
+    {
+        Money += 9000;
+        MoneyChange?.Invoke(Money);
+    }
+#endif
 
     private void Update()
     {
@@ -119,13 +130,26 @@ public class Player : MonoBehaviour
         MoneyChange?.Invoke(Money);
     }
 
-    public void BuyWeapon(Weapon weapon)
+    public bool TryPurchaseWeapon(Weapon weapon)
     {
+        if (Money < weapon.Price)
+            return false;
+        
         Money -= weapon.Price;
         PlayerPrefs.SetInt("currentMoney", Money);
         MoneyChange?.Invoke(Money);
-        weapon.WeaponState.Buy();
-        _playersWeapon.ChangeWeapon(weapon);
+        weapon.State.SetStatus(WeaponStatus.Purchased);
+        
+        EquipmentChanged?.Invoke();
+        
+        return true;
+    }
+
+    public void EquipWeapon(Weapon weapon)
+    {
+        _playersWeapon.EquipWeapon(weapon);
+        
+        EquipmentChanged?.Invoke();
     }
 
     public void BuySkin(Skin skin)
@@ -135,5 +159,7 @@ public class Player : MonoBehaviour
         MoneyChange?.Invoke(Money);
         skin.SkinState.Buy();
         _skinEditor.ChangeSkin(skin);
+        
+        EquipmentChanged?.Invoke();
     }
 }
