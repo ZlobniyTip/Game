@@ -9,10 +9,9 @@ public class SkinView : MonoBehaviour
     [SerializeField] private TMP_Text _label;
     [SerializeField] private TMP_Text _price;
     [SerializeField] private Image _icon;
-    [SerializeField] private Button _sellButton;
-    [SerializeField] private Button _useButton;
-    [SerializeField] private Button _usedButton;
-    [SerializeField] private UseSkinButton _useSkinButton;
+    [SerializeField] private Button _purchaseButton;
+    [SerializeField] private Button _equipButton;
+    [SerializeField] private Button _equippedLabel;
 
     private Skin _skin;
 
@@ -20,74 +19,88 @@ public class SkinView : MonoBehaviour
 
     public Skin Skin => _skin;
 
-    public event UnityAction<Skin, SkinView> SellButtonClick;
-    public event UnityAction<SkinView> UsedSkinView;
-    public event UnityAction<SkinView> ChangeUsedSkin;
+    public event UnityAction<SkinView> PurchaseButtonPressed;
+    public event UnityAction<SkinView> EquipButtonPressed;
 
     private void OnEnable()
     {
-        _useSkinButton.ChangeSkin += ChangeWeapon;
-        _sellButton.onClick.AddListener(OnButtonClick);
-        _sellButton.onClick.AddListener(LockItem);
+        _equipButton.onClick.AddListener(OnEquipButtonPressed);
+        _purchaseButton.onClick.AddListener(OnPurchaseButtonPressed);
     }
 
     private void OnDisable()
     {
-        _useSkinButton.ChangeSkin -= ChangeWeapon;
-        _sellButton.onClick.RemoveListener(OnButtonClick);
-        _sellButton.onClick.RemoveListener(LockItem);
+        _equipButton.onClick.RemoveListener(OnEquipButtonPressed);
+        _purchaseButton.onClick.RemoveListener(OnPurchaseButtonPressed);
     }
 
-    public void GetLinkPlayer(SkinEditor skinEditor)
+    private void OnDestroy()
     {
-        SkinEditor = skinEditor;
+        _skin.State.Changed -= OnSkinStateChanged;
     }
 
-    public void Render(Skin skin)
+    public void Init(Skin skin)
     {
         _skin = skin;
 
-        _label.text = LeanLocalization.GetTranslationText(skin.Label);
-        _price.text = skin.Price.ToString();
-        _icon.sprite = skin.Icon;
+        _skin.State.Changed += OnSkinStateChanged;
 
-        if (_skin.SkinState.IsUsed)
+        UpdateView();
+    }
+
+    private void UpdateView()
+    {
+        _label.text = LeanLocalization.GetTranslationText(_skin.Label);
+        _price.text = _skin.Price.ToString();
+        _icon.sprite = _skin.Icon;
+
+        switch (_skin.State.Status)
         {
-            ShowUsedButton();
-            UsedSkinView?.Invoke(this);
-            return;
-        }
-        else if (_skin.SkinState.IsBuying)
-        {
-            LockItem();
-        }
-        else if (_skin.Index == 0 || _skin.Index == 1)
-        {
-            LockItem();
+            case SkinStatus.NotPurchased:
+                ShowPurchaseButton();
+                break;
+            case SkinStatus.Purchased:
+                ShowEquipButton();
+                break;
+            case SkinStatus.Equipped:
+                ShowEquippedLabel();
+                break;
         }
     }
 
-    private void OnButtonClick()
+    private void ShowPurchaseButton()
     {
-        SellButtonClick?.Invoke(_skin, this);
+        _purchaseButton.gameObject.SetActive(true);
+        _equipButton.gameObject.SetActive(false);
+        _equippedLabel.gameObject.SetActive(false);
     }
 
-    public void LockItem()
+    private void ShowEquipButton()
     {
-        _sellButton.gameObject.SetActive(false);
-        _useButton.gameObject.SetActive(true);
-        _usedButton.gameObject.SetActive(false);
+        _purchaseButton.gameObject.SetActive(false);
+        _equipButton.gameObject.SetActive(true);
+        _equippedLabel.gameObject.SetActive(false);
     }
 
-    public void ShowUsedButton()
+    private void ShowEquippedLabel()
     {
-        _sellButton.gameObject.SetActive(false);
-        _useButton.gameObject.SetActive(false);
-        _usedButton.gameObject.SetActive(true);
+        _purchaseButton.gameObject.SetActive(false);
+        _equipButton.gameObject.SetActive(false);
+        _equippedLabel.gameObject.SetActive(true);
     }
 
-    private void ChangeWeapon()
+    private void OnSkinStateChanged()
     {
-        ChangeUsedSkin?.Invoke(this);
+        UpdateView();
+    }
+
+    private void OnPurchaseButtonPressed()
+    {
+        PurchaseButtonPressed?.Invoke(this);
+    }
+
+    private void OnEquipButtonPressed()
+    {
+        EquipButtonPressed?.Invoke(this);
     }
 }

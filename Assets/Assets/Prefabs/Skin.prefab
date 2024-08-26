@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 7739774695508347711}
   - component: {fileID: 8728251677866795224}
   m_Layer: 5
-  m_Name: UseButton
+  m_Name: EquipButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -552,19 +552,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7739774695508347711}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2951623769469243341}
-        m_TargetAssemblyTypeName: UseSkinButton, Assembly-CSharp
-        m_MethodName: UseSkin
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &4497871528974320203
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +566,7 @@ GameObject:
   - component: {fileID: 3829448354239865959}
   - component: {fileID: 400968123332196437}
   m_Layer: 5
-  m_Name: UsedButton
+  m_Name: EquippedButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -681,7 +669,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 3829448354239865959}
   m_OnClick:
     m_PersistentCalls:
@@ -698,7 +686,6 @@ GameObject:
   - component: {fileID: 5169467606908976408}
   - component: {fileID: 2664434623430814125}
   - component: {fileID: -137118627947550038}
-  - component: {fileID: 2951623769469243341}
   m_Layer: 5
   m_Name: Skin
   m_TagString: Untagged
@@ -783,23 +770,9 @@ MonoBehaviour:
   _label: {fileID: 8985290614148515649}
   _price: {fileID: 8917828218113614825}
   _icon: {fileID: 3654413921629291375}
-  _sellButton: {fileID: 917816986589182282}
-  _useButton: {fileID: 8728251677866795224}
-  _usedButton: {fileID: 400968123332196437}
-  _useSkinButton: {fileID: 2951623769469243341}
---- !u!114 &2951623769469243341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5452021294556495252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a181ccabaebeff6488e0aec7ba2b4db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _skinView: {fileID: -137118627947550038}
+  _purchaseButton: {fileID: 917816986589182282}
+  _equipButton: {fileID: 8728251677866795224}
+  _equippedLabel: {fileID: 400968123332196437}
 --- !u!1 &5697438952431770698
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,7 +935,7 @@ GameObject:
   - component: {fileID: 1219401729803890469}
   - component: {fileID: 917816986589182282}
   m_Layer: 5
-  m_Name: SellButton
+  m_Name: PurchaseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

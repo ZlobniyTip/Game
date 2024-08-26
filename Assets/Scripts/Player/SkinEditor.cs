@@ -4,42 +4,35 @@ using UnityEngine;
 public class SkinEditor : MonoBehaviour
 {
     [SerializeField] private List<Skin> _skins;
-    [SerializeField] private Skin _currentSkin;
     [SerializeField] private Player _player;
 
-    private int _indexCurrentSkin = 0;
+    private int _currentSkinIndex = 0;
+    private Skin _currentSkin;
 
     public List<Skin> Skins => _skins;
 
     private void Start()
     {
-        if (PlayerPrefs.HasKey("IndexCurrentSkin"))
-        {
-            _indexCurrentSkin = PlayerPrefs.GetInt("IndexCurrentSkin");
-            ChangeSkin(_skins[_indexCurrentSkin]);
-        }
+        _currentSkinIndex = PlayerPrefs.GetInt("IndexCurrentSkin");
+        EquipSkin(_skins[_currentSkinIndex]);
     }
 
-    public void ChangeSkin(Skin skin)
+    public void EquipSkin(Skin skin)
     {
-        for (int i = 0; i < _skins.Count; i++)
-        {
-            _skins[i].SkinState.Used(false);
-        }
+        if (_currentSkin != null)
+            _currentSkin.State.SetStatus(SkinStatus.Purchased);
 
-        skin.SkinState.Used(true);
-        _currentSkin.gameObject.SetActive(false);
+        skin.State.SetStatus(SkinStatus.Equipped);
+
         _currentSkin = skin;
-        _currentSkin.gameObject.SetActive(true);
-        _indexCurrentSkin = skin.Index;
-        PlayerPrefs.SetInt("IndexCurrentSkin", _indexCurrentSkin);
+        _currentSkinIndex = skin.Index;
+
+        PlayerPrefs.SetInt("IndexCurrentWeapon", _currentSkinIndex);
     }
 
-    public void LoadSkins(List<SkinState> skins)
+    public void InitSkins(List<SkinState> skins)
     {
         for (int i = 0; i < _skins.Count; i++)
-        {
-            _skins[i].SkinState.LoadState(skins[i].IsBuying, skins[i].IsUsed);
-        }
+            _skins[i].Init(skins[i]);
     }
 }

@@ -3,21 +3,18 @@ using System;
 [Serializable]
 public class SkinState
 {
-    public bool IsBuying;
-    public bool IsUsed;
+    public SkinStatus Status;
 
-    public void Buy()
+    public event Action Changed;
+
+    public SkinState(SkinStatus status)
     {
-        IsBuying = true;
+        Status = status;
     }
 
-    public void Used(bool isUsed)
+    public void SetStatus(SkinStatus status)
     {
-        IsUsed = isUsed;
-    }
-
-    public void LoadState(bool isBuying, bool isUsed)
-    {
-        IsBuying = isBuying;
+        Status = status;
+        Changed?.Invoke();
     }
 }

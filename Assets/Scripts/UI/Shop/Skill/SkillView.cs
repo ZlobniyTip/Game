@@ -10,48 +10,97 @@ public class SkillView : MonoBehaviour
     [SerializeField] private TMP_Text _price;
     [SerializeField] private TMP_Text _description;
     [SerializeField] private Image _icon;
-    [SerializeField] private Button _sellButton;
-    [SerializeField] private GameObject _useButton;
+    [SerializeField] private Button _purchaseButton;
+    [SerializeField] private Button _equipButton;
+    [SerializeField] private Button _equippedLabel;
 
     private Skill _skill;
 
-    public event UnityAction<Skill, SkillView> SellButtonClick;
+    public Skill Skill => _skill;
+
+    public event UnityAction<SkillView> PurchaseButtonPressed;
+    public event UnityAction<SkillView> EquipButtonPressed;
 
     private void OnEnable()
     {
-        _sellButton.onClick.AddListener(OnButtonClick);
-        _sellButton.onClick.AddListener(TryLockItem);
+        _equipButton.onClick.AddListener(OnEquipButtonPressed);
+        _purchaseButton.onClick.AddListener(OnPurchaseButtonPressed);
     }
 
     private void OnDisable()
     {
-        _sellButton.onClick.RemoveListener(OnButtonClick);
-        _sellButton.onClick.RemoveListener(TryLockItem);
+        _equipButton.onClick.RemoveListener(OnEquipButtonPressed);
+        _purchaseButton.onClick.RemoveListener(OnPurchaseButtonPressed);
     }
 
-    public void Render(Skill skill)
+    private void OnDestroy()
+    {
+        _skill.State.Changed -= OnSkillStateChanged;
+    }
+
+    public void Init(Skill skill)
     {
         _skill = skill;
 
-        _label.text = LeanLocalization.GetTranslationText(skill.Label);
-        _description.text = LeanLocalization.GetTranslationText(skill.Description);
-        _price.text = skill.Price.ToString();
-        _icon.sprite = skill.Icon;
+        _skill.State.Changed += OnSkillStateChanged;
 
-        if (_skill.SkillState.IsBuying)
+        UpdateView();
+    }
+
+    public void UpdateView()
+    {
+        _label.text = LeanLocalization.GetTranslationText(_skill.Label);
+        _description.text = LeanLocalization.GetTranslationText(_skill.Description);
+        _price.text = _skill.Price.ToString();
+        _icon.sprite = _skill.Icon;
+
+        switch (_skill.State.Status)
         {
-            TryLockItem();
+            case SkillStatus.NotPurchased:
+                ShowPurchaseButton();
+                break;
+            case SkillStatus.Purchased:
+                ShowEquipButton();
+                break;
+            case SkillStatus.Equipped:
+                ShowEquippedLabel();
+                break;
         }
     }
 
-    private void OnButtonClick()
+    private void ShowPurchaseButton()
     {
-        SellButtonClick?.Invoke(_skill, this);
+        _purchaseButton.gameObject.SetActive(true);
+        _equipButton.gameObject.SetActive(false);
+        _equippedLabel.gameObject.SetActive(false);
     }
 
-    private void TryLockItem()
+    private void ShowEquipButton()
     {
-        _sellButton.gameObject.SetActive(false);
-        _useButton.SetActive(true);
+        _purchaseButton.gameObject.SetActive(false);
+        _equipButton.gameObject.SetActive(true);
+        _equippedLabel.gameObject.SetActive(false);
+    }
+
+    private void ShowEquippedLabel()
+    {
+        _purchaseButton.gameObject.SetActive(false);
+        _equipButton.gameObject.SetActive(false);
+        _equippedLabel.gameObject.SetActive(true);
+    }
+
+    private void OnSkillStateChanged()
+    {
+        UpdateView();
+    }
+
+    private void OnPurchaseButtonPressed()
+    {
+        PurchaseButtonPressed?.Invoke(this);
+    }
+
+    private void OnEquipButtonPressed()
+    {
+        EquipButtonPressed?.Invoke(this);
     }
 }

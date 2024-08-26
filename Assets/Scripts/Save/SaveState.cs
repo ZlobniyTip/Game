@@ -19,10 +19,10 @@ public class SaveState : MonoBehaviour
             _weaponStates.Add(weapon.State);
         
         foreach (var skin in _player.SkinEditor.Skins) 
-            _skinStates.Add(skin.SkinState);
+            _skinStates.Add(skin.State);
 
         foreach (var skill in _player.Skills) 
-            _skillStates.Add(skill.SkillState);
+            _skillStates.Add(skill.State);
         
         LoadFile();
     }
@@ -96,20 +96,25 @@ public class SaveState : MonoBehaviour
     {
         GameCoreStruct gameCoreFromJson = JsonUtility.FromJson<GameCoreStruct>(json);
 
-        _player.LoadSkill(gameCoreFromJson.skillStates);
+        _player.InitSkills(gameCoreFromJson.skillStates);
         _player.PlayersWeapon.InitWeapons(gameCoreFromJson.weaponStates);
-        _player.SkinEditor.LoadSkins(gameCoreFromJson.skinStates);
+        _player.SkinEditor.InitSkins(gameCoreFromJson.skinStates);
         _player.LoadMaxNumThrows(gameCoreFromJson.maxNumberThrows);
         _player.LoadMoney(gameCoreFromJson.playerMoney);
         _player.Thrower.LoadVelocityMult(gameCoreFromJson.velocityMult);
 
+        ResetPlayerStatus();
+
+        StartEvents(null);
+    }
+
+    private void ResetPlayerStatus()
+    {
         if (SceneManager.GetActiveScene().buildIndex == 3)
         {
             _player.ResetThrowCount();
             _player.Thrower.ResetThrowForce();
         }
-
-        StartEvents(null);
     }
 
     private void StartEvents(string error)

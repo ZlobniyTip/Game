@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     public Thrower Thrower => _thrower;
     public SkinEditor SkinEditor => _skinEditor;
     public PlayersWeapon PlayersWeapon => _playersWeapon;
+    public PlayerUseSkills PlayerUseSkills => _playerUseSkills;
     public List<Skill> Skills => _skills;
     public int MaxNumberThrows => _maxNumberThrows;
 
@@ -38,31 +39,18 @@ public class Player : MonoBehaviour
     }
 #endif
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (_skills[0].Used == false)
-            {
-                _playerUseSkills.GetSkill(_skills[0]);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            if (_skills[1].Used == false)
-            {
-                _playerUseSkills.GetSkill(_skills[1]);
-            }
-        }
-    }
-
     public void StartEvents()
     {
         MoneyChange?.Invoke(Money);
 
         RemainingNumThrows = _maxNumberThrows;
         ThrowsChange?.Invoke(RemainingNumThrows, _maxNumberThrows);
+    }
+
+    public void InitSkills(List<SkillState> skills)
+    {
+        for (int i = 0; i < _skills.Count; i++)
+            _skills[i].Init(skills[i]);
     }
 
     public void LoadMoney(int money)
@@ -73,14 +61,6 @@ public class Player : MonoBehaviour
     public void LoadMaxNumThrows(int throws)
     {
         _maxNumberThrows = throws;
-    }
-
-    public void LoadSkill(List<SkillState> skills)
-    {
-        for (int i = 0; i < _skills.Count; i++)
-        {
-            _skills[i].SkillState.LoadState(skills[i].IsBuying);
-        }
     }
 
     public void ResetThrowCount()
@@ -101,12 +81,26 @@ public class Player : MonoBehaviour
         PlayerPrefs.SetInt("throwCount", _maxNumberThrows);
     }
 
-    public void BuySkill(Skill skill)
+    public bool TryPurchaseSkill(Skill skill)
     {
+        if (Money < skill.Price)
+            return false;
+
         Money -= skill.Price;
         PlayerPrefs.SetInt("currentMoney", Money);
         MoneyChange?.Invoke(Money);
-        skill.SkillState.Buy();
+        skill.State.SetStatus(SkillStatus.Purchased);
+
+        EquipmentChanged?.Invoke();
+
+        return true;
+    }
+
+    public void EquipSkill(Skill skill)
+    {
+        _playerUseSkills.EquipSkill(skill);
+
+        EquipmentChanged?.Invoke();
     }
 
     public void ReduceNumThrows()
@@ -152,14 +146,25 @@ public class Player : MonoBehaviour
         EquipmentChanged?.Invoke();
     }
 
-    public void BuySkin(Skin skin)
+    public bool TryPurchaseSkin(Skin skin)
     {
+        if (Money < skin.Price)
+            return false;
+
         Money -= skin.Price;
         PlayerPrefs.SetInt("currentMoney", Money);
         MoneyChange?.Invoke(Money);
-        skin.SkinState.Buy();
-        _skinEditor.ChangeSkin(skin);
-        
+        skin.State.SetStatus(SkinStatus.Purchased);
+
+        EquipmentChanged?.Invoke();
+
+        return true;
+    }
+
+    public void EquipSkin(Skin skin)
+    {
+        _skinEditor.EquipSkin(skin);
+
         EquipmentChanged?.Invoke();
     }
 }

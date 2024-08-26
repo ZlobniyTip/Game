@@ -14,7 +14,6 @@ public class WeaponView : MonoBehaviour
     [SerializeField] private GameObject _equippedLabel;
 
     private Weapon _weapon;
-    private WeaponShop _weaponShop;
 
     public Weapon Weapon => _weapon;
     

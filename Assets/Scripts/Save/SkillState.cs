@@ -3,15 +3,18 @@ using System;
 [Serializable]
 public class SkillState
 {
-    public bool IsBuying;
+    public SkillStatus Status;
 
-    public void Buy()
+    public event Action Changed;
+
+    public SkillState(SkillStatus status)
     {
-        IsBuying = true;
+        Status = status;
     }
 
-    public void LoadState(bool isBuying)
+    public void SetStatus(SkillStatus status)
     {
-        IsBuying = isBuying;
+        Status = status;
+        Changed?.Invoke();
     }
 }

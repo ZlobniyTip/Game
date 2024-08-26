@@ -17,7 +17,6 @@ public class Weapon : MonoBehaviour
     public event UnityAction<Vector3> Ricochet;
 
     private Vector3 _hitPoint;
-    private Thrower _thrower;
 
     public string Label => _label;
     public int Price => _price;

@@ -10,7 +10,7 @@ public class ExplosionWeapon : Skill
 
     public override void UseSkill(Weapon weapon)
     {
-        if (this.SkillState.IsBuying)
+        if (this.State.Status == SkillStatus.Equipped)
         {
             Explosion(weapon);
         }
