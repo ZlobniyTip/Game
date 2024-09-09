@@ -30,13 +30,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160614}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3362770
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -121,13 +121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90973ff5180095b49946af2ce15d9ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshCollider: {fileID: 64911992742931370}
   _label: Sai
   _price: 1500
   _icon: {fileID: 21300000, guid: 02b6d113831a690459d3e6c4d09d3e0a, type: 3}
-  _weaponState:
-    IsBuying: 0
   _index: 4
-  _meshCollider: {fileID: 64911992742931370}
 --- !u!54 &-2615149515817581861
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -167,3 +165,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8460578e620f7dd4da843be449589d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weapon: {fileID: -492364753147993639}

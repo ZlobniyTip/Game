@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,8 @@ public class PlayerBonus : MonoBehaviour
     [SerializeField] private YandexLeaderboard _yandexLeaderboard;
     [SerializeField] private VideoAd _videoAd;
     [SerializeField] private Teleportation _teleportation;
+    [SerializeField] private TMP_Text _valueDefaultReward;
+    [SerializeField] private TMP_Text _valueX2Reward;
 
     private float _forceValue = 0.5f;
     private int _forceValueX2 = 1;
@@ -22,6 +25,12 @@ public class PlayerBonus : MonoBehaviour
     {
         _videoAd.RewardCallback -= AddThrowForceX2;
         _videoAd.RewardCallback -= AddThrowCountX2;
+    }
+
+    private void OnEnable()
+    {
+        ShowChangeValue(_valueDefaultReward, _forceValue);
+        ShowChangeValue(_valueX2Reward, _forceValueX2);
     }
 
     private void Start()
@@ -78,5 +87,10 @@ public class PlayerBonus : MonoBehaviour
         _buttonAddForce.gameObject.SetActive(false);
         _buttonAddThrowX2.gameObject.SetActive(false);
         _buttonAddThrow.gameObject.SetActive(false);
+    }
+
+    private void ShowChangeValue(TMP_Text text,float value)
+    {
+        text.text = ($"{_player.Thrower.VelocityMult} > {_player.Thrower.VelocityMult + value} + ({value})");
     }
 }

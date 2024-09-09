@@ -13,8 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayersWeapon _playersWeapon;
     [SerializeField] private SkinEditor _skinEditor;
 
-    private int _maxNumberThrows = 4;
-    private int _defaultNumThrows = 4;
+    private int _maxNumberThrows = 5;
+    private int _defaultNumThrows = 5;
 
     public event UnityAction<int> MoneyChange;
     public event UnityAction<int, int> ThrowsChange;
@@ -26,11 +26,12 @@ public class Player : MonoBehaviour
     public PlayerUseSkills PlayerUseSkills => _playerUseSkills;
     public List<Skill> Skills => _skills;
     public int MaxNumberThrows => _maxNumberThrows;
+    public int DefaultNumThrows => _defaultNumThrows;
 
     public int Money { get; private set; }
     public int RemainingNumThrows { get; private set; }
     public int Score { get; private set; }
-    
+
 #if UNITY_EDITOR
     private void Start()
     {
@@ -47,10 +48,39 @@ public class Player : MonoBehaviour
         ThrowsChange?.Invoke(RemainingNumThrows, _maxNumberThrows);
     }
 
-    public void InitSkills(List<SkillState> skills)
+    public void InitSkills(List<ItemState> skills)
     {
         for (int i = 0; i < _skills.Count; i++)
+        {
             _skills[i].Init(skills[i]);
+        }
+    }
+
+    public void SetCurrentItems()
+    {
+        foreach (var item in _skinEditor.Skins)
+        {
+            if (item.State.Status == ItemStatus.Equipped)
+            {
+                _skinEditor.OverrideCurrentSkin(item);
+            }
+        }
+
+        foreach (var item in _playersWeapon.Weapons)
+        {
+            if (item.State.Status == ItemStatus.Equipped)
+            {
+                _playersWeapon.OverrideCurrentWeapon(item);
+            }
+        }
+
+        foreach (var item in _skills)
+        {
+            if (item.State.Status == ItemStatus.Equipped)
+            {
+                PlayerUseSkills.OverrideCurrentSkill(item);
+            }
+        }
     }
 
     public void LoadMoney(int money)
@@ -60,25 +90,30 @@ public class Player : MonoBehaviour
 
     public void LoadMaxNumThrows(int throws)
     {
-        _maxNumberThrows = throws;
+        if (throws <= 0)
+            _maxNumberThrows = _defaultNumThrows;
+        else
+            _maxNumberThrows = throws;
+    }
+
+    public void LoadScore(int score)
+    {
+        Score = score;
     }
 
     public void ResetThrowCount()
     {
         _maxNumberThrows = _defaultNumThrows;
-        PlayerPrefs.SetInt("throwCount", _maxNumberThrows);
     }
 
     public void AddScore(int score)
     {
         Score += score;
-        PlayerPrefs.SetInt("currentScore", Score);
     }
 
     public void AddThrowCount(int value)
     {
         _maxNumberThrows += value;
-        PlayerPrefs.SetInt("throwCount", _maxNumberThrows);
     }
 
     public bool TryPurchaseSkill(Skill skill)
@@ -87,9 +122,8 @@ public class Player : MonoBehaviour
             return false;
 
         Money -= skill.Price;
-        PlayerPrefs.SetInt("currentMoney", Money);
         MoneyChange?.Invoke(Money);
-        skill.State.SetStatus(SkillStatus.Purchased);
+        skill.State.SetStatus(ItemStatus.Purchased);
 
         EquipmentChanged?.Invoke();
 
@@ -128,21 +162,21 @@ public class Player : MonoBehaviour
     {
         if (Money < weapon.Price)
             return false;
-        
+
         Money -= weapon.Price;
         PlayerPrefs.SetInt("currentMoney", Money);
         MoneyChange?.Invoke(Money);
-        weapon.State.SetStatus(WeaponStatus.Purchased);
-        
+        weapon.State.SetStatus(ItemStatus.Purchased);
+
         EquipmentChanged?.Invoke();
-        
+
         return true;
     }
 
     public void EquipWeapon(Weapon weapon)
     {
         _playersWeapon.EquipWeapon(weapon);
-        
+
         EquipmentChanged?.Invoke();
     }
 
@@ -154,7 +188,7 @@ public class Player : MonoBehaviour
         Money -= skin.Price;
         PlayerPrefs.SetInt("currentMoney", Money);
         MoneyChange?.Invoke(Money);
-        skin.State.SetStatus(SkinStatus.Purchased);
+        skin.State.SetStatus(ItemStatus.Purchased);
 
         EquipmentChanged?.Invoke();
 

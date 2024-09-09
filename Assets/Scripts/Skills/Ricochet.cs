@@ -14,7 +14,7 @@ public class Ricochet : Skill
 
     private void UseRicochet(Vector3 hitPoint)
     {
-        if (this.State.Status == SkillStatus.Equipped)
+        if (this.State.Status == ItemStatus.Equipped)
         {
             _rigidbody = _currentWeapon.GetComponent<Rigidbody>();
             _rigidbody.AddForce(hitPoint * _force);

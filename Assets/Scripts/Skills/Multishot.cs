@@ -8,7 +8,7 @@ public class Multishot : Skill
 
     public override void UseSkill(Weapon weapon)
     {
-        if (this.State.Status == SkillStatus.Equipped)
+        if (this.State.Status == ItemStatus.Equipped)
         {
             MultipleWeapon(weapon, _firstWeaponAngle);
             MultipleWeapon(weapon, _secondWeaponAngle);

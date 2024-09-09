@@ -21,9 +21,9 @@ public class PlayersWeapon : MonoBehaviour
     public void EquipWeapon(Weapon weapon)
     {
         if (_currentWeapon != null)
-            _currentWeapon.State.SetStatus(WeaponStatus.Purchased);
+            _currentWeapon.State.SetStatus(ItemStatus.Purchased);
 
-        weapon.State.SetStatus(WeaponStatus.Equipped);
+        weapon.State.SetStatus(ItemStatus.Equipped);
 
         _currentWeapon = weapon;
         _currentWeaponIndex = weapon.Index;
@@ -32,9 +32,14 @@ public class PlayersWeapon : MonoBehaviour
         PlayerPrefs.SetInt("IndexCurrentWeapon", _currentWeaponIndex);
     }
 
-    public void InitWeapons(List<WeaponState> weapons)
+    public void InitWeapons(List<ItemState> weapons)
     {
         for (int i = 0; i < _weapons.Count; i++)
             _weapons[i].Init(weapons[i]);
+    }
+
+    public void OverrideCurrentWeapon(Weapon weapon)
+    {
+        EquipWeapon(weapon);
     }
 }

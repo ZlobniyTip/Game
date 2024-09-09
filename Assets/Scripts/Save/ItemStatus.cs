@@ -1,4 +1,4 @@
-public enum SkinStatus
+public enum ItemStatus
 {
     NotPurchased,
     Purchased,

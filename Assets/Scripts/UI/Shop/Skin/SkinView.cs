@@ -56,13 +56,13 @@ public class SkinView : MonoBehaviour
 
         switch (_skin.State.Status)
         {
-            case SkinStatus.NotPurchased:
+            case ItemStatus.NotPurchased:
                 ShowPurchaseButton();
                 break;
-            case SkinStatus.Purchased:
+            case ItemStatus.Purchased:
                 ShowEquipButton();
                 break;
-            case SkinStatus.Equipped:
+            case ItemStatus.Equipped:
                 ShowEquippedLabel();
                 break;
         }

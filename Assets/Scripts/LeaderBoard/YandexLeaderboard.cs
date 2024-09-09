@@ -24,7 +24,7 @@ public class YandexLeaderboard : MonoBehaviour
         if (PlayerAccount.IsAuthorized == false)
             _authorizePanel.SetActive(true);
 
-        _saveState.LoadFile();
+        _saveState.SynchronizeSaves();
     }
 
     public void Authorize()

@@ -1,20 +1,10 @@
 using System;
 
 [Serializable]
-public class SkinState
+public class SkinState: ItemState
 {
-    public SkinStatus Status;
-
-    public event Action Changed;
-
-    public SkinState(SkinStatus status)
+    public SkinState(ItemStatus status)
     {
         Status = status;
-    }
-
-    public void SetStatus(SkinStatus status)
-    {
-        Status = status;
-        Changed?.Invoke();
     }
 }

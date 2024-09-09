@@ -3,14 +3,14 @@ using UnityEngine.Events;
 
 public class ExplosionWeapon : Skill
 {
-    [SerializeField] private float _radius;
-    [SerializeField] private float _force;
     [SerializeField] private UnityEvent _explosionSound;
     [SerializeField] private ParticleSystem _explosionEffect;
+    [SerializeField] private float _radius;
+    [SerializeField] private float _force;
 
     public override void UseSkill(Weapon weapon)
     {
-        if (this.State.Status == SkillStatus.Equipped)
+        if (this.State.Status == ItemStatus.Equipped)
         {
             Explosion(weapon);
         }
@@ -19,26 +19,8 @@ public class ExplosionWeapon : Skill
     private void Explosion(Weapon weapon)
     {
         _explosionSound?.Invoke();
-        _explosionEffect.transform.position = weapon.transform.position;
-        _explosionEffect.Play();
+        Instantiate(_explosionEffect, weapon.transform).Play();
 
-        Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _radius);
-        Rigidbody rigidbody;
-
-        for (int i = 0; i < overlappedColliders.Length; i++)
-        {
-            rigidbody = overlappedColliders[i].attachedRigidbody;
-
-            if (rigidbody)
-            {
-                rigidbody.AddExplosionForce(_force, weapon.transform.position, _radius);
-
-                if (rigidbody.gameObject.TryGetComponent(out UnitRagdollBone bone))
-                {
-                    Vector3 direction = bone.transform.position - transform.position;
-                    bone.TakeHit(direction);
-                }
-            }
-        }
+        weapon.Explosion(_radius, _force);
     }
 }

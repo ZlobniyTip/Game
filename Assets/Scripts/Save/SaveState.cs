@@ -7,23 +7,23 @@ public class SaveState : MonoBehaviour
 {
     [SerializeField] private Player _player;
 
-    private List<WeaponState> _weaponStates = new();
-    private List<SkinState> _skinStates = new();
-    private List<SkillState> _skillStates = new();
+    private List<ItemState> _weaponStates = new();
+    private List<ItemState> _skinStates = new();
+    private List<ItemState> _skillStates = new();
 
     private void Awake()
     {
         _player.EquipmentChanged += OnEquipmentChanged;
-        
-        foreach (var weapon in _player.PlayersWeapon.Weapons) 
+
+        foreach (var weapon in _player.PlayersWeapon.Weapons)
             _weaponStates.Add(weapon.State);
-        
-        foreach (var skin in _player.SkinEditor.Skins) 
+
+        foreach (var skin in _player.SkinEditor.Skins)
             _skinStates.Add(skin.State);
 
-        foreach (var skill in _player.Skills) 
+        foreach (var skill in _player.Skills)
             _skillStates.Add(skill.State);
-        
+
         LoadFile();
     }
 
@@ -41,6 +41,7 @@ public class SaveState : MonoBehaviour
             skillStates = _skillStates,
             playerMoney = _player.Money,
             maxNumberThrows = _player.MaxNumberThrows,
+            score = _player.Score,
             velocityMult = _player.Thrower.VelocityMult
         };
         
@@ -63,8 +64,9 @@ public class SaveState : MonoBehaviour
             skinStates = null,
             skillStates = null,
             playerMoney = 0,
-            maxNumberThrows = 4,
-            velocityMult = 12
+            maxNumberThrows = _player.DefaultNumThrows,
+            score = 0,
+            velocityMult = _player.Thrower.VelocityMultDefault
         };
 
         string json = JsonUtility.ToJson(gameCoreStruct, prettyPrint: false);
@@ -92,20 +94,54 @@ public class SaveState : MonoBehaviour
         PlayerAccount.GetCloudSaveData(LoadLocalData, StartEvents);
     }
 
+    public void SynchronizeSaves()
+    {
+        PlayerAccount.GetCloudSaveData(SynchronizeData, StartEvents);
+    }
+
+    private void SynchronizeData(string json)
+    {
+        GameCoreStruct gameCoreFromJson = JsonUtility.FromJson<GameCoreStruct>(json);
+
+        _player.LoadMaxNumThrows(gameCoreFromJson.maxNumberThrows);
+        _player.LoadMoney(gameCoreFromJson.playerMoney);
+        _player.LoadScore(gameCoreFromJson.score);
+        _player.Thrower.LoadVelocityMult(gameCoreFromJson.velocityMult);
+
+        SynchronizeItems(gameCoreFromJson.skillStates, _skillStates);
+        SynchronizeItems(gameCoreFromJson.weaponStates, _weaponStates);
+        SynchronizeItems(gameCoreFromJson.skinStates, _skinStates);
+
+        _player.SetCurrentItems();
+    }
+
     private void LoadLocalData(string json)
     {
         GameCoreStruct gameCoreFromJson = JsonUtility.FromJson<GameCoreStruct>(json);
 
+        _player.LoadMaxNumThrows(gameCoreFromJson.maxNumberThrows);
+        _player.LoadMoney(gameCoreFromJson.playerMoney);
+        _player.LoadScore(gameCoreFromJson.score);
+        _player.Thrower.LoadVelocityMult(gameCoreFromJson.velocityMult);
+
         _player.InitSkills(gameCoreFromJson.skillStates);
         _player.PlayersWeapon.InitWeapons(gameCoreFromJson.weaponStates);
         _player.SkinEditor.InitSkins(gameCoreFromJson.skinStates);
-        _player.LoadMaxNumThrows(gameCoreFromJson.maxNumberThrows);
-        _player.LoadMoney(gameCoreFromJson.playerMoney);
-        _player.Thrower.LoadVelocityMult(gameCoreFromJson.velocityMult);
 
         ResetPlayerStatus();
 
         StartEvents(null);
+    }
+
+    private void SynchronizeItems(List<ItemState> localItems, List<ItemState> cloudItems)
+    {
+        for (int i = 0; i < cloudItems.Count; i++)
+        {
+            if (localItems[i].Status == ItemStatus.Purchased || localItems[i].Status == ItemStatus.Equipped)
+            {
+                cloudItems[i].Status = localItems[i].Status;
+            }
+        }
     }
 
     private void ResetPlayerStatus()

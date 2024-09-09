@@ -6,11 +6,11 @@ using UnityEngine.Events;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private MeshCollider _meshCollider;
+    [SerializeField] private Sprite _icon;
     [SerializeField] private string _label;
     [SerializeField] private int _price;
-    [SerializeField] private Sprite _icon;
     [SerializeField] private int _index;
-    
+
     [NonSerialized] private WeaponState _state = null;
 
     public event UnityAction Destruction;
@@ -22,7 +22,7 @@ public class Weapon : MonoBehaviour
     public int Price => _price;
     public int Index => _index;
     public Sprite Icon => _icon;
-    public WeaponState State => _state ??= new WeaponState(WeaponStatus.NotPurchased);
+    public ItemState State => _state ??= new WeaponState(ItemStatus.NotPurchased);
 
     public Player Player { get; private set; }
 
@@ -54,9 +54,12 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void Init(WeaponState weaponState)
+    public void Init(ItemState weaponState)
     {
-        _state.SetStatus(weaponState.Status);
+        if (weaponState == null)
+            return;
+
+        State.SetStatus(weaponState.Status);
     }
 
     public void Die()
@@ -73,5 +76,27 @@ public class Weapon : MonoBehaviour
     public void SwitchingCollider(bool isIncluded)
     {
         _meshCollider.enabled = isIncluded;
+    }
+
+    public void Explosion(float radius, float force)
+    {
+        Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, radius);
+        Rigidbody rigidbody;
+
+        for (int i = 0; i < overlappedColliders.Length; i++)
+        {
+            rigidbody = overlappedColliders[i].attachedRigidbody;
+
+            if (rigidbody)
+            {
+                rigidbody.AddExplosionForce(force, transform.position, radius);
+
+                if (rigidbody.gameObject.TryGetComponent(out UnitRagdollBone bone))
+                {
+                    Vector3 direction = bone.transform.position - transform.position;
+                    bone.TakeHit(direction);
+                }
+            }
+        }
     }
 }

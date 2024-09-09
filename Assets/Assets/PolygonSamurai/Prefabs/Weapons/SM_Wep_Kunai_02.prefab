@@ -121,13 +121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90973ff5180095b49946af2ce15d9ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshCollider: {fileID: 64713059281233202}
   _label: Double kunai
   _price: 500
   _icon: {fileID: 21300000, guid: d93960400ebf4f64ab15ff80d7349f21, type: 3}
-  _weaponState:
-    IsBuying: 0
   _index: 1
-  _meshCollider: {fileID: 64713059281233202}
 --- !u!114 &8414956496163986807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8460578e620f7dd4da843be449589d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weapon: {fileID: 1846670649616110773}
 --- !u!54 &-4581646268111676765
 Rigidbody:
   m_ObjectHideFlags: 0

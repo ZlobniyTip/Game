@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -6,6 +7,8 @@ public class ProgressBar : Bar
 {
     [SerializeField] private WinScreen _winCondition;
     [SerializeField] private List<Enemy> _enemies;
+
+    private Coroutine _win;
 
     public int EnemyCount { get; private set; }
 
@@ -26,7 +29,12 @@ public class ProgressBar : Bar
 
     private void OnDisable()
     {
+        if (_win != null)
+        {
+            StopCoroutine(_win);
+        }
         EnemyCountChange -= OnValueChanged;
+
     }
 
     public void DeleteEnemy(Enemy enemy)
@@ -36,12 +44,16 @@ public class ProgressBar : Bar
 
         if (_enemies.Count == 0)
         {
-            _winCondition.OpenWinScreen();
+            _win = StartCoroutine(Win());
         }
     }
 
-    public void AddEnemy(Enemy enemy)
+    private IEnumerator Win()
     {
-        _enemies.Add(enemy);
+        var delay = new WaitForSeconds(1.5f);
+
+        yield return delay;
+
+        _winCondition.OpenWinScreen();
     }
 }

@@ -1,20 +1,10 @@
 using System;
 
 [Serializable]
-public class WeaponState
+public class WeaponState : ItemState
 {
-    public WeaponStatus Status;
-
-    public event Action Changed;
-    
-    public WeaponState(WeaponStatus status)
+    public WeaponState(ItemStatus status)
     {
         Status = status;
-    }
-
-    public void SetStatus(WeaponStatus status)
-    {
-        Status = status;
-        Changed?.Invoke();
     }
 }

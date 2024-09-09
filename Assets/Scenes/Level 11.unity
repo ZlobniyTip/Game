@@ -4224,10 +4224,6 @@ PrefabInstance:
       propertyPath: _playerUseSkills
       value: 
       objectReference: {fileID: 1213806688}
-    - target: {fileID: 9161141682351991544, guid: 732bc7f2f3096c247860be7c94c86f5c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9161141684458724361, guid: 732bc7f2f3096c247860be7c94c86f5c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.4

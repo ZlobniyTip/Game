@@ -14,10 +14,11 @@ public class Thrower : MonoBehaviour
 
     private Rigidbody _rbCurrentWeapon;
     private Weapon _weapon;
-    private float _velocityMult = 12;
-    private float _velocityMultDefault = 12;
+    private float _velocityMult = 15;
+    private float _velocityMultDefault = 15;
 
     public float VelocityMult => _velocityMult;
+    public float VelocityMultDefault => _velocityMultDefault;
 
     public GameObject CurrentTarget { get; private set; }
     public Weapon CurrentWeapon { get; private set; }

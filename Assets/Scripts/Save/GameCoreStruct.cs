@@ -4,10 +4,11 @@ using System;
 [Serializable]
 public class GameCoreStruct
 {
-    public List<WeaponState> weaponStates;
-    public List<SkinState> skinStates;
-    public List<SkillState> skillStates;
+    public List<ItemState> weaponStates;
+    public List<ItemState> skinStates;
+    public List<ItemState> skillStates;
     public int playerMoney;
     public int maxNumberThrows;
+    public int score;
     public float velocityMult;
 }

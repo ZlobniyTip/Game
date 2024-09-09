@@ -54,13 +54,13 @@ public class WeaponView : MonoBehaviour
         
         switch (_weapon.State.Status)
         {
-            case WeaponStatus.NotPurchased:
+            case ItemStatus.NotPurchased:
                 ShowPurchaseButton();
                 break;
-            case WeaponStatus.Purchased:
+            case ItemStatus.Purchased:
                 ShowEquipButton();
                 break;
-            case WeaponStatus.Equipped:
+            case ItemStatus.Equipped:
                 ShowEquippedLabel();
                 break;
         }

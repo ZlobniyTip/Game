@@ -35,6 +35,11 @@ public class Teleportation : MonoBehaviour
 
     private void Update()
     {
+        if (transform.position.z != 0)
+        {
+            transform.position = transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        }
+
         if (_isCursorOnPlayer)
         {
             if (Input.GetMouseButtonDown(0))
@@ -71,7 +76,6 @@ public class Teleportation : MonoBehaviour
         if (_currentWeapon != null)
         {
             transform.position = _currentWeapon.transform.position;
-            transform.position = new Vector3(transform.position.x, transform.position.y, 0);
             _currentWeapon.Die();
             _currentWeapon = null;
         }

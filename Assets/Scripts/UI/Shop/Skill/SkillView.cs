@@ -56,13 +56,13 @@ public class SkillView : MonoBehaviour
 
         switch (_skill.State.Status)
         {
-            case SkillStatus.NotPurchased:
+            case ItemStatus.NotPurchased:
                 ShowPurchaseButton();
                 break;
-            case SkillStatus.Purchased:
+            case ItemStatus.Purchased:
                 ShowEquipButton();
                 break;
-            case SkillStatus.Equipped:
+            case ItemStatus.Equipped:
                 ShowEquippedLabel();
                 break;
         }

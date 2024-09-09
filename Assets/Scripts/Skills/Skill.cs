@@ -7,10 +7,9 @@ public abstract class Skill : MonoBehaviour
     [SerializeField] private string _description;
     [SerializeField] private int _price;
     [SerializeField] private Sprite _icon;
-    [SerializeField] private SkillState _skillState;
     [SerializeField] private int _index;
 
-    [NonSerialized] protected SkillState _state = null;
+    [NonSerialized] private SkillState _state = null;
 
     public bool Used { get; private set; } = false;
 
@@ -19,17 +18,18 @@ public abstract class Skill : MonoBehaviour
     public int Price => _price;
     public int Index => _index;
     public Sprite Icon => _icon;
-    public SkillState SkillState => _skillState;
-    public SkillState State => _state ??= new SkillState(SkillStatus.NotPurchased);
-
+    public ItemState State => _state ??= new SkillState(ItemStatus.NotPurchased);
 
     public virtual void UseSkill(Weapon weapon)
     {
     }
 
-    public void Init(SkillState skillState)
+    public void Init(ItemState skillState)
     {
-        _state.SetStatus(skillState.Status);
+        if (skillState == null)
+            return;
+
+        State.SetStatus(skillState.Status);
     }
 
     protected void LockSkill()

@@ -762,6 +762,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   translationCode: tr
   cultures: []
+--- !u!1 &2258680808801154221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 482064423020049247}
+  - component: {fileID: 4063307177773448996}
+  m_Layer: 0
+  m_Name: TutorialText5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &482064423020049247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2258680808801154221}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2626233389802691831}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4063307177773448996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2258680808801154221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: After injuring civilians, you will receive a fine in the form of coins,
+      as well as the level will end in defeat
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0420\u0430\u043D\u0438\u0432 \u043C\u0438\u0440\u043D\u044B\u0445 \u0436\u0438\u0442\u0435\u043B\u0435\u0439
+      \u0432\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u0435 \u0448\u0442\u0440\u0430\u0444
+      \u0432 \u0432\u0438\u0434\u0435 \u043C\u043E\u043D\u0435\u0442,\u0430 \u0442\u0430\u043A\u0436\u0435
+      \u0443\u0440\u043E\u0432\u0435\u043D\u044C \u0437\u0430\u0432\u0435\u0440\u0448\u0438\u0442\u0441\u044F
+      \u043F\u043E\u0440\u0430\u0436\u0435\u043D\u0438\u0435\u043C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Sivilleri yaralad\u0131ktan sonra madeni para \u015Feklinde para cezas\u0131
+      alacaks\u0131n\u0131z ve seviye yenilgiyle sonu\xE7lanacak"
+    Object: {fileID: 0}
 --- !u!1 &2276074624238005383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1490,7 +1551,7 @@ GameObject:
   - component: {fileID: 2052960198895542794}
   - component: {fileID: 6853533177996231818}
   m_Layer: 0
-  m_Name: TutorialText7
+  m_Name: TutorialText8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1526,17 +1587,14 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: Shows how many rolls are left to complete the level
+    Text: The number of remaining throws
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442 \u0441\u043A\u043E\u043B\u044C\u043A\u043E
-      \u0431\u0440\u043E\u0441\u043A\u043E\u0432 \u043E\u0441\u0442\u0430\u043B\u043E\u0441\u044C
-      \u0434\u043B\u044F \u043F\u0440\u043E\u0445\u043E\u0436\u0434\u0435\u043D\u0438\u044F
-      \u0443\u0440\u043E\u0432\u043D\u044F"
+    Text: "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043E\u0441\u0442\u0430\u0432\u0448\u0438\u0445\u0441\u044F
+      \u0431\u0440\u043E\u0441\u043A\u043E\u0432"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Seviyeyi tamamlamak i\xE7in ka\xE7 at\u0131\u015F kald\u0131\u011F\u0131n\u0131
-      g\xF6sterir"
+    Text: "Kalan at\u0131\u015F say\u0131s\u0131"
     Object: {fileID: 0}
 --- !u!1 &4900115563119130088
 GameObject:
@@ -1975,15 +2033,15 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: Increase the range of the throw X2 for viewing ads
+    Text: Increase the range of the throw for viewing ads
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0442\u044C \u0434\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u044C
-      \u0431\u0440\u043E\u0441\u043A\u0430 X2 \u0437\u0430 \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440
+      \u0431\u0440\u043E\u0441\u043A\u0430 \u0437\u0430 \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440
       \u0440\u0435\u043A\u043B\u0430\u043C\u044B"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Reklam g\xF6r\xFCnt\xFCleme ba\u015F\u0131na X2 at\u0131\u015F aral\u0131\u011F\u0131n\u0131
+    Text: "Reklam g\xF6r\xFCnt\xFCleme ba\u015F\u0131na at\u0131\u015F aral\u0131\u011F\u0131n\u0131
       art\u0131r\u0131n"
     Object: {fileID: 0}
 --- !u!1 &6003142428530678149
@@ -2276,7 +2334,7 @@ GameObject:
   - component: {fileID: 7752614454287366331}
   - component: {fileID: 4135479627578988207}
   m_Layer: 0
-  m_Name: TutorialText5
+  m_Name: TutorialText6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2312,14 +2370,13 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: Don't forget to keep an eye on the indicators
+    Text: Wind direction
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u041D\u0435 \u0437\u0430\u0431\u044B\u0432\u0430\u0439\u0442\u0435 \u0441\u043B\u0435\u0434\u0438\u0442\u044C
-      \u0437\u0430 \u0438\u043D\u0434\u0438\u043A\u0430\u0442\u043E\u0440\u0430\u043C\u0438"
+    Text: "\u041D\u0430\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0432\u0435\u0442\u0440\u0430"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "G\xF6stergelere dikkat etmeyi unutmay\u0131n"
+    Text: "R\xFCzgar y\xF6n\xFC"
     Object: {fileID: 0}
 --- !u!1 &6489068567917127370
 GameObject:
@@ -2387,7 +2444,7 @@ GameObject:
   - component: {fileID: 8920321074313623993}
   - component: {fileID: 681364675184554499}
   m_Layer: 0
-  m_Name: TutorialText6
+  m_Name: TutorialText7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2423,15 +2480,14 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: Shows how many enemies are left on the level
+    Text: The number of enemies per level
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442 \u0441\u043A\u043E\u043B\u044C\u043A\u043E
-      \u0432\u0440\u0430\u0433\u043E\u0432 \u043E\u0441\u0442\u0430\u043B\u043E\u0441\u044C
+    Text: "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0432\u0440\u0430\u0433\u043E\u0432
       \u043D\u0430 \u0443\u0440\u043E\u0432\u043D\u0435"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Seviyede ka\xE7 d\xFC\u015Fman kald\u0131\u011F\u0131n\u0131 g\xF6sterir"
+    Text: "Seviyedeki d\xFC\u015Fman say\u0131s\u0131"
     Object: {fileID: 0}
 --- !u!1 &6664605295328302200
 GameObject:
@@ -2788,6 +2844,7 @@ Transform:
   - {fileID: 8125706621580372946}
   - {fileID: 1328620912257515896}
   - {fileID: 1029691039116143998}
+  - {fileID: 482064423020049247}
   - {fileID: 7752614454287366331}
   - {fileID: 8920321074313623993}
   - {fileID: 2052960198895542794}
@@ -2812,7 +2869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: English
+  currentLanguage: Russian
   detectLanguage: 1
   defaultLanguage: English
   saveLoad: 1
@@ -3325,17 +3382,15 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: To aim, hover the cursor over the character and hold down the LMB
+    Text: Set the trajectory of the throw by dragging the cursor
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u0414\u043B\u044F \u043F\u0440\u0438\u0446\u0435\u043B\u0438\u0432\u0430\u043D\u0438\u044F
-      \u043D\u0430\u0432\u0435\u0434\u0438\u0442\u0435 \u043A\u0443\u0440\u0441\u043E\u0440
-      \u043D\u0430 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0430 \u0438
-      \u0437\u0430\u0436\u043C\u0438\u0442\u0435 \u041B\u041A\u041C"
+    Text: "\u0417\u0430\u0434\u0430\u0439\u0442\u0435 \u0442\u0440\u0430\u0435\u043A\u0442\u043E\u0440\u0438\u044E
+      \u0431\u0440\u043E\u0441\u043A\u0430 \u043F\u043E\u0442\u044F\u043D\u0443\u0432
+      \u043A\u0443\u0440\u0441\u043E\u0440"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Ni\u015Fan almak i\xE7in imlecinizi karakterin \xFCzerine getirin ve boyay\u0131
-      bas\u0131l\u0131 tutun"
+    Text: "\u0130mleci \xE7ekerek at\u0131\u015F\u0131n y\xF6r\xFCngesini ayarlay\u0131n"
     Object: {fileID: 0}
 --- !u!1 &9220380776232817910
 GameObject:
