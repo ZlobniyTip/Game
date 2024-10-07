@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private int _price;
     [SerializeField] private int _index;
 
-    [NonSerialized] private WeaponState _state = null;
+    [NonSerialized] private ItemState _state = null;
 
     public event UnityAction Destruction;
     public event UnityAction<Vector3> Ricochet;
@@ -22,7 +22,7 @@ public class Weapon : MonoBehaviour
     public int Price => _price;
     public int Index => _index;
     public Sprite Icon => _icon;
-    public ItemState State => _state ??= new WeaponState(ItemStatus.NotPurchased);
+    public ItemState State => _state ??= new ItemState(ItemStatus.NotPurchased);
 
     public Player Player { get; private set; }
 
@@ -54,12 +54,9 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void Init(ItemState weaponState)
+    public void Init(ItemStatus weaponState)
     {
-        if (weaponState == null)
-            return;
-
-        State.SetStatus(weaponState.Status);
+        State.SetStatus(weaponState);
     }
 
     public void Die()

@@ -3,12 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class SaveCurrentScene : MonoBehaviour
 {
-    private int _firstLevelSceneIndex = 2;
+    private int _firstLevelSceneIndex = 1;
     private int _currentSceneIndex;
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 1 && SceneManager.GetActiveScene().buildIndex != 2)
+        if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1)
         {
             SaveSceneIndex();
         }

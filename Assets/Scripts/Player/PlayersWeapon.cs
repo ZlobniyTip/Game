@@ -32,7 +32,7 @@ public class PlayersWeapon : MonoBehaviour
         PlayerPrefs.SetInt("IndexCurrentWeapon", _currentWeaponIndex);
     }
 
-    public void InitWeapons(List<ItemState> weapons)
+    public void InitWeapons(List<ItemStatus> weapons)
     {
         for (int i = 0; i < _weapons.Count; i++)
             _weapons[i].Init(weapons[i]);

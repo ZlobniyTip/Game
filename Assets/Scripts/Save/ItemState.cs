@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public abstract class ItemState : MonoBehaviour
+public class ItemState
 {
     public ItemStatus Status;
 
@@ -12,5 +12,10 @@ public abstract class ItemState : MonoBehaviour
     {
         Status = status;
         Changed?.Invoke();
+    }
+
+    public ItemState(ItemStatus status)
+    {
+        Status = status;
     }
 }

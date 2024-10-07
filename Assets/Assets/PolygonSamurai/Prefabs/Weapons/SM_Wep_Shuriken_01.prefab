@@ -122,9 +122,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meshCollider: {fileID: 64385082873188624}
+  _icon: {fileID: 21300000, guid: 3c81e3162a0998d478858f535f16696f, type: 3}
   _label: Shuriken
   _price: 1200
-  _icon: {fileID: 21300000, guid: 3c81e3162a0998d478858f535f16696f, type: 3}
   _index: 3
 --- !u!114 &-8466096179184219247
 MonoBehaviour:
@@ -165,4 +165,4 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 8
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1

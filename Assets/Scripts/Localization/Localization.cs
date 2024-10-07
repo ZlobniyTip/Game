@@ -1,6 +1,6 @@
-using Agava.YandexGames;
 using Lean.Localization;
 using UnityEngine;
+using YG;
 
 namespace Assets.Scripts
 {
@@ -33,7 +33,7 @@ namespace Assets.Scripts
                 return;
             }
 
-            string languageCode = YandexGamesSdk.Environment.i18n.lang;
+            string languageCode = YandexGame.EnvironmentData.language;
 
             switch (languageCode)
             {

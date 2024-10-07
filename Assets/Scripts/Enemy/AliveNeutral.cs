@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AliveNeutral : MonoBehaviour
 {
     [SerializeField] private List<Neutral> _neutrals;
-    [SerializeField] private Loss _loss;
+
+    public event UnityAction DeathNeutrals;
 
     private void Start()
     {
@@ -28,8 +30,8 @@ public class AliveNeutral : MonoBehaviour
         }
     }
 
-    public void KillNeutral(Neutral neutral)
+    private void KillNeutral(Neutral neutral)
     {
-        _loss.DeclareLoss();
+        DeathNeutrals?.Invoke();
     }
 }

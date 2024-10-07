@@ -122,9 +122,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meshCollider: {fileID: 64076359805305146}
+  _icon: {fileID: 21300000, guid: c1e0645051ae1fb4ea6949de37c02f43, type: 3}
   _label: Naginata
   _price: 2700
-  _icon: {fileID: 21300000, guid: c1e0645051ae1fb4ea6949de37c02f43, type: 3}
   _index: 7
 --- !u!54 &892365666866902848
 Rigidbody:
@@ -152,7 +152,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 8
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &5247250056528927875
 MonoBehaviour:
   m_ObjectHideFlags: 0

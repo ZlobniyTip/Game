@@ -41,7 +41,7 @@ public class SkinEditor : MonoBehaviour
         PlayerPrefs.SetInt("IndexCurrentSkin", _currentSkinIndex);
     }
 
-    public void InitSkins(List<ItemState> skins)
+    public void InitSkins(List<ItemStatus> skins)
     {
         for (int i = 0; i < _skins.Count; i++)
             _skins[i].Init(skins[i]);

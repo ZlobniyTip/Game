@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Thrower))]
-[RequireComponent(typeof(Rigidbody))]
 public class Teleportation : MonoBehaviour
 {
     [SerializeField] private UnityEvent _teleportEffect;
@@ -58,6 +57,7 @@ public class Teleportation : MonoBehaviour
                 _rigidbody.isKinematic = false;
                 _offset.ActivateOffset(true);
                 TeleportWeapon();
+                _offset.CheckCollision();
                 _teleportEffect?.Invoke();
                 _smoke = Instantiate(_prefab, transform.position, Quaternion.Euler(180, 0, 0));
                 _smoke.Play();

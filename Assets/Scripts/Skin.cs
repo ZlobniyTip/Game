@@ -8,19 +8,16 @@ public class Skin : MonoBehaviour
     [SerializeField] private Sprite _icon;
     [SerializeField] private int _index;
 
-    [NonSerialized] private SkinState _state = null;
+    [NonSerialized] private ItemState _state = null;
 
     public string Label => _label;
     public int Price => _price;
     public int Index => _index;
     public Sprite Icon => _icon;
-    public ItemState State => _state ??= new SkinState(ItemStatus.NotPurchased);
+    public ItemState State => _state ??= new ItemState(ItemStatus.NotPurchased);
 
-    public void Init(ItemState skinState)
+    public void Init(ItemStatus skinState)
     {
-        if (skinState == null)
-            return;
-
-        State.SetStatus(skinState.Status);
+        State.SetStatus(skinState);
     }
 }

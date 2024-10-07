@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using YG.Example;
 
 public class SceneSettings : MonoBehaviour
 {
     [SerializeField] private GameObject _winScreen;
     [SerializeField] private GameObject _menu;
-    [SerializeField] private SaveState _saveState;
     [SerializeField] private VideoAd _videoAd;
+    [SerializeField] private SaverTest _saverTest;
 
     private int _nextScene;
 
@@ -18,18 +19,17 @@ public class SceneSettings : MonoBehaviour
     private void Start()
     {
         _nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+        _saverTest.Save();
     }
 
     public void TryRestartScene()
     {
-        _saveState.SaveFile();
         _videoAd.RewardCallback += RestartScene;
         _videoAd.Show();
     }
 
     public void RestartScene()
     {
-        _saveState.SaveFile();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         if (Time.timeScale == 0)
@@ -40,7 +40,6 @@ public class SceneSettings : MonoBehaviour
 
     public void ChangeScene()
     {
-        _saveState.SaveFile();
         SceneManager.LoadScene(_nextScene);
 
         if (Time.timeScale == 0)
@@ -51,8 +50,7 @@ public class SceneSettings : MonoBehaviour
 
     public void StartFirstLevel()
     {
-        _saveState.SaveFile();
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
 
         if (Time.timeScale == 0)
         {

@@ -135,7 +135,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 8
-  m_CollisionDetection: 3
+  m_CollisionDetection: 1
 --- !u!114 &-5732094732788774207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,9 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meshCollider: {fileID: 64724910673454130}
+  _icon: {fileID: 21300000, guid: e4c8d7f9cd364dd49a05c9d87f804f09, type: 3}
   _label: Kunai
   _price: 0
-  _icon: {fileID: 21300000, guid: e4c8d7f9cd364dd49a05c9d87f804f09, type: 3}
   _index: 0
 --- !u!114 &-1730899506768138327
 MonoBehaviour:

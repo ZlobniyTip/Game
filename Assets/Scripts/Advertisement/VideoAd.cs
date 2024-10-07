@@ -1,12 +1,29 @@
 using UnityEngine;
 using UnityEngine.Events;
+using YG;
 
 public class VideoAd : MonoBehaviour
 {
     public event UnityAction RewardCallback;
 
-    public void Show() =>
-        Agava.YandexGames.VideoAd.Show(OnOpenCallback, OnRewardCallback, OnCloseCallback);
+    private void OnEnable()
+    {
+        YandexGame.OpenVideoEvent += OnOpenCallback;
+        YandexGame.CloseVideoEvent += OnCloseCallback;
+        YandexGame.RewardVideoEvent += OnRewardCallback;
+    }
+
+    private void OnDisable()
+    {
+        YandexGame.OpenVideoEvent -= OnOpenCallback;
+        YandexGame.CloseVideoEvent -= OnCloseCallback;
+    }
+
+    public void Show()
+    {
+        YandexGame.RewVideoShow(0);
+    }
+
 
     private void OnOpenCallback()
     {
@@ -14,14 +31,14 @@ public class VideoAd : MonoBehaviour
         AudioListener.volume = 0f;
     }
 
-    private void OnRewardCallback()
-    {
-        RewardCallback?.Invoke();
-    }
-
     private void OnCloseCallback()
     {
         Time.timeScale = 1;
         AudioListener.volume = 1f;
+    }
+
+    private void OnRewardCallback(int reward)
+    {
+        RewardCallback?.Invoke();
     }
 }

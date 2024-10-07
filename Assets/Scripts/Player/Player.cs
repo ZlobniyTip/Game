@@ -9,9 +9,9 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerUseSkills _playerUseSkills;
     [SerializeField] private List<Skill> _skills;
     [SerializeField] private Thrower _thrower;
-    [SerializeField] private Loss _loss;
     [SerializeField] private PlayersWeapon _playersWeapon;
     [SerializeField] private SkinEditor _skinEditor;
+    [SerializeField] private Collider _collider;
 
     private int _maxNumberThrows = 5;
     private int _defaultNumThrows = 5;
@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public event UnityAction<int> MoneyChange;
     public event UnityAction<int, int> ThrowsChange;
     public event Action EquipmentChanged;
+    public event Action ThrowsOver;
 
     public Thrower Thrower => _thrower;
     public SkinEditor SkinEditor => _skinEditor;
@@ -48,7 +49,7 @@ public class Player : MonoBehaviour
         ThrowsChange?.Invoke(RemainingNumThrows, _maxNumberThrows);
     }
 
-    public void InitSkills(List<ItemState> skills)
+    public void InitSkills(List<ItemStatus> skills)
     {
         for (int i = 0; i < _skills.Count; i++)
         {
@@ -56,36 +57,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void SetCurrentItems()
-    {
-        foreach (var item in _skinEditor.Skins)
-        {
-            if (item.State.Status == ItemStatus.Equipped)
-            {
-                _skinEditor.OverrideCurrentSkin(item);
-            }
-        }
-
-        foreach (var item in _playersWeapon.Weapons)
-        {
-            if (item.State.Status == ItemStatus.Equipped)
-            {
-                _playersWeapon.OverrideCurrentWeapon(item);
-            }
-        }
-
-        foreach (var item in _skills)
-        {
-            if (item.State.Status == ItemStatus.Equipped)
-            {
-                PlayerUseSkills.OverrideCurrentSkill(item);
-            }
-        }
-    }
-
     public void LoadMoney(int money)
     {
         Money = money;
+        MoneyChange?.Invoke(Money);
     }
 
     public void LoadMaxNumThrows(int throws)
@@ -94,6 +69,8 @@ public class Player : MonoBehaviour
             _maxNumberThrows = _defaultNumThrows;
         else
             _maxNumberThrows = throws;
+
+        ThrowsChange?.Invoke(_maxNumberThrows,_maxNumberThrows);
     }
 
     public void LoadScore(int score)
@@ -143,8 +120,8 @@ public class Player : MonoBehaviour
 
         if (RemainingNumThrows == 0)
         {
-            _loss.DeclareLoss();
-            _thrower.enabled = false;
+            ThrowsOver?.Invoke();
+            _collider.enabled = false;
         }
 
         ThrowsChange?.Invoke(RemainingNumThrows, _maxNumberThrows);

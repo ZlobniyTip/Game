@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using YG.Example;
 
 public class PlayerBonus : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class PlayerBonus : MonoBehaviour
     [SerializeField] private Button _buttonAddThrow;
     [SerializeField] private Button _buttonAddThrowX2;
     [SerializeField] private Button _nextLevel;
-    [SerializeField] private YandexLeaderboard _yandexLeaderboard;
+    [SerializeField] private NewResultLBExample _newResultLB;
     [SerializeField] private VideoAd _videoAd;
     [SerializeField] private Teleportation _teleportation;
     [SerializeField] private TMP_Text _valueDefaultReward;
@@ -38,7 +39,7 @@ public class PlayerBonus : MonoBehaviour
         _player.Thrower.enabled = false;
         _teleportation.enabled = false;
         _player.AddScore(_player.RemainingNumThrows);
-        _yandexLeaderboard.SetPlayerScore(_player.Score);
+        _newResultLB.NewScore(_player.Score);
     }
 
     public void TryAddThrowCountX2()

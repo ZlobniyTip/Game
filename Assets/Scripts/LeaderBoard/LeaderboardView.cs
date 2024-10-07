@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 public class LeaderboardView : MonoBehaviour
 {
@@ -8,14 +9,14 @@ public class LeaderboardView : MonoBehaviour
 
     private List<LeaderboardElement> _spawnedElements = new();
 
-    public void Constructleaderboard(List<LeaderboardPlayer> leaderboardPlayers)
+    public void Constructleaderboard(List<LBPlayerDataYG> leaderboardPlayers)
     {
         ClearLeaderboard();
 
-        foreach (LeaderboardPlayer player in leaderboardPlayers)
+        foreach (LBPlayerDataYG player in leaderboardPlayers)
         {
             LeaderboardElement leaderboardElementInstance = Instantiate(_leaderboardElementPrefab, _container);
-            leaderboardElementInstance.Initialize(player.Name, player.Rank, player.Score);
+            leaderboardElementInstance.Initialize(player.data.name, player.data.rank, player.data.score);
 
             _spawnedElements.Add(leaderboardElementInstance);
         }

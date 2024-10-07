@@ -1,30 +1,22 @@
 using UnityEngine;
-using Agava.WebUtility;
+using YG;
 
 public class TestFocus : MonoBehaviour
 {
     private void OnEnable()
     {
-        Application.focusChanged += OnInBackgroundChangeApp;
-        WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
+        YandexGame.onVisibilityWindowGame += OnVisibilityWindowGame;
     }
 
     private void OnDisable()
     {
-        Application.focusChanged -= OnInBackgroundChangeApp;
-        WebApplication.InBackgroundChangeEvent -= OnInBackgroundChangeWeb;
+        YandexGame.onVisibilityWindowGame -= OnVisibilityWindowGame;
     }
 
-    private void OnInBackgroundChangeApp(bool inApp)
+    private void OnVisibilityWindowGame(bool inApp)
     {
         MuteAudio(!inApp);
         PauseGame(!inApp);
-    }
-
-    private void OnInBackgroundChangeWeb(bool isBackground)
-    {
-        MuteAudio(isBackground);
-        PauseGame(isBackground);
     }
 
     private void MuteAudio(bool value)
@@ -37,12 +29,12 @@ public class TestFocus : MonoBehaviour
                 return;
             }
 
-            AudioListener.volume = 1;
+            AudioListener.volume = 0;
         }
 
         if (value == true)
         {
-            AudioListener.volume = 0;
+            AudioListener.volume = 1;
         }
     }
 

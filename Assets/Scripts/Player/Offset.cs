@@ -1,32 +1,45 @@
+using System.Linq;
 using UnityEngine;
 
 public class Offset : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private float _offset;
 
-    private bool _isActive = false;
+    private SphereCollider _collider;
 
-    private void OnCollisionEnter(Collision collision)
+    private void Awake()
     {
-        if (collision.transform.tag == "Collision")
-        {
-            if (_isActive)
-            {
-                foreach (ContactPoint point in collision.contacts)
-                {
-                    Vector3 hitPoint = point.point;
-                    transform.position = hitPoint + point.normal * _offset;
-                }
-
-                _rigidbody.isKinematic = true;
-                ActivateOffset(false);
-            }
-        }
+        _collider = GetComponent<SphereCollider>();
     }
 
     public void ActivateOffset(bool isActive)
     {
-        _isActive = isActive;
+        _collider.isTrigger = !isActive;
+    }
+
+    public void CheckCollision()
+    {
+        int iterator = 0;
+
+        while (true)
+        {
+            iterator++;
+            Collider[] colliders = Physics.OverlapSphere(transform.position, _collider.radius);
+            Collider[] filteredColliders = colliders.Where(c => c.transform.tag == "Collision").ToArray();
+
+            if (filteredColliders.Length == 0)
+            {
+                break;
+            }
+
+            if (iterator > 20)
+            {
+                break;
+            }
+
+            Vector3 closestPoint = filteredColliders[0].ClosestPoint(transform.position);
+            Vector3 direction = (transform.position - closestPoint).normalized;
+            transform.position = closestPoint + direction * _collider.radius * 1.1f;
+        }
     }
 }

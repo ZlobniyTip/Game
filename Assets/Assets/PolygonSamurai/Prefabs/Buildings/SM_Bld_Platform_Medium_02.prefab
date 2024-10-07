@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3347896}
   - component: {fileID: 2313558}
   - component: {fileID: 64530304754869992}
+  - component: {fileID: 1991724961302764960}
   m_Layer: 0
   m_Name: SM_Bld_Platform_Medium_02
   m_TagString: Collision
@@ -106,3 +107,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: b7c40907049abb247989a910a3c059b2, type: 3}
+--- !u!65 &1991724961302764960
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139510}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.6089516, y: 0.35268873, z: 7.6955013}
+  m_Center: {x: 0.048841476, y: -0.019861974, z: -0.018577099}
