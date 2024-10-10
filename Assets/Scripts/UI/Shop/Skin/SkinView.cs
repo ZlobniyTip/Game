@@ -50,7 +50,7 @@ public class SkinView : MonoBehaviour
 
     private void UpdateView()
     {
-        _label.text = LeanLocalization.GetTranslationText(_skin.Label);
+        _label.text = _skin.Label;
         _price.text = _skin.Price.ToString();
         _icon.sprite = _skin.Icon;
 

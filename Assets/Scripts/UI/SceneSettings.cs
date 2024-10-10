@@ -19,7 +19,6 @@ public class SceneSettings : MonoBehaviour
     private void Start()
     {
         _nextScene = SceneManager.GetActiveScene().buildIndex + 1;
-        _saverTest.Save();
     }
 
     public void TryRestartScene()
@@ -30,6 +29,7 @@ public class SceneSettings : MonoBehaviour
 
     public void RestartScene()
     {
+        _saverTest.Save();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         if (Time.timeScale == 0)
@@ -40,6 +40,7 @@ public class SceneSettings : MonoBehaviour
 
     public void ChangeScene()
     {
+        _saverTest.Save();
         SceneManager.LoadScene(_nextScene);
 
         if (Time.timeScale == 0)
@@ -50,6 +51,7 @@ public class SceneSettings : MonoBehaviour
 
     public void StartFirstLevel()
     {
+        _saverTest.Save();
         SceneManager.LoadScene(2);
 
         if (Time.timeScale == 0)
