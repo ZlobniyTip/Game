@@ -48,7 +48,7 @@ public class WeaponView : MonoBehaviour
 
     private void UpdateView()
     {
-        _label.text = _weapon.Label;
+        _label.text = LeanLocalization.GetTranslationText(_weapon.Label);
         _price.text = _weapon.Price.ToString();
         _icon.sprite = _weapon.Icon;
         

@@ -2824,6 +2824,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2626233389802691831}
   - component: {fileID: 6497258734633953852}
+  - component: {fileID: 3061734467328663435}
+  - component: {fileID: 4306729373903727146}
   m_Layer: 0
   m_Name: LeanLocalization
   m_TagString: Untagged
@@ -2919,11 +2921,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: 
+  currentLanguage: English
   detectLanguage: 1
   defaultLanguage: 
   saveLoad: 1
   prefabs: []
+--- !u!114 &3061734467328663435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8092739098266600605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb00f541e67a6e44abac5a8d8b11d673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _leanLocalization: {fileID: 6497258734633953852}
+--- !u!114 &4306729373903727146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8092739098266600605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225ec97158446a94d9cb40a9f742a8b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationCode: 
+  cultures:
+  - Turkish
+  - Russian
+  - English
 --- !u!1 &8357535570158143718
 GameObject:
   m_ObjectHideFlags: 0

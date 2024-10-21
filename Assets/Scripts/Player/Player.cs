@@ -54,7 +54,17 @@ public class Player : MonoBehaviour
         for (int i = 0; i < _skills.Count; i++)
         {
             _skills[i].Init(skills[i]);
+
+            if (_skills[i].State.Status == ItemStatus.Equipped)
+            {
+                _playerUseSkills.EquipSkill(_skills[i]);
+            }
         }
+    }
+
+    public void LoadScore(int score)
+    {
+        Score = score;
     }
 
     public void LoadMoney(int money)
@@ -71,11 +81,6 @@ public class Player : MonoBehaviour
             _maxNumberThrows = throws;
 
         ThrowsChange?.Invoke(_maxNumberThrows,_maxNumberThrows);
-    }
-
-    public void LoadScore(int score)
-    {
-        Score = score;
     }
 
     public void ResetThrowCount()
@@ -131,7 +136,6 @@ public class Player : MonoBehaviour
     {
         Money += reward;
         AddScore(1);
-        PlayerPrefs.SetInt("currentMoney", Money);
         MoneyChange?.Invoke(Money);
     }
 
@@ -141,7 +145,6 @@ public class Player : MonoBehaviour
             return false;
 
         Money -= weapon.Price;
-        PlayerPrefs.SetInt("currentMoney", Money);
         MoneyChange?.Invoke(Money);
         weapon.State.SetStatus(ItemStatus.Purchased);
 
@@ -163,7 +166,6 @@ public class Player : MonoBehaviour
             return false;
 
         Money -= skin.Price;
-        PlayerPrefs.SetInt("currentMoney", Money);
         MoneyChange?.Invoke(Money);
         skin.State.SetStatus(ItemStatus.Purchased);
 

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,8 @@ namespace YG.Example
     public class SaverTest : MonoBehaviour
     {
         [SerializeField] private Player _player;
+
+        public event Action<int> LoadData;
 
         private void OnEnable()
         {
@@ -56,8 +59,8 @@ namespace YG.Example
             _player.SkinEditor.InitSkins(YandexGame.savesData.skinStates);
             _player.InitSkills(YandexGame.savesData.skillStates);
 
-            _player.LoadMoney(YandexGame.savesData.playerMoney);
             _player.LoadScore(YandexGame.savesData.score);
+            _player.LoadMoney(YandexGame.savesData.playerMoney);
             _player.LoadMaxNumThrows(YandexGame.savesData.maxNumberThrows);
             _player.Thrower.LoadVelocityMult(YandexGame.savesData.velocityMult);
 
@@ -68,6 +71,7 @@ namespace YG.Example
             }
 
             _player.StartEvents();
+            LoadData?.Invoke(_player.Score);
         }
     }
 }

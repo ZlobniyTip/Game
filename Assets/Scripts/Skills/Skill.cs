@@ -1,11 +1,10 @@
 using System;
-using TMPro;
 using UnityEngine;
 
 public abstract class Skill : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _label;
-    [SerializeField] private TMP_Text _description;
+    [SerializeField] private string _label;
+    [SerializeField] private string _description;
     [SerializeField] private int _price;
     [SerializeField] private Sprite _icon;
     [SerializeField] private int _index;
@@ -14,8 +13,8 @@ public abstract class Skill : MonoBehaviour
 
     public bool Used { get; private set; } = false;
 
-    public string Label => _label.text;
-    public string Description => _description.text;
+    public string Label => _label;
+    public string Description => _description;
     public int Price => _price;
     public int Index => _index;
     public Sprite Icon => _icon;

@@ -4354,7 +4354,7 @@ MonoBehaviour:
   _buttonAddThrow: {fileID: 1154593671098213962}
   _buttonAddThrowX2: {fileID: 4633845780570285297}
   _nextLevel: {fileID: 4456723028866629338}
-  _newResultLB: {fileID: 405960264366592973}
+  _newResultLB: {fileID: 2840528431852433877}
   _videoAd: {fileID: 5337661919734579631}
   _teleportation: {fileID: 205841135117846716, guid: 732bc7f2f3096c247860be7c94c86f5c, type: 3}
   _valueDefaultReward: {fileID: 4368282276432217408}
@@ -4823,7 +4823,6 @@ MonoBehaviour:
   _rs: {fileID: 4405310842713055998}
   _tr: {fileID: 3878440152408613050}
   _en: {fileID: 147737719541638465}
-  _languageExample: {fileID: 0}
 --- !u!1 &3402800570415976930
 GameObject:
   m_ObjectHideFlags: 0
@@ -5279,6 +5278,7 @@ GameObject:
   - component: {fileID: 7743887350547867521}
   - component: {fileID: 5086130349102134062}
   - component: {fileID: 4778346239044128984}
+  - component: {fileID: 2840528431852433877}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5433,7 +5433,7 @@ MonoBehaviour:
   _aliveNeutral: {fileID: 7310131768234120004}
   _player: {fileID: 0}
   _winScreen: {fileID: 754754253306043274}
-  _newResultLBExample: {fileID: 405960264366592973}
+  _newResultLBExample: {fileID: 2840528431852433877}
 --- !u!114 &5337661919734579631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5484,6 +5484,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
+--- !u!114 &2840528431852433877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3550686619591858100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77da4e298b787504f9a35fe14840b10a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _leaderboardYG: {fileID: 259323971436824904}
+  _saverTest: {fileID: 4778346239044128984}
 --- !u!1 &3576795308888596009
 GameObject:
   m_ObjectHideFlags: 0
@@ -11388,7 +11402,7 @@ MonoBehaviour:
   m_margin: {x: 51.46518, y: 19.493587, z: 51.927948, w: 12.144714}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &4790691919051939231
@@ -11804,7 +11818,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "+ 1 \u043A \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0443
+  m_text: "+ 2 \u043A \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0443
     \u0431\u0440\u043E\u0441\u043A\u043E\u0432"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11891,9 +11905,9 @@ MonoBehaviour:
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
-  ru: "+ 1 \u043A \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0443 \u0431\u0440\u043E\u0441\u043A\u043E\u0432"
-  en: + 1 to the number of throws
-  tr: "At\u0131\u015F say\u0131s\u0131na +1"
+  ru: "+ 2 \u043A \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0443 \u0431\u0440\u043E\u0441\u043A\u043E\u0432"
+  en: + 2 to the number of throws
+  tr: "At\u0131\u015F say\u0131s\u0131na +2"
   az: 
   be: 
   he: 
@@ -13954,7 +13968,6 @@ GameObject:
   - component: {fileID: 6191820388629139274}
   - component: {fileID: 7646473862365961518}
   - component: {fileID: 3884737720345357623}
-  - component: {fileID: 405960264366592973}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -14123,19 +14136,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &405960264366592973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8352391053242447156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77da4e298b787504f9a35fe14840b10a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _leaderboardYG: {fileID: 259323971436824904}
 --- !u!1 &8503982450852617122
 GameObject:
   m_ObjectHideFlags: 0

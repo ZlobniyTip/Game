@@ -29,12 +29,12 @@ public class TestFocus : MonoBehaviour
                 return;
             }
 
-            AudioListener.volume = 0;
+            AudioListener.volume = 1;
         }
 
         if (value == true)
         {
-            AudioListener.volume = 1;
+            AudioListener.volume = 0;
         }
     }
 

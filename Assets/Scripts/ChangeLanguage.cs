@@ -1,16 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
-using YG.Example;
+using YG;
 
 public class ChangeLanguage : MonoBehaviour
 {
     [SerializeField] private Button _rs;
     [SerializeField] private Button _tr;
     [SerializeField] private Button _en;
-    [SerializeField] private LanguageExample _languageExample;
 
     private string _rus = "ru";
     private string _tur = "tr";
+    private string _eng = "en";
 
     private void OnEnable()
     {
@@ -28,16 +28,16 @@ public class ChangeLanguage : MonoBehaviour
 
     private void SetRusLanguage()
     {
-        _languageExample.SwitchLanguage(_rus);
+        YandexGame.SwitchLanguage(_rus);
     }
 
     private void SetTrLanguage()
     {
-        _languageExample.SwitchLanguage(_tur);
+        YandexGame.SwitchLanguage(_tur);
     }
 
     private void SetEngLanguage()
     {
-        _languageExample.SwitchLanguage(null);
+        YandexGame.SwitchLanguage(_eng);
     }
 }

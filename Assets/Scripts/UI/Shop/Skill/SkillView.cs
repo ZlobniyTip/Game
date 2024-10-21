@@ -49,8 +49,8 @@ public class SkillView : MonoBehaviour
 
     public void UpdateView()
     {
-        _label.text = _skill.Label;
-        _description.text = _skill.Description;
+        _label.text = LeanLocalization.GetTranslationText(_skill.Label);
+        _description.text = LeanLocalization.GetTranslationText(_skill.Description);
         _price.text = _skill.Price.ToString();
         _icon.sprite = _skill.Icon;
 

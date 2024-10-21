@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: -492364753147993639}
   - component: {fileID: -2615149515817581861}
   - component: {fileID: 3403816926522404597}
-  - component: {fileID: 8271347336511452087}
   m_Layer: 3
   m_Name: SM_Wep_Sai_01
   m_TagString: Untagged
@@ -23,13 +22,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &467576
-RectTransform:
+--- !u!4 &467576
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160614}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
@@ -37,11 +37,6 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &3362770
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -128,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _meshCollider: {fileID: 64911992742931370}
   _icon: {fileID: 21300000, guid: 02b6d113831a690459d3e6c4d09d3e0a, type: 3}
-  _label: {fileID: 0}
+  _label: Sai
   _price: 1500
   _index: 4
 --- !u!54 &-2615149515817581861
@@ -171,11 +166,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapon: {fileID: -492364753147993639}
---- !u!222 &8271347336511452087
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160614}
-  m_CullTransparentMesh: 1

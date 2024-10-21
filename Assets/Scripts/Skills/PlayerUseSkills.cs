@@ -7,16 +7,6 @@ public class PlayerUseSkills : MonoBehaviour
 
     private Skill _usedSkill;
     private Weapon _currentWeapon;
-    private int _currentSkillIndex;
-
-    private void Start()
-    {
-        if (PlayerPrefs.HasKey("IndexCurrentSkill"))
-        {
-            _currentSkillIndex = PlayerPrefs.GetInt("IndexCurrentSkill");
-            EquipSkill(_player.Skills[_currentSkillIndex]);
-        }
-    }
 
     private void Update()
     {
@@ -33,24 +23,18 @@ public class PlayerUseSkills : MonoBehaviour
     public void EquipSkill(Skill skill)
     {
         if (_usedSkill != null)
+        {
             _usedSkill.State.SetStatus(ItemStatus.Purchased);
+        }
 
         skill.State.SetStatus(ItemStatus.Equipped);
 
         _usedSkill = skill;
-        _currentSkillIndex = skill.Index;
-
-        PlayerPrefs.SetInt("IndexCurrentSkill", _currentSkillIndex);
     }
 
     public void GetLinkWeapon(Weapon weapon)
     {
         _currentWeapon = weapon;
-    }
-
-    public void OverrideCurrentSkill(Skill skill)
-    {
-        EquipSkill(skill);
     }
 
     private void UseAbillity(Skill skill)
