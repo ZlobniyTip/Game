@@ -761,7 +761,7 @@ GameObject:
   - component: {fileID: 2894108815342920007}
   - component: {fileID: 5169467606908976408}
   - component: {fileID: 2664434623430814125}
-  - component: {fileID: -176534203324778639}
+  - component: {fileID: 4887734031409585674}
   m_Layer: 5
   m_Name: Skill
   m_TagString: Untagged
@@ -832,7 +832,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &-176534203324778639
+--- !u!114 &4887734031409585674
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -841,16 +841,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5452021294556495252}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f17b5c9bccd7d24e8b4cc99eb1a6a86, type: 3}
+  m_Script: {fileID: 11500000, guid: a15d7e7915e4f464588389b885b2950d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _label: {fileID: 8985290614148515649}
   _price: {fileID: 8917828218113614825}
-  _description: {fileID: 1987197339560241372}
   _icon: {fileID: 3654413921629291375}
   _purchaseButton: {fileID: 917816986589182282}
   _equipButton: {fileID: 4792903402188881548}
-  _equippedLabel: {fileID: 3079992932681220822}
+  _equippedLabel: {fileID: 1116117159422671800}
 --- !u!1 &5697438952431770698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,7 +1266,7 @@ GameObject:
   - component: {fileID: 302697214956785911}
   - component: {fileID: 3654413921629291375}
   m_Layer: 5
-  m_Name: Skin
+  m_Name: Skill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

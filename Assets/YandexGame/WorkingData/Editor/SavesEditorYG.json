@@ -1,5 +1,5 @@
 {
-    "idSave": 85,
+    "idSave": 107,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
@@ -9,7 +9,7 @@
         1,
         1,
         1,
-        1,
+        2,
         1,
         1,
         1,
@@ -20,16 +20,16 @@
         1,
         1,
         1,
-        2,
         1,
+        2,
         1,
         0,
         0,
         0
     ],
     "skillStates": [
-        2,
         1,
+        2,
         1,
         0,
         0,
@@ -40,7 +40,7 @@
         0
     ],
     "velocityMult": 15.0,
-    "playerMoney": 347150,
-    "maxNumberThrows": 7,
-    "score": 284
+    "playerMoney": 493950,
+    "maxNumberThrows": 5,
+    "score": 362
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3729191305280522578}
   - component: {fileID: 1907960287336406920}
   - component: {fileID: 8229868533592008926}
-  - component: {fileID: 1560480510735187106}
+  - component: {fileID: 4337683194826186340}
   m_Layer: 5
   m_Name: Weapon
   m_TagString: Untagged
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1560480510735187106
+--- !u!114 &4337683194826186340
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,12 +87,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 53481933695007352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17f8c06c4923e9d45b11ad27d218f3a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 6445d170f82de084c9c862f232aa5182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
-  _template: {fileID: 2957239649648018589, guid: 2d5cc57f22c21174d8925b8c97833322, type: 3}
+  _moneyBalance: {fileID: 1203388641032142123}
+  _template: {fileID: 836034131183959682, guid: 2d5cc57f22c21174d8925b8c97833322, type: 3}
   _itemContainer: {fileID: 5362778451368716633}
+  _itemType: 0
 --- !u!1 &60072039220170219
 GameObject:
   m_ObjectHideFlags: 0
@@ -3880,7 +3881,7 @@ GameObject:
   - component: {fileID: 4169160261232870640}
   - component: {fileID: 7635371701751073470}
   - component: {fileID: 4423852352030031710}
-  - component: {fileID: 6231744278827081388}
+  - component: {fileID: 8432620617761614652}
   m_Layer: 5
   m_Name: Skills
   m_TagString: Untagged
@@ -3947,7 +3948,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6231744278827081388
+--- !u!114 &8432620617761614652
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3956,12 +3957,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2862628950108649906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9c65b0551aea814eb0df346c9a5d60a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6445d170f82de084c9c862f232aa5182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
-  _template: {fileID: -176534203324778639, guid: c5b5fe16ee879604396654d35646393c, type: 3}
+  _moneyBalance: {fileID: 1203388641032142123}
+  _template: {fileID: 4887734031409585674, guid: c5b5fe16ee879604396654d35646393c, type: 3}
   _itemContainer: {fileID: 579592747704623139}
+  _itemType: 1
 --- !u!1 &2897670011508329230
 GameObject:
   m_ObjectHideFlags: 0
@@ -11054,7 +11056,7 @@ GameObject:
   - component: {fileID: 4022046476700892119}
   - component: {fileID: 972226363723712100}
   - component: {fileID: 3856695863347591568}
-  - component: {fileID: 4637528123268286344}
+  - component: {fileID: 1552300012309648940}
   m_Layer: 5
   m_Name: Skins
   m_TagString: Untagged
@@ -11121,7 +11123,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4637528123268286344
+--- !u!114 &1552300012309648940
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11130,13 +11132,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6666763603057178753}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52ce481627e0af94fba6d9ab72abc811, type: 3}
+  m_Script: {fileID: 11500000, guid: 6445d170f82de084c9c862f232aa5182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skinEditor: {fileID: 0}
-  _player: {fileID: 0}
-  _template: {fileID: -137118627947550038, guid: 0270d6239255cf843af170bc36d6172f, type: 3}
+  _moneyBalance: {fileID: 1203388641032142123}
+  _template: {fileID: 4424854789609210052, guid: 0270d6239255cf843af170bc36d6172f, type: 3}
   _itemContainer: {fileID: 871211484596397393}
+  _itemType: 2
 --- !u!1 &6674838076353696187
 GameObject:
   m_ObjectHideFlags: 0

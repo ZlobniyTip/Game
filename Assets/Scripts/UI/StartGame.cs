@@ -1,12 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartGame : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private int _sceneIndex;
-
-    public void Play()
+    public class StartGame : MonoBehaviour
     {
-        SceneManager.LoadScene(_sceneIndex);
+        [SerializeField] private int _sceneIndex;
+
+        public void Play()
+        {
+            SceneManager.LoadScene(_sceneIndex);
+        }
     }
 }

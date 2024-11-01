@@ -1,57 +1,59 @@
+using Animation;
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
-using DG.Tweening;
 
-[RequireComponent(typeof(CharacterAnimation))]
-public class EnemyMovement : MonoBehaviour
+namespace Enemy
 {
-    [SerializeField] private Transform[] _points;
-    [SerializeField] private float _speed;
-    [SerializeField] private float _delayBetweenMove;
-    [SerializeField] private float _setDelay;
-
-    private CharacterAnimation _characterAnimation;
-    private Coroutine _patrolling;
-    private Vector3 _turningAngle = new Vector3(0, 180, 0);
-
-    private int _currentPoint;
-    private float _turningSpeed = 1;
-
-    public float CurrentSpeed => _speed;
-    public bool ShouldTurnArround { get; private set; }
-
-    private void Start()
+    [RequireComponent(typeof(CharacterAnimation))]
+    public class EnemyMovement : MonoBehaviour
     {
-        _characterAnimation = GetComponent<CharacterAnimation>();
-        _patrolling = StartCoroutine(Patrolling());
-    }
+        [SerializeField] private Transform[] _points;
+        [SerializeField] private float _speed;
+        [SerializeField] private float _delayBetweenMove;
+        [SerializeField] private float _setDelay;
 
-    private IEnumerator Patrolling()
-    {
-        var DelayBetweenMove = new WaitForSeconds(_delayBetweenMove);
+        private CharacterAnimation _characterAnimation;
+        private Vector3 _turningAngle = new (0, 180, 0);
 
-        while (true)
+        private readonly float _turningSpeed = 1;
+        private int _currentPoint;
+
+        public float CurrentSpeed => _speed;
+
+        private void Start()
         {
-            Transform target = _points[_currentPoint];
+            _characterAnimation = GetComponent<CharacterAnimation>();
+            StartCoroutine(Patrolling());
+        }
 
-            transform.position = Vector3.MoveTowards(transform.position, target.position, _speed * Time.deltaTime);
+        private IEnumerator Patrolling()
+        {
+            var delayBetweenMove = new WaitForSeconds(_delayBetweenMove);
 
-            if (transform.position == target.position)
+            while (true)
             {
-                _currentPoint++;
+                Transform target = _points[_currentPoint];
 
-                _characterAnimation.TurnAround();
-                transform.DORotate(_turningAngle, _turningSpeed, RotateMode.LocalAxisAdd).SetDelay(_setDelay);
+                transform.position = Vector3.MoveTowards(transform.position, target.position, _speed * Time.deltaTime);
 
-                yield return DelayBetweenMove;
-
-                if (_currentPoint >= _points.Length)
+                if (transform.position == target.position)
                 {
-                    _currentPoint = 0;
-                }
-            }
+                    _currentPoint++;
 
-            yield return null;
+                    _characterAnimation.TurnAround();
+                    transform.DORotate(_turningAngle, _turningSpeed, RotateMode.LocalAxisAdd).SetDelay(_setDelay);
+
+                    yield return delayBetweenMove;
+
+                    if (_currentPoint >= _points.Length)
+                    {
+                        _currentPoint = 0;
+                    }
+                }
+
+                yield return null;
+            }
         }
     }
 }

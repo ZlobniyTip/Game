@@ -1473,7 +1473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1f4e1da650425b429d047813f444084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deathEffects:
+  DeathEffects:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1947587487831407858}

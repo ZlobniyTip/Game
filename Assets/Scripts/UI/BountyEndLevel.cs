@@ -1,16 +1,20 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using User;
 
-public class BountyEndLevel : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private Player _player;
-
-    private int _reward = 20000;
-
-    public void GetReward()
+    public class BountyEndLevel : MonoBehaviour
     {
-        _player.GetReward(_reward);
+        [SerializeField] private Player _player;
 
-        SceneManager.LoadScene(1);
+        private readonly int _reward = 20000;
+
+        public void GetReward()
+        {
+            _player.GetReward(_reward);
+
+            SceneManager.LoadScene(1);
+        }
     }
 }

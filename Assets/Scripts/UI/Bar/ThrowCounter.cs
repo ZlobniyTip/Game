@@ -1,16 +1,20 @@
 using UnityEngine;
+using User;
 
-public class ThrowCounter : Bar
+namespace UI
 {
-    [SerializeField] private Player _player;
-
-    private void OnEnable()
+    public class ThrowCounter : Bar
     {
-        _player.ThrowsChange += OnValueChanged;
-    }
+        [SerializeField] private Player _player;
 
-    private void OnDisable()
-    {
-        _player.ThrowsChange -= OnValueChanged;
+        private void OnEnable()
+        {
+            _player.ThrowsChanged += OnValueChanged;
+        }
+
+        private void OnDisable()
+        {
+            _player.ThrowsChanged -= OnValueChanged;
+        }
     }
 }

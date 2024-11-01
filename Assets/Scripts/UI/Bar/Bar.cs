@@ -3,34 +3,37 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class Bar : MonoBehaviour
+namespace UI
 {
-    [SerializeField] protected Image _barFilling;
-    [SerializeField] private TMP_Text _text;
-
-    private Coroutine _changeValue;
-    private float _recoveryRate = 0.2f;
-
-    public void OnValueChanged(int value, int maxValue)
+    public abstract class Bar : MonoBehaviour
     {
-        if (_changeValue != null)
+        [SerializeField] protected Image _barFilling;
+        [SerializeField] private TMP_Text _text;
+
+        private readonly float _recoveryRate = 0.2f;
+        private Coroutine _changeValue;
+
+        public void OnValueChanged(int value, int maxValue)
         {
-            StopCoroutine(_changeValue);
+            if (_changeValue != null)
+            {
+                StopCoroutine(_changeValue);
+            }
+
+            _text.text = $"{value} / {maxValue}";
+            _changeValue = StartCoroutine(ChangeHealthBar((float)value / maxValue));
         }
 
-        _text.text = $"{value} / {maxValue}";
-        _changeValue = StartCoroutine(ChangeHealthBar((float)value / maxValue));
-    }
-
-    private IEnumerator ChangeHealthBar(float target)
-    {
-        while (_barFilling.fillAmount != target)
+        private IEnumerator ChangeHealthBar(float target)
         {
-            _barFilling.fillAmount = Mathf.MoveTowards(_barFilling.fillAmount, target, _recoveryRate * Time.deltaTime);
+            while (_barFilling.fillAmount != target)
+            {
+                _barFilling.fillAmount = Mathf.MoveTowards(_barFilling.fillAmount, target, _recoveryRate * Time.deltaTime);
 
-            yield return null;
+                yield return null;
+            }
+
+            yield break;
         }
-
-        yield break;
     }
 }

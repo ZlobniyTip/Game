@@ -1,54 +1,59 @@
+using SDK;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class WinScreen : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private GameObject _winScreen;
-    [SerializeField] private TestFocus _testFocus;
-    [SerializeField] private ProgressBar _progressBar;
-
-    private Coroutine _win;
-
-    public event UnityAction Winning;
-
-    private void OnEnable()
+    public class WinScreen : MonoBehaviour
     {
-        _progressBar.Win += StartWin;
-    }
+        [SerializeField] private GameObject _winScreen;
+        [SerializeField] private TestFocus _testFocus;
+        [SerializeField] private ProgressBar _progressBar;
 
-    private void OnDisable()
-    {
-        if (_win != null)
+        private Coroutine _win;
+
+        public event UnityAction Winning;
+
+        private void OnEnable()
         {
-            StopCoroutine(_win);
+            _progressBar.Win += StartWin;
         }
-        _progressBar.Win -= StartWin;
-    }
 
-    public void OpenWinScreen()
-    {
-        _testFocus.enabled = false;
-        _winScreen.SetActive(true);
-
-        if (Time.timeScale == 1)
+        private void OnDisable()
         {
-            Time.timeScale = 0;
+            if (_win != null)
+            {
+                StopCoroutine(_win);
+            }
+
+            _progressBar.Win -= StartWin;
         }
-    }
 
-    private void StartWin()
-    {
-        _win = StartCoroutine(Win());
-    }
+        public void OpenWinScreen()
+        {
+            _testFocus.enabled = false;
+            _winScreen.SetActive(true);
 
-    private IEnumerator Win()
-    {
-        Winning?.Invoke();
-        var delay = new WaitForSeconds(2);
+            if (Time.timeScale == 1)
+            {
+                Time.timeScale = 0;
+            }
+        }
 
-        yield return delay;
+        private void StartWin()
+        {
+            _win = StartCoroutine(Win());
+        }
 
-        OpenWinScreen();
+        private IEnumerator Win()
+        {
+            Winning?.Invoke();
+            var delay = new WaitForSeconds(2);
+
+            yield return delay;
+
+            OpenWinScreen();
+        }
     }
 }

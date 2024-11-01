@@ -1,21 +1,23 @@
 using System;
-using UnityEngine;
 
-[Serializable]
-public class ItemState
+namespace Save
 {
-    public ItemStatus Status;
-
-    public event Action Changed;
-
-    public void SetStatus(ItemStatus status)
+    [Serializable]
+    public class ItemState
     {
-        Status = status;
-        Changed?.Invoke();
-    }
+        public event Action Changed;
 
-    public ItemState(ItemStatus status)
-    {
-        Status = status;
+        public ItemStatus Status;
+
+        public void SetStatus(ItemStatus status)
+        {
+            Status = status;
+            Changed?.Invoke();
+        }
+
+        public ItemState(ItemStatus status)
+        {
+            Status = status;
+        }
     }
 }

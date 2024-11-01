@@ -1,44 +1,47 @@
-using System.Collections;
+using Enemy;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ProgressBar : Bar
+namespace UI
 {
-    [SerializeField] private WinScreen _winCondition;
-    [SerializeField] private List<Enemy> _enemies;
-
-    public int EnemyCount { get; private set; }
-
-    public int CurrentEnemyCount => _enemies.Count;
-
-    public event UnityAction<int, int> EnemyCountChange;
-    public event UnityAction Win;
-
-    private void Start()
+    public class ProgressBar : Bar
     {
-        EnemyCount = _enemies.Count;
-        EnemyCountChange?.Invoke(CurrentEnemyCount, EnemyCount);
-    }
+        [SerializeField] private WinScreen _winCondition;
+        [SerializeField] private List<EnemySoldier> _enemies;
 
-    private void OnEnable()
-    {
-        EnemyCountChange += OnValueChanged;
-    }
+        public event UnityAction<int, int> EnemyCountChange;
+        public event UnityAction Win;
 
-    private void OnDisable()
-    {
-        EnemyCountChange -= OnValueChanged;
-    }
+        public int EnemyCount { get; private set; }
 
-    public void DeleteEnemy(Enemy enemy)
-    {
-        _enemies.Remove(enemy);
-        EnemyCountChange?.Invoke(CurrentEnemyCount, EnemyCount);
+        public int CurrentEnemyCount => _enemies.Count;
 
-        if (_enemies.Count == 0)
+        private void Start()
         {
-            Win?.Invoke();
+            EnemyCount = _enemies.Count;
+            EnemyCountChange?.Invoke(CurrentEnemyCount, EnemyCount);
+        }
+
+        private void OnEnable()
+        {
+            EnemyCountChange += OnValueChanged;
+        }
+
+        private void OnDisable()
+        {
+            EnemyCountChange -= OnValueChanged;
+        }
+
+        public void DeleteEnemy(EnemySoldier enemy)
+        {
+            _enemies.Remove(enemy);
+            EnemyCountChange?.Invoke(CurrentEnemyCount, EnemyCount);
+
+            if (_enemies.Count == 0)
+            {
+                Win?.Invoke();
+            }
         }
     }
 }

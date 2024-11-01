@@ -1,62 +1,66 @@
+using Advertisement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using YG.Example;
 
-public class SceneSettings : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private GameObject _winScreen;
-    [SerializeField] private GameObject _menu;
-    [SerializeField] private VideoAd _videoAd;
-    [SerializeField] private SaverTest _saverTest;
-
-    private int _nextScene;
-
-    private void OnDisable()
+    public class SceneSettings : MonoBehaviour
     {
-        _videoAd.RewardCallback -= RestartScene;
-    }
+        [SerializeField] private GameObject _winScreen;
+        [SerializeField] private GameObject _menu;
+        [SerializeField] private VideoAd _videoAd;
+        [SerializeField] private SaverTest _saverTest;
 
-    private void Start()
-    {
-        _nextScene = SceneManager.GetActiveScene().buildIndex + 1;
-    }
+        private int _nextScene;
 
-    public void TryRestartScene()
-    {
-        _videoAd.RewardCallback += RestartScene;
-        _videoAd.Show();
-    }
-
-    public void RestartScene()
-    {
-        _saverTest.Save();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
-        if (Time.timeScale == 0)
+        private void OnDisable()
         {
-            Time.timeScale = 1;
+            _videoAd.RewardedCallback -= RestartScene;
         }
-    }
 
-    public void ChangeScene()
-    {
-        _saverTest.Save();
-        SceneManager.LoadScene(_nextScene);
-
-        if (Time.timeScale == 0)
+        private void Start()
         {
-            Time.timeScale = 1;
+            _nextScene = SceneManager.GetActiveScene().buildIndex + 1;
         }
-    }
 
-    public void StartFirstLevel()
-    {
-        _saverTest.Save();
-        SceneManager.LoadScene(2);
-
-        if (Time.timeScale == 0)
+        public void TryRestartScene()
         {
-            Time.timeScale = 1;
+            _videoAd.RewardedCallback += RestartScene;
+            _videoAd.Show();
+        }
+
+        public void RestartScene()
+        {
+            _saverTest.Save();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+            if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+            }
+        }
+
+        public void ChangeScene()
+        {
+            _saverTest.Save();
+            SceneManager.LoadScene(_nextScene);
+
+            if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+            }
+        }
+
+        public void StartFirstLevel()
+        {
+            _saverTest.Save();
+            SceneManager.LoadScene(2);
+
+            if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+            }
         }
     }
 }

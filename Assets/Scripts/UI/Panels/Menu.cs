@@ -1,33 +1,37 @@
 using UnityEngine;
+using User;
 
-public class Menu : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private SwitchingWorkWithUI _player;
-
-    private void Start()
+    public class Menu : MonoBehaviour
     {
-        AudioListener.volume = PlayerPrefs.GetFloat("currentVolume");
-    }
+        [SerializeField] private PlayerActivitySwitch _player;
 
-    public void OpenPanel(GameObject panel)
-    {
-        _player.Switching();
-        panel.SetActive(true);
-
-        if (Time.timeScale == 1)
+        private void Start()
         {
-            Time.timeScale = 0;
+            AudioListener.volume = PlayerPrefs.GetFloat("currentVolume");
         }
-    }
 
-    public void ClosePanel(GameObject panel)
-    {
-        _player.Switching();
-        panel.SetActive(false);
-
-        if (Time.timeScale == 0)
+        public void OpenPanel(GameObject panel)
         {
-            Time.timeScale = 1;
+            _player.Switching(true);
+            panel.SetActive(true);
+
+            if (Time.timeScale == 1)
+            {
+                Time.timeScale = 0;
+            }
+        }
+
+        public void ClosePanel(GameObject panel)
+        {
+            _player.Switching(false);
+            panel.SetActive(false);
+
+            if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+            }
         }
     }
 }

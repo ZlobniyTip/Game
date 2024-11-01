@@ -2,12 +2,15 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class Creature : MonoBehaviour
+namespace Enemy
 {
-    [SerializeField] protected UnityEvent _deathEffects;
-
-    public virtual IEnumerator Die()
+    public abstract class Creature : MonoBehaviour
     {
-        yield return null;
+        [SerializeField] public UnityEvent DeathEffects;
+
+        public virtual IEnumerator Die()
+        {
+            yield return null;
+        }
     }
 }

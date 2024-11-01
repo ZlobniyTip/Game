@@ -1,13 +1,17 @@
 using TMPro;
 using UnityEngine;
+using User;
 
-public class ShopBalance : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private Player _player;
-    [SerializeField] private TMP_Text _balance;
-
-    public void ShowBalance()
+    public class ShopBalance : MonoBehaviour
     {
-        _balance.text = _player.Money.ToString();
+        [SerializeField] private Player _player;
+        [SerializeField] private TMP_Text _balance;
+
+        public void ShowBalance()
+        {
+            _balance.text = _player.Money.ToString();
+        }
     }
 }

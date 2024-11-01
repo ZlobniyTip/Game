@@ -9,12 +9,12 @@ namespace YG.Example
 
         private void OnEnable()
         {
-            _saverTest.LoadData += NewScore;
+            _saverTest.LoadedData += NewScore;
         }
 
         private void OnDisable()
         {
-            _saverTest.LoadData += NewScore;
+            _saverTest.LoadedData += NewScore;
         }
 
         public void NewScore(int score)

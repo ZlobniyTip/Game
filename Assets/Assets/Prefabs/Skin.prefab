@@ -761,7 +761,7 @@ GameObject:
   - component: {fileID: 2894108815342920007}
   - component: {fileID: 5169467606908976408}
   - component: {fileID: 2664434623430814125}
-  - component: {fileID: -137118627947550038}
+  - component: {fileID: 4424854789609210052}
   m_Layer: 5
   m_Name: Skin
   m_TagString: Untagged
@@ -831,7 +831,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &-137118627947550038
+--- !u!114 &4424854789609210052
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -840,7 +840,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5452021294556495252}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2213aa768e629cc40aa4ce7de3031373, type: 3}
+  m_Script: {fileID: 11500000, guid: a15d7e7915e4f464588389b885b2950d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _label: {fileID: 8985290614148515649}
@@ -848,7 +848,7 @@ MonoBehaviour:
   _icon: {fileID: 3654413921629291375}
   _purchaseButton: {fileID: 917816986589182282}
   _equipButton: {fileID: 8728251677866795224}
-  _equippedLabel: {fileID: 400968123332196437}
+  _equippedLabel: {fileID: 4497871528974320203}
 --- !u!1 &5697438952431770698
 GameObject:
   m_ObjectHideFlags: 0

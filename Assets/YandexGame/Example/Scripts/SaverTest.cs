@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using User;
 
 namespace YG.Example
 {
@@ -8,7 +9,7 @@ namespace YG.Example
     {
         [SerializeField] private Player _player;
 
-        public event Action<int> LoadData;
+        public event Action<int> LoadedData;
 
         private void OnEnable()
         {
@@ -30,19 +31,19 @@ namespace YG.Example
 
         public void Save()
         {
-            for (int i = 0; i < _player.PlayersWeapon.Weapons.Count; i++)
+            for (int i = 0; i < _player.PlayersWeapon.Products.Count; i++)
             {
-                YandexGame.savesData.weaponStates[i] = _player.PlayersWeapon.Weapons[i].State.Status;
+                YandexGame.savesData.weaponStates[i] = _player.PlayersWeapon.Products[i].State.Status;
             }
 
-            for (int i = 0; i < _player.SkinEditor.Skins.Count; i++)
+            for (int i = 0; i < _player.SkinEditor.Products.Count; i++)
             {
-                YandexGame.savesData.skinStates[i] = _player.SkinEditor.Skins[i].State.Status;
+                YandexGame.savesData.skinStates[i] = _player.SkinEditor.Products[i].State.Status;
             }
 
-            for (int i = 0; i < _player.Skills.Count; i++)
+            for (int i = 0; i < _player.PlayerSkills.Products.Count; i++)
             {
-                YandexGame.savesData.skillStates[i] = _player.Skills[i].State.Status;
+                YandexGame.savesData.skillStates[i] = _player.PlayerSkills.Products[i].State.Status;
             }
 
             YandexGame.savesData.playerMoney = _player.Money;
@@ -57,7 +58,7 @@ namespace YG.Example
         {
             _player.PlayersWeapon.InitWeapons(YandexGame.savesData.weaponStates);
             _player.SkinEditor.InitSkins(YandexGame.savesData.skinStates);
-            _player.InitSkills(YandexGame.savesData.skillStates);
+            _player.PlayerSkills.InitSkills(YandexGame.savesData.skillStates);
 
             _player.LoadScore(YandexGame.savesData.score);
             _player.LoadMoney(YandexGame.savesData.playerMoney);
@@ -70,8 +71,8 @@ namespace YG.Example
                 _player.Thrower.ResetThrowForce();
             }
 
-            _player.StartEvents();
-            LoadData?.Invoke(_player.Score);
+            _player.UpdatePlayerInformation();
+            LoadedData?.Invoke(_player.Score);
         }
     }
 }

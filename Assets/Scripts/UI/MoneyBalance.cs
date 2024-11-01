@@ -1,28 +1,34 @@
 using TMPro;
 using UnityEngine;
+using User;
 
-public class MoneyBalance : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private TMP_Text _coins;
-    [SerializeField] private Player _player;
-
-    private void Start()
+    public class MoneyBalance : MonoBehaviour
     {
-        OnValueChanged(_player.Money);
-    }
+        [SerializeField] private TMP_Text _coins;
+        [SerializeField] private Player _player;
 
-    public void OnValueChanged(int value)
-    {
-        _coins.text = value.ToString();
-    }
+        public Player Player => _player;
 
-    private void OnEnable()
-    {
-        _player.MoneyChange += OnValueChanged;
-    }
+        private void Start()
+        {
+            OnValueChanged(_player.Money);
+        }
 
-    private void OnDisable()
-    {
-        _player.MoneyChange -= OnValueChanged;
+        public void OnValueChanged(int value)
+        {
+            _coins.text = value.ToString();
+        }
+
+        private void OnEnable()
+        {
+            _player.MoneyChanged += OnValueChanged;
+        }
+
+        private void OnDisable()
+        {
+            _player.MoneyChanged -= OnValueChanged;
+        }
     }
 }
