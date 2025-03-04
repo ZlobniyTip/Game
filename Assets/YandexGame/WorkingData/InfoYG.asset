@@ -184,7 +184,7 @@ MonoBehaviour:
       score: 10
   LocalizationEnable: 1
   callingLanguageCheck: 1
-  translateMethod: 1
+  translateMethod: 0
   domainAutoLocalization: com
   CSVFileTranslate:
     format: 0

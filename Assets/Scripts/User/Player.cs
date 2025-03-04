@@ -113,9 +113,9 @@ namespace User
                 case ItemType.Weapon:
                     return _playersWeapon.Products;
                 case ItemType.Skill:
-                    return _skinEditor.Products;
-                case ItemType.Skin:
                     return _playerSkills.Products;
+                case ItemType.Skin:
+                    return _skinEditor.Products;
                 default:
                     return null;
             }

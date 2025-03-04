@@ -30,14 +30,6 @@ namespace UI
             _content.Clear();
         }
 
-        public void GetListProducts(List<Product> products)
-        {
-            foreach (var item in products)
-            {
-                AddItemView(item);
-            }
-        }
-
         private void AddItemView(Product product)
         {
             var view = Instantiate(_template, _itemContainer.transform);
